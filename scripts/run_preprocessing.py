@@ -1,16 +1,25 @@
-import pandas as pd
 import os
 import re
+import platform
+import pandas as pd
 import psycopg2
 from psycopg2 import sql
 from dotenv import load_dotenv, find_dotenv
-import platform
+from datetime import datetime
+
+load_dotenv(find_dotenv(), override=True)
 
 base_dir = os.path.dirname(os.path.abspath(__file__))
-input_path = os.path.join(base_dir, "../data/raw/raw_mitra.csv")
-output_csv_path = os.path.join(base_dir, "../data/raw/cleaned_mitra.csv")
-output_json_path = os.path.join(base_dir, "../data/raw/cleaned_mitra.json")
-load_dotenv(find_dotenv(), override=True)
+data_raw_dir = os.path.abspath(os.path.join(base_dir, "../data/raw"))
+
+mitra_input_path = os.path.join(data_raw_dir, "raw_mitras.csv")
+survey_input_path = os.path.join(data_raw_dir, "raw_surveys.csv")
+
+mitra_output_csv = os.path.join(data_raw_dir, "cleaned_mitras.csv")
+mitra_output_json = os.path.join(data_raw_dir, "cleaned_mitras.json")
+
+survey_output_csv = os.path.join(data_raw_dir, "cleaned_surveys.csv")
+survey_output_json = os.path.join(data_raw_dir, "cleaned_surveys.json")
 
 if platform.system().lower().startswith("windows"):
     detected_host = "host.docker.internal"
@@ -20,79 +29,107 @@ else:
 os.environ["DB_HOST"] = os.getenv("DB_HOST", detected_host)
 print(f"🌐 Environment terdeteksi: {platform.system()} → menggunakan host: {os.environ['DB_HOST']}")
 
-df = pd.read_csv(input_path, dtype=str).fillna("")
-
-df = df.replace(["NULL", "null", "None", "none", "-", " "], "")
-
-required_columns = ["id", "sobat_id", "name", "email", "jenis_kelamin"]
-
-mask_incomplete = df[required_columns].apply(lambda x: x.eq("").any(), axis=1)
-incomplete_rows = df[mask_incomplete]
-df_cleaned = df[~mask_incomplete].reset_index(drop=True)
-
-print("\n🧹 Membersihkan karakter spesial pada kolom 'name':")
-pattern = re.compile(r"[\\'\"`´]")
-for idx, row in df_cleaned.iterrows():
-    original_name = row["name"]
-    cleaned_name = pattern.sub("", original_name).strip()
-    cleaned_name = re.sub(r"\s+", " ", cleaned_name)
-    if cleaned_name != original_name:
-        print(f"- ID {row['id']}: '{original_name}' → '{cleaned_name}'")
-        df_cleaned.at[idx, "name"] = cleaned_name
-
-df_cleaned.to_csv(output_csv_path, index=False, encoding="utf-8")
-
-df_cleaned.to_json(output_json_path, orient="records", indent=4, force_ascii=False)
-
-print("\n🚫 Baris yang dihapus karena data tidak lengkap:")
-if incomplete_rows.empty:
-    print("Tidak ada baris yang dihapus 🎉")
-else:
-    for _, row in incomplete_rows.iterrows():
-        missing_cols = [col for col in required_columns if row[col] == ""]
-        print(f"- ID {row['id']}: {row.get('name', '(nama kosong)')} | Kolom kosong: {', '.join(missing_cols)}")
-
-print(f"\n💾 File cleaned disimpan:")
-print(f"   📊 CSV  → {os.path.abspath(output_csv_path)}")
-print(f"   🧾 JSON → {os.path.abspath(output_json_path)}")
-print(f"📈 Jumlah data bersih: {len(df_cleaned)} dari {len(df)} total data.")
-
 DB_CONFIG = {
     "dbname": os.getenv("DB_NAME"),
     "user": os.getenv("DB_USER"),
     "password": os.getenv("DB_PASS"),
     "host": os.getenv("DB_HOST"),
-    "port": os.getenv("DB_PORT")
+    "port": os.getenv("DB_PORT"),
 }
 
-try:
-    conn_check = psycopg2.connect(
-        dbname="postgres",
+def connect_postgres(dbname=None):
+    target_db = dbname or DB_CONFIG["dbname"]
+    return psycopg2.connect(
+        dbname=target_db,
         user=DB_CONFIG["user"],
         password=DB_CONFIG["password"],
         host=DB_CONFIG["host"],
         port=DB_CONFIG["port"]
     )
-    conn_check.autocommit = True
-    cur = conn_check.cursor()
 
-    cur.execute("SELECT 1 FROM pg_database WHERE datname = %s;", (DB_CONFIG["dbname"],))
-    exists = cur.fetchone()
+df_mitra = pd.read_csv(mitra_input_path, dtype=str).fillna("")
+df_mitra = df_mitra.replace(["NULL", "null", "None", "none", "-", " "], "")
 
-    if not exists:
-        cur.execute(sql.SQL("CREATE DATABASE {}").format(sql.Identifier(DB_CONFIG["dbname"])))
-        print(f"🆕 Database '{DB_CONFIG['dbname']}' berhasil dibuat otomatis.")
+required_columns = ["id", "sobat_id", "name", "email", "jenis_kelamin"]
+mask_incomplete = df_mitra[required_columns].apply(lambda x: x.eq("").any(), axis=1)
+incomplete_rows = df_mitra[mask_incomplete]
+df_cleaned_mitra = df_mitra[~mask_incomplete].reset_index(drop=True)
+
+print("\n🧹 Membersihkan karakter spesial pada kolom 'name' (mitra):")
+pattern = re.compile(r"[\\'\"`´]")
+for idx, row in df_cleaned_mitra.iterrows():
+    original_name = row["name"]
+    cleaned_name = pattern.sub("", original_name).strip()
+    cleaned_name = re.sub(r"\s+", " ", cleaned_name)
+    if cleaned_name != original_name:
+        print(f"- ID {row['id']}: '{original_name}' → '{cleaned_name}'")
+        df_cleaned_mitra.at[idx, "name"] = cleaned_name
+
+df_cleaned_mitra.to_csv(mitra_output_csv, index=False, encoding="utf-8")
+df_cleaned_mitra.to_json(mitra_output_json, orient="records", indent=4, force_ascii=False)
+
+print(f"\n💾 File cleaned mitra disimpan:")
+print(f"   📊 CSV  → {mitra_output_csv}")
+print(f"   🧾 JSON → {mitra_output_json}")
+print(f"📈 Jumlah data bersih: {len(df_cleaned_mitra)} dari {len(df_mitra)} total data.")
+
+print("\n📊 Melakukan enrichment untuk data survey...")
+df_survey = pd.read_csv(survey_input_path, dtype=str).fillna("")
+df_survey["name"] = df_survey["name"].apply(lambda x: re.sub(r"\s+", " ", str(x).strip()))
+
+def categorize_bagian(name, code):
+    name_lower = name.lower()
+    code_upper = code.upper()
+    
+    perusahaan_keywords = [
+        "usaha", "industri", "perusahaan", "umkm", "karyawan", "tenaga kerja",
+        "konstruksi", "hotel", "perdagangan", "penjualan", "lembaga keuangan",
+        "hortikultura", "peternakan", "kehutanan", "makanan minuman",
+        "akomodasi", "air bersih", "captive power", "non migas", "penyedia jasa",
+        "pergudangan", "angkutan", "triwulanan kegiatan usaha", "mikro", "kecil",
+        "produsen"
+    ]
+    
+    rumah_tangga_keywords = [
+        "rumah tangga", "penduduk", "konsumsi", "keluarga", "pekerja informal",
+        "sosial ekonomi", "susenas", "seruti", "literasi", "ketenagakerjaan",
+        "pola usaha", "potensi desa", "kemahalan", "harga konsumen"
+    ]
+    
+    perusahaan_codes = [
+        "SHP", "IBS", "SPAB", "VHTS", "VHTL", "VPBD", "VPEK", "VREST", 
+        "IMK", "SNM", "SPH", "SPK", "SPP", "SHKK", "SKTU"
+    ]
+    
+    rumah_tangga_codes = [
+        "UBINAN", "SUSENAS", "SAK", "SERUTI", "PODES", "SKLNPRT", "SHK"
+    ]
+    
+    if any(keyword in name_lower for keyword in perusahaan_keywords):
+        return "Perusahaan"
+    elif any(keyword in name_lower for keyword in rumah_tangga_keywords):
+        return "Rumah Tangga"
+    
+    elif code_upper in perusahaan_codes:
+        return "Perusahaan"
+    elif code_upper in rumah_tangga_codes:
+        return "Rumah Tangga"
+    
     else:
-        print(f"✅ Database '{DB_CONFIG['dbname']}' sudah tersedia.")
+        return "Rumah Tangga"
 
-    cur.close()
-    conn_check.close()
+df_survey["bidang"] = df_survey.apply(lambda x: categorize_bagian(x["name"], x["code"]), axis=1)
 
-except Exception as e:
-    print("❌ Gagal membuat / memeriksa database:", e)
+df_survey.to_csv(survey_output_csv, index=False, encoding="utf-8")
+df_survey.to_json(survey_output_json, orient="records", indent=4, force_ascii=False)
+
+print(f"✅ File cleaned survey disimpan:")
+print(f"   📊 CSV  → {survey_output_csv}")
+print(f"   🧾 JSON → {survey_output_json}")
+print(f"📈 Jumlah data survey: {len(df_survey)}")
 
 try:
-    conn = psycopg2.connect(**DB_CONFIG)
+    conn = connect_postgres()
     cursor = conn.cursor()
     print("\n✅ Terhubung ke PostgreSQL")
 
@@ -108,14 +145,34 @@ try:
             tanggal_lahir DATE,
             photo TEXT,
             created_at TIMESTAMP,
-            updated_at TIMESTAMP
+            updated_at TIMESTAMP,
+            processed_at TIMESTAMP DEFAULT NOW()
         );
     """)
     conn.commit()
 
-    cursor.execute("TRUNCATE TABLE mitra_cleaned;")
+    cursor.execute("""
+        CREATE TABLE IF NOT EXISTS survey_enriched (
+            id SERIAL PRIMARY KEY,
+            name VARCHAR(255),
+            code VARCHAR(100),
+            bidang VARCHAR(50),
+            created_at TIMESTAMP,
+            updated_at TIMESTAMP,
+            processed_at TIMESTAMP DEFAULT NOW()
+        );
+    """)
+    conn.commit()
 
-    for _, row in df_cleaned.iterrows():
+    mode = input("\nPilih mode penyimpanan [O]verwrite / [A]ppend versi baru (default: O): ").strip().lower() or "o"
+    if mode.startswith("o"):
+        print("🧹 Mode Overwrite dipilih — membersihkan tabel sebelum memasukkan data baru.")
+        cursor.execute("TRUNCATE TABLE mitra_cleaned;")
+        cursor.execute("TRUNCATE TABLE survey_enriched;")
+    else:
+        print("🕒 Mode Append dipilih — menambah data sebagai versi baru.")
+
+    for _, row in df_cleaned_mitra.iterrows():
         cursor.execute("""
             INSERT INTO mitra_cleaned (
                 sobat_id, name, user_id, email, pendidikan,
@@ -127,8 +184,16 @@ try:
             row["photo"], row["created_at"], row["updated_at"]
         ))
 
+    for _, row in df_survey.iterrows():
+        cursor.execute("""
+            INSERT INTO survey_enriched (name, code, bidang, created_at, updated_at)
+            VALUES (%s,%s,%s,%s,%s);
+        """, (
+            row["name"], row["code"], row["bidang"], row["created_at"], row["updated_at"]
+        ))
+
     conn.commit()
-    print(f"📤 {len(df_cleaned)} baris data bersih berhasil dikirim ke PostgreSQL!")
+    print(f"📤 {len(df_cleaned_mitra)} mitra + {len(df_survey)} survey berhasil dikirim ke PostgreSQL!")
 
 except Exception as e:
     print("❌ Terjadi kesalahan saat menyimpan ke PostgreSQL:", e)

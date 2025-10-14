@@ -1,0 +1,370 @@
+[
+    {
+        "id":"1",
+        "name":"Survey-Test-on-Dev",
+        "code":"STOD",
+        "created_at":"2025-07-07 16:22:24",
+        "updated_at":"2025-07-07 16:22:24",
+        "bidang":"Rumah Tangga"
+    },
+    {
+        "id":"3",
+        "name":"Pengolahan Survei Sosial Ekonomi Nasional",
+        "code":"SUSENAS",
+        "created_at":"2025-07-07 16:22:24",
+        "updated_at":"2025-07-07 16:22:24",
+        "bidang":"Rumah Tangga"
+    },
+    {
+        "id":"5",
+        "name":"Survey Ketenagakerjaan Nasional Februari",
+        "code":"SAK",
+        "created_at":"2025-07-07 16:22:24",
+        "updated_at":"2025-07-07 16:22:24",
+        "bidang":"Rumah Tangga"
+    },
+    {
+        "id":"7",
+        "name":"Survei Nasional Literasi dan Inklusi Keuangan",
+        "code":"SNLIK",
+        "created_at":"2025-07-07 16:22:24",
+        "updated_at":"2025-07-07 16:22:24",
+        "bidang":"Rumah Tangga"
+    },
+    {
+        "id":"8",
+        "name":"Survei Sosial Ekonomi Nasional",
+        "code":"SUSENASMARET",
+        "created_at":"2025-07-07 16:22:24",
+        "updated_at":"2025-07-07 16:22:24",
+        "bidang":"Rumah Tangga"
+    },
+    {
+        "id":"11",
+        "name":"Survey-Test-on-Dev",
+        "code":"STOD",
+        "created_at":"2025-07-07 16:22:24",
+        "updated_at":"2025-07-07 16:22:24",
+        "bidang":"Rumah Tangga"
+    },
+    {
+        "id":"12",
+        "name":"Pengolahan Survei Ekonomi Rumah Tangga Triwulanan",
+        "code":"P-SERUTI",
+        "created_at":"2025-07-07 16:22:24",
+        "updated_at":"2025-07-07 16:22:24",
+        "bidang":"Rumah Tangga"
+    },
+    {
+        "id":"13",
+        "name":"Pengolahan Survei Sosial Ekonomi Nasional",
+        "code":"SUSENAS",
+        "created_at":"2025-07-07 16:22:24",
+        "updated_at":"2025-07-07 16:22:24",
+        "bidang":"Rumah Tangga"
+    },
+    {
+        "id":"14",
+        "name":"Survei Harga Kemahalan Konstruksi",
+        "code":"SHKK",
+        "created_at":"2025-07-07 16:22:24",
+        "updated_at":"2025-07-07 16:22:24",
+        "bidang":"Perusahaan"
+    },
+    {
+        "id":"15",
+        "name":"Survey Ketenagakerjaan Nasional Februari",
+        "code":"SAK",
+        "created_at":"2025-07-07 16:22:24",
+        "updated_at":"2025-07-07 16:22:24",
+        "bidang":"Rumah Tangga"
+    },
+    {
+        "id":"16",
+        "name":"Survei Ekonomi Rumah Tangga",
+        "code":"SERUTI",
+        "created_at":"2025-07-07 16:22:24",
+        "updated_at":"2025-07-07 16:22:24",
+        "bidang":"Rumah Tangga"
+    },
+    {
+        "id":"17",
+        "name":"Survei Nasional Literasi dan Inklusi Keuangan",
+        "code":"SNLIK",
+        "created_at":"2025-07-07 16:22:24",
+        "updated_at":"2025-07-07 16:22:24",
+        "bidang":"Rumah Tangga"
+    },
+    {
+        "id":"18",
+        "name":"Survei Sosial Ekonomi Nasional",
+        "code":"SUSENASMARET",
+        "created_at":"2025-07-07 16:22:24",
+        "updated_at":"2025-07-07 16:22:24",
+        "bidang":"Rumah Tangga"
+    },
+    {
+        "id":"19",
+        "name":"Survey Industri Besar Sedang",
+        "code":"IBS",
+        "created_at":"2025-07-07 16:22:24",
+        "updated_at":"2025-07-07 16:22:24",
+        "bidang":"Perusahaan"
+    },
+    {
+        "id":"20",
+        "name":"Survey Konstruksi Triwulanan",
+        "code":"KONSTRUKSI",
+        "created_at":"2025-07-07 16:22:24",
+        "updated_at":"2025-07-07 16:22:24",
+        "bidang":"Perusahaan"
+    },
+    {
+        "id":"21",
+        "name":"Kerangka Sampel Area",
+        "code":"KSA",
+        "created_at":"2025-07-07 16:22:24",
+        "updated_at":"2025-07-07 16:22:24",
+        "bidang":"Rumah Tangga"
+    },
+    {
+        "id":"22",
+        "name":"Laporan Pemotongan Ternak Bulanan",
+        "code":"LPTB",
+        "created_at":"2025-07-07 16:22:24",
+        "updated_at":"2025-07-07 16:22:24",
+        "bidang":"Rumah Tangga"
+    },
+    {
+        "id":"23",
+        "name":"Survei Perusahaan Air Bersih",
+        "code":"SPAB",
+        "created_at":"2025-07-07 16:22:24",
+        "updated_at":"2025-07-07 16:22:24",
+        "bidang":"Perusahaan"
+    },
+    {
+        "id":"24",
+        "name":"Survey Ubinan",
+        "code":"UBINAN",
+        "created_at":"2025-07-07 16:22:24",
+        "updated_at":"2025-07-07 16:22:24",
+        "bidang":"Rumah Tangga"
+    },
+    {
+        "id":"25",
+        "name":"Survei Khusus Lembaga Non Profit Rumah Tangga",
+        "code":"SKLNPRT",
+        "created_at":"2025-07-07 16:22:24",
+        "updated_at":"2025-07-07 16:22:24",
+        "bidang":"Rumah Tangga"
+    },
+    {
+        "id":"26",
+        "name":"Survei Khusus Triwulanan Neraca Produksi",
+        "code":"SKTNP",
+        "created_at":"2025-07-07 16:22:24",
+        "updated_at":"2025-07-07 16:22:24",
+        "bidang":"Rumah Tangga"
+    },
+    {
+        "id":"27",
+        "name":"Survei Triwulanan Kegiatan Usaha",
+        "code":"SKTU",
+        "created_at":"2025-07-07 16:22:24",
+        "updated_at":"2025-07-07 16:22:24",
+        "bidang":"Perusahaan"
+    },
+    {
+        "id":"28",
+        "name":"Survei Tingkat Penghunian Kamar Hotel",
+        "code":"VHTS",
+        "created_at":"2025-07-07 16:22:24",
+        "updated_at":"2025-07-07 16:22:24",
+        "bidang":"Perusahaan"
+    },
+    {
+        "id":"29",
+        "name":"Survey Harga Konsumen",
+        "code":"SHK",
+        "created_at":"2025-07-07 16:22:24",
+        "updated_at":"2025-07-07 16:22:24",
+        "bidang":"Rumah Tangga"
+    },
+    {
+        "id":"30",
+        "name":"Survei Harga Produsen",
+        "code":"SHP",
+        "created_at":"2025-07-07 16:22:24",
+        "updated_at":"2025-07-07 16:22:24",
+        "bidang":"Perusahaan"
+    },
+    {
+        "id":"31",
+        "name":"Survei Harga Perdagangan Besar",
+        "code":"SHPB",
+        "created_at":"2025-07-07 16:22:24",
+        "updated_at":"2025-07-07 16:22:24",
+        "bidang":"Perusahaan"
+    },
+    {
+        "id":"32",
+        "name":"Survey Harga Produsen",
+        "code":"SHP",
+        "created_at":"2025-07-07 16:22:24",
+        "updated_at":"2025-07-07 16:22:24",
+        "bidang":"Perusahaan"
+    },
+    {
+        "id":"33",
+        "name":"Pengolahan Survei Sosial Ekonomi Nasional",
+        "code":"P-SSN-MARET",
+        "created_at":"2025-07-07 16:22:24",
+        "updated_at":"2025-07-07 16:22:24",
+        "bidang":"Rumah Tangga"
+    },
+    {
+        "id":"34",
+        "name":"Survei Objek Daya Tarik Wisata",
+        "code":"VDTW",
+        "created_at":"2025-07-10 08:03:05",
+        "updated_at":"2025-07-10 08:03:05",
+        "bidang":"Rumah Tangga"
+    },
+    {
+        "id":"35",
+        "name":"Survei Perusahaan\/Usaha Penyedia Jasa Akomodasi",
+        "code":"VHTL",
+        "created_at":"2025-07-10 08:15:58",
+        "updated_at":"2025-07-10 08:15:58",
+        "bidang":"Perusahaan"
+    },
+    {
+        "id":"36",
+        "name":"Survei Tingkat Penghunian Kamar Hotel",
+        "code":"VHTS",
+        "created_at":"2025-07-10 08:18:11",
+        "updated_at":"2025-07-10 08:18:11",
+        "bidang":"Perusahaan"
+    },
+    {
+        "id":"37",
+        "name":"Survei Perdagangan Barang Domestik",
+        "code":"VPBD",
+        "created_at":"2025-07-10 08:21:37",
+        "updated_at":"2025-07-10 08:21:37",
+        "bidang":"Perusahaan"
+    },
+    {
+        "id":"38",
+        "name":"Survei Pergudangan dan Jasa Penunjang Angkutan",
+        "code":"VPEK",
+        "created_at":"2025-07-10 08:23:14",
+        "updated_at":"2025-07-10 08:23:14",
+        "bidang":"Perusahaan"
+    },
+    {
+        "id":"39",
+        "name":"Survei Usaha Penyediaan Makanan Minuman",
+        "code":"VREST",
+        "created_at":"2025-07-10 08:24:37",
+        "updated_at":"2025-07-10 08:24:37",
+        "bidang":"Perusahaan"
+    },
+    {
+        "id":"40",
+        "name":"Survei Survei Pola Usaha Non Pertanian",
+        "code":"SPUNP",
+        "created_at":"2025-07-10 08:27:32",
+        "updated_at":"2025-07-10 08:27:32",
+        "bidang":"Perusahaan"
+    },
+    {
+        "id":"41",
+        "name":"Updating Direktori",
+        "code":"UD",
+        "created_at":"2025-07-10 08:29:06",
+        "updated_at":"2025-07-10 08:29:06",
+        "bidang":"Rumah Tangga"
+    },
+    {
+        "id":"42",
+        "name":"Survei Lembaga Keuangan",
+        "code":"SLK",
+        "created_at":"2025-07-10 08:30:16",
+        "updated_at":"2025-07-10 08:30:16",
+        "bidang":"Perusahaan"
+    },
+    {
+        "id":"43",
+        "name":"Survei Volume Penjualan Eceran Beras",
+        "code":"SVPEB",
+        "created_at":"2025-07-10 08:41:13",
+        "updated_at":"2025-07-10 08:41:13",
+        "bidang":"Perusahaan"
+    },
+    {
+        "id":"44",
+        "name":"Potensi Desa",
+        "code":"PODES",
+        "created_at":"2025-07-10 08:43:34",
+        "updated_at":"2025-07-10 08:43:34",
+        "bidang":"Rumah Tangga"
+    },
+    {
+        "id":"45",
+        "name":"Survei Captive Power",
+        "code":"SCP",
+        "created_at":"2025-07-10 08:49:31",
+        "updated_at":"2025-07-10 08:49:31",
+        "bidang":"Perusahaan"
+    },
+    {
+        "id":"46",
+        "name":"Survei Industri Mikro dan Kecil",
+        "code":"IMK",
+        "created_at":"2025-07-10 08:56:49",
+        "updated_at":"2025-07-10 08:56:49",
+        "bidang":"Perusahaan"
+    },
+    {
+        "id":"47",
+        "name":"Survei Non Migas",
+        "code":"SNM",
+        "created_at":"2025-07-10 09:10:55",
+        "updated_at":"2025-07-10 09:10:55",
+        "bidang":"Perusahaan"
+    },
+    {
+        "id":"48",
+        "name":"Survei Perusahaan Hortikultura",
+        "code":"SPH",
+        "created_at":"2025-07-10 09:18:07",
+        "updated_at":"2025-07-10 09:18:07",
+        "bidang":"Perusahaan"
+    },
+    {
+        "id":"49",
+        "name":"Survei Perusahaan Kehutanan",
+        "code":"SPK",
+        "created_at":"2025-07-10 09:19:35",
+        "updated_at":"2025-07-10 09:19:35",
+        "bidang":"Perusahaan"
+    },
+    {
+        "id":"50",
+        "name":"Survei Perusahaan Peternakan",
+        "code":"SPP",
+        "created_at":"2025-07-10 09:20:51",
+        "updated_at":"2025-07-10 09:20:51",
+        "bidang":"Perusahaan"
+    },
+    {
+        "id":"51",
+        "name":"Survei Khusus Lembaga Non Profit Rumah Tangga Triwulanan",
+        "code":"SKLNPRT",
+        "created_at":"2025-07-10 09:26:15",
+        "updated_at":"2025-07-10 09:26:15",
+        "bidang":"Rumah Tangga"
+    }
+]
