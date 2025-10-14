@@ -3,11 +3,22 @@ import os
 import re
 import psycopg2
 from psycopg2 import sql
+from dotenv import load_dotenv, find_dotenv
+import platform
 
 base_dir = os.path.dirname(os.path.abspath(__file__))
 input_path = os.path.join(base_dir, "../data/raw/raw_mitra.csv")
 output_csv_path = os.path.join(base_dir, "../data/raw/cleaned_mitra.csv")
 output_json_path = os.path.join(base_dir, "../data/raw/cleaned_mitra.json")
+load_dotenv(find_dotenv(), override=True)
+
+if platform.system().lower().startswith("windows"):
+    detected_host = "host.docker.internal"
+else:
+    detected_host = "127.0.0.1"
+
+os.environ["DB_HOST"] = os.getenv("DB_HOST", detected_host)
+print(f"🌐 Environment terdeteksi: {platform.system()} → menggunakan host: {os.environ['DB_HOST']}")
 
 df = pd.read_csv(input_path, dtype=str).fillna("")
 
@@ -47,11 +58,11 @@ print(f"   🧾 JSON → {os.path.abspath(output_json_path)}")
 print(f"📈 Jumlah data bersih: {len(df_cleaned)} dari {len(df)} total data.")
 
 DB_CONFIG = {
-    "dbname": "mitra_kaido",
-    "user": "postgres",
-    "password": "12345678",
-    "host": "localhost",
-    "port": "5432"
+    "dbname": os.getenv("DB_NAME"),
+    "user": os.getenv("DB_USER"),
+    "password": os.getenv("DB_PASS"),
+    "host": os.getenv("DB_HOST"),
+    "port": os.getenv("DB_PORT")
 }
 
 try:
