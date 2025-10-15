@@ -1,4 +1,7 @@
 venv
 .env
+
 airflow/dags/__pycache__/
+airflow/plugins/
+
 pipeline/__pycache__/

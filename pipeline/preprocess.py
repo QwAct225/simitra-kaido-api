@@ -11,11 +11,22 @@ def run_preprocess(base_dir: str, mode: str = "overwrite"):
     os.makedirs(processed_dir, exist_ok=True)
 
     mitra_in = os.path.join(raw_dir, "raw_mitras.csv")
+    master_in = os.path.join(raw_dir, "raw_master_surveys.csv")
     survey_in = os.path.join(raw_dir, "raw_surveys.csv")
-    mitra_out_csv = os.path.join(processed_dir, "cleaned_mitras.csv")
-    mitra_out_json = os.path.join(processed_dir, "cleaned_mitras.json")
-    survey_out_csv = os.path.join(processed_dir, "cleaned_surveys.csv")
-    survey_out_json = os.path.join(processed_dir, "cleaned_surveys.json")
+    trans_in = os.path.join(raw_dir, "raw_transactions.csv")
+    nilai_in = os.path.join(raw_dir, "raw_nilai1s.csv")
+
+    def make_paths(name):
+        return (
+            os.path.join(processed_dir, f"cleaned_{name}.csv"),
+            os.path.join(processed_dir, f"cleaned_{name}.json"),
+        )
+
+    mitra_out_csv, mitra_out_json = make_paths("mitras")
+    master_out_csv, master_out_json = make_paths("master_surveys")
+    survey_out_csv, survey_out_json = make_paths("surveys")
+    trans_out_csv, trans_out_json = make_paths("transactions")
+    nilai_out_csv, nilai_out_json = make_paths("nilai1s")
 
     if os.environ.get("AIRFLOW_HOME"):
         detected_host = "postgres"
@@ -25,7 +36,6 @@ def run_preprocess(base_dir: str, mode: str = "overwrite"):
         detected_host = "127.0.0.1"
 
     db_host = os.getenv("DB_HOST", detected_host)
-
     DB_CONFIG = {
         "dbname": os.getenv("DB_NAME"),
         "user": os.getenv("DB_USER"),
@@ -44,154 +54,175 @@ def run_preprocess(base_dir: str, mode: str = "overwrite"):
     df_clean_m.to_csv(mitra_out_csv, index=False)
     df_clean_m.to_json(mitra_out_json, orient="records", indent=4, force_ascii=False)
 
-    df_s = pd.read_csv(survey_in, dtype=str).fillna("")
-    df_s["name"] = df_s["name"].apply(lambda x: re.sub(r"\s+", " ", str(x).strip()))
+    df_ms = pd.read_csv(master_in, dtype=str).fillna("")
+    df_ms["name"] = df_ms["name"].apply(lambda x: re.sub(r"\s+", " ", str(x).strip()))
 
     def categorize_bagian(name, code=None):
-        name_lower = name.lower()
-        code_lower = code.lower() if code else ""
-        
-        search_text = name_lower + " " + code_lower
-        
-        rumah_tangga_keywords = [
-            "rumah tangga", "penduduk", "konsumsi", "keluarga",
-            "sosial ekonomi", "susenas", "seruti",
-            "ketenagakerjaan", "tenaga kerja", "literasi keuangan", 
-            "inklusi keuangan", "nasional literasi", "ekonomi rumah tangga",
-            "lnprt", "lembaga non profit rumah tangga", "sak", "snlik"
-        ]
-        
-        pertanian_keywords = [
-            "ubinan", "hortikultura", "peternakan", "kehutanan", 
-            "pangan", "ternak", "pemotongan ternak", "sph", "spk", "spp", "lptb"
-        ]
-        
-        perusahaan_keywords = [
-            "perusahaan", "industri", "usaha", "umkm",
-            "perdagangan", "penjualan", "makanan minuman",
-            "air bersih", "captive power", "non migas",
-            "pergudangan", "angkutan", "mikro", "kecil",
-            "kegiatan usaha", "pola usaha", "direktori",
-            "lembaga keuangan", "volume penjualan", "ibs", "spab", 
-            "sktu", "vpbd", "vpek", "vrest", "spunp", "svpeb", 
-            "scp", "imk", "snm", "slk"
-        ]
-        
-        pariwisata_keywords = [
-            "wisata", "hotel", "penghunian kamar", "daya tarik wisata", 
-            "akomodasi", "penyedia jasa akomodasi", "objek daya tarik",
-            "vhts", "vdtw", "vhtl"
-        ]
-        
-        infrastruktur_keywords = [
-            "konstruksi", "pembangunan", "infrastruktur", "konstruksi"
-        ]
-        
-        harga_keywords = [
-            "harga konsumen", "harga produsen", "harga perdagangan besar",
-            "kemahalan konstruksi", "shk", "shp", "shpb", "shkk"
-        ]
-        
-        area_keywords = [
-            "kerangka sampel area", "ksa", "potensi desa", "podes"
-        ]
-        
-        produksi_keywords = [
-            "neraca produksi", "sktnp", "updating direktori", "ud"
-        ]
-
-        if any(k in search_text for k in rumah_tangga_keywords):
+        text = (str(name) + " " + str(code)).lower()
+        rumah_tangga = ["rumah tangga", "penduduk", "susenas", "seruti", "lnprt", "sak", "srtn", "podes"]
+        perusahaan = ["usaha", "perusahaan", "industri", "umkm", "perdagangan", "imk", "ibs", "spk", "spp", "sph", "spab"]
+        if any(k in text for k in rumah_tangga):
             return "Rumah Tangga"
-        
-        if any(k in search_text for k in pertanian_keywords):
-            return "Pertanian"
-        
-        if any(k in search_text for k in perusahaan_keywords):
+        if any(k in text for k in perusahaan):
             return "Perusahaan"
-        
-        if any(k in search_text for k in pariwisata_keywords):
-            return "Pariwisata"
-        
-        if any(k in search_text for k in infrastruktur_keywords):
-            return "Infrastruktur"
-        
-        if any(k in search_text for k in harga_keywords):
-            return "Keuangan"
-        
-        if any(k in search_text for k in area_keywords):
-            return "Area/Regional"
-        
-        if any(k in search_text for k in produksi_keywords):
-            return "Produksi"
-        
-        if "survey" in search_text or "survei" in search_text:
-            if "test" in search_text or "dev" in search_text or "stod" in search_text:
-                return "Testing/Development"
-            return "Lainnya"
-        
         return "Lainnya"
 
-    df_s["type"] = df_s.apply(lambda row: categorize_bagian(row["name"], row["code"]), axis=1)
-    df_s.to_csv(survey_out_csv, index=False)
-    df_s.to_json(survey_out_json, orient="records", indent=4, force_ascii=False)
+    df_ms["type"] = df_ms.apply(lambda r: categorize_bagian(r["name"], r["code"]), axis=1)
+    df_ms = df_ms[df_ms["type"].isin(["Rumah Tangga", "Perusahaan"])].reset_index(drop=True)
+    df_ms.to_csv(master_out_csv, index=False)
+    df_ms.to_json(master_out_json, orient="records", indent=4, force_ascii=False)
+
+    def clean_df(path):
+        df = pd.read_csv(path, dtype=str).fillna("")
+        df = df.replace(["NULL", "null", "None", "none", "-", " "], "")
+        return df.reset_index(drop=True)
+
+    df_s = clean_df(survey_in)
+    df_t = clean_df(trans_in)
+    df_n = clean_df(nilai_in)
+
+    for df, csv_path, json_path in [
+        (df_s, survey_out_csv, survey_out_json),
+        (df_t, trans_out_csv, trans_out_json),
+        (df_n, nilai_out_csv, nilai_out_json),
+    ]:
+        df.to_csv(csv_path, index=False)
+        df.to_json(json_path, orient="records", indent=4, force_ascii=False)
 
     conn = psycopg2.connect(**DB_CONFIG)
     cur = conn.cursor()
 
     if mode == "overwrite":
-        print("🧹 Mode overwrite aktif — drop table sebelum rebuild...")
-        cur.execute("DROP TABLE IF EXISTS mitra_cleaned CASCADE;")
-        cur.execute("DROP TABLE IF EXISTS survey_enriched CASCADE;")
+        print("🧹 Drop table before rebuild...")
+        cur.execute("""
+            DROP TABLE IF EXISTS 
+                mitra_cleaned, master_surveys_enriched, surveys_cleaned, 
+                transactions_cleaned, nilai1s_cleaned CASCADE;
+        """)
         conn.commit()
 
     cur.execute("""
         CREATE TABLE IF NOT EXISTS mitra_cleaned (
-            id SERIAL PRIMARY KEY,
-            sobat_id VARCHAR(100),
-            name VARCHAR(255),
-            user_id VARCHAR(100),
-            email VARCHAR(255),
-            pendidikan VARCHAR(100),
-            jenis_kelamin VARCHAR(20),
+            id BIGINT PRIMARY KEY,
+            sobat_id BIGINT,
+            name VARCHAR(200),
+            user_id BIGINT,
+            email VARCHAR(200),
+            pendidikan VARCHAR(50),
+            jenis_kelamin VARCHAR(50),
             tanggal_lahir DATE,
-            photo TEXT,
+            photo VARCHAR(255),
             created_at TIMESTAMP,
             updated_at TIMESTAMP
         );
     """)
+
     cur.execute("""
-        CREATE TABLE IF NOT EXISTS survey_enriched (
-            id SERIAL PRIMARY KEY,
-            name VARCHAR(255),
-            code VARCHAR(100),
-            type VARCHAR(100),
+        CREATE TABLE IF NOT EXISTS master_surveys_enriched (
+            id BIGINT PRIMARY KEY,
+            name VARCHAR(100),
+            code VARCHAR(50),
+            created_at TIMESTAMP,
+            updated_at TIMESTAMP,
+            type VARCHAR(100)
+        );
+    """)
+
+    cur.execute("""
+        CREATE TABLE IF NOT EXISTS surveys_cleaned (
+            id BIGINT PRIMARY KEY,
+            master_survey_id BIGINT,
+            triwulan SMALLINT,
+            year INT,
+            payment_id BIGINT,
+            team_id BIGINT,
+            rate INT,
+            file VARCHAR(255),
+            is_scored SMALLINT,
+            is_synced SMALLINT,
+            status VARCHAR(50),
+            created_at TIMESTAMP,
+            updated_at TIMESTAMP
+        );
+    """)
+
+    cur.execute("""
+        CREATE TABLE IF NOT EXISTS transactions_cleaned (
+            id BIGINT PRIMARY KEY,
+            mitra_id BIGINT,
+            survey_id BIGINT,
+            target INT,
+            rate INT,
+            created_at TIMESTAMP,
+            updated_at TIMESTAMP
+        );
+    """)
+
+    cur.execute("""
+        CREATE TABLE IF NOT EXISTS nilai1s_cleaned (
+            transaction_id BIGINT,
+            aspek1 SMALLINT,
+            aspek2 SMALLINT,
+            aspek3 SMALLINT,
+            rerata DECIMAL(5,2),
             created_at TIMESTAMP,
             updated_at TIMESTAMP
         );
     """)
     conn.commit()
+
+    def noneify(v):
+        if v in ["", " ", None, "NULL", "null"]:
+            return None
+        return v
 
     for _, r in df_clean_m.iterrows():
         cur.execute("""
             INSERT INTO mitra_cleaned (
-                sobat_id, name, user_id, email, pendidikan,
+                id, sobat_id, name, user_id, email, pendidikan,
                 jenis_kelamin, tanggal_lahir, photo, created_at, updated_at
-            ) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s);
+            ) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s);
         """, (
-            r["sobat_id"], r["name"], r["user_id"], r["email"], r["pendidikan"],
-            r["jenis_kelamin"], r["tanggal_lahir"], r["photo"],
-            r["created_at"], r["updated_at"]
+            noneify(r["id"]), noneify(r["sobat_id"]), noneify(r["name"]),
+            noneify(r["user_id"]), noneify(r["email"]), noneify(r["pendidikan"]),
+            noneify(r["jenis_kelamin"]), noneify(r["tanggal_lahir"]),
+            noneify(r["photo"]), noneify(r["created_at"]), noneify(r["updated_at"])
+        ))
+
+    for _, r in df_ms.iterrows():
+        cur.execute("""
+            INSERT INTO master_surveys_enriched (
+                id, name, code, created_at, updated_at, type
+            ) VALUES (%s,%s,%s,%s,%s,%s);
+        """, (
+            noneify(r["id"]), noneify(r["name"]), noneify(r["code"]),
+            noneify(r["created_at"]), noneify(r["updated_at"]), noneify(r["type"])
         ))
 
     for _, r in df_s.iterrows():
         cur.execute("""
-            INSERT INTO survey_enriched (name, code, type, created_at, updated_at)
-            VALUES (%s,%s,%s,%s,%s);
-        """, (
-            r["name"], r["code"], r["type"], r["created_at"], r["updated_at"]
-        ))
+            INSERT INTO surveys_cleaned (
+                id, master_survey_id, triwulan, year, payment_id, team_id,
+                rate, file, is_scored, is_synced, status, created_at, updated_at
+            ) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s);
+        """, tuple(noneify(v) for v in r.values))
+
+    for _, r in df_t.iterrows():
+        cur.execute("""
+            INSERT INTO transactions_cleaned (
+                id, mitra_id, survey_id, target, rate, created_at, updated_at
+            ) VALUES (%s,%s,%s,%s,%s,%s,%s);
+        """, tuple(noneify(v) for v in r.values))
+
+    for _, r in df_n.iterrows():
+        cur.execute("""
+            INSERT INTO nilai1s_cleaned (
+                transaction_id, aspek1, aspek2, aspek3, rerata, created_at, updated_at
+            ) VALUES (%s,%s,%s,%s,%s,%s,%s);
+        """, tuple(noneify(v) for v in r.values))
 
     conn.commit()
     cur.close()
     conn.close()
-    print(f"📤 Uploaded {len(df_clean_m)} mitra & {len(df_s)} survey rows (fresh rebuild).")
+
+    print(f"📤 Uploaded {len(df_clean_m)} mitra, {len(df_ms)} master surveys, {len(df_s)} surveys, {len(df_t)} transactions, {len(df_n)} nilai1s.")

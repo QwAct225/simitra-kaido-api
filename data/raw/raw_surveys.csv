@@ -1,47 +1,31 @@
-id,name,code,created_at,updated_at
-1,Survey-Test-on-Dev,STOD,2025-07-07 16:22:24,2025-07-07 16:22:24
-3,Pengolahan Survei Sosial Ekonomi Nasional,SUSENAS,2025-07-07 16:22:24,2025-07-07 16:22:24
-5,Survey Ketenagakerjaan Nasional Februari,SAK,2025-07-07 16:22:24,2025-07-07 16:22:24
-7,Survei Nasional Literasi dan Inklusi Keuangan,SNLIK,2025-07-07 16:22:24,2025-07-07 16:22:24
-8,Survei Sosial Ekonomi Nasional,SUSENASMARET,2025-07-07 16:22:24,2025-07-07 16:22:24
-11,Survey-Test-on-Dev,STOD,2025-07-07 16:22:24,2025-07-07 16:22:24
-12,Pengolahan Survei Ekonomi Rumah Tangga Triwulanan,P-SERUTI,2025-07-07 16:22:24,2025-07-07 16:22:24
-13,Pengolahan Survei Sosial Ekonomi Nasional,SUSENAS,2025-07-07 16:22:24,2025-07-07 16:22:24
-14,Survei Harga Kemahalan Konstruksi,SHKK,2025-07-07 16:22:24,2025-07-07 16:22:24
-15,Survey Ketenagakerjaan Nasional Februari,SAK,2025-07-07 16:22:24,2025-07-07 16:22:24
-16,Survei Ekonomi Rumah Tangga,SERUTI,2025-07-07 16:22:24,2025-07-07 16:22:24
-17,Survei Nasional Literasi dan Inklusi Keuangan,SNLIK,2025-07-07 16:22:24,2025-07-07 16:22:24
-18,Survei Sosial Ekonomi Nasional,SUSENASMARET,2025-07-07 16:22:24,2025-07-07 16:22:24
-19,Survey Industri Besar Sedang,IBS,2025-07-07 16:22:24,2025-07-07 16:22:24
-20,Survey Konstruksi Triwulanan,KONSTRUKSI,2025-07-07 16:22:24,2025-07-07 16:22:24
-21,Kerangka Sampel Area,KSA,2025-07-07 16:22:24,2025-07-07 16:22:24
-22,Laporan Pemotongan Ternak Bulanan,LPTB,2025-07-07 16:22:24,2025-07-07 16:22:24
-23,Survei Perusahaan Air Bersih,SPAB,2025-07-07 16:22:24,2025-07-07 16:22:24
-24,Survey Ubinan,UBINAN,2025-07-07 16:22:24,2025-07-07 16:22:24
-25,Survei Khusus Lembaga Non Profit Rumah Tangga,SKLNPRT,2025-07-07 16:22:24,2025-07-07 16:22:24
-26,Survei Khusus Triwulanan Neraca Produksi,SKTNP,2025-07-07 16:22:24,2025-07-07 16:22:24
-27,Survei Triwulanan Kegiatan Usaha,SKTU,2025-07-07 16:22:24,2025-07-07 16:22:24
-28,Survei Tingkat Penghunian Kamar Hotel,VHTS,2025-07-07 16:22:24,2025-07-07 16:22:24
-29,Survey Harga Konsumen,SHK,2025-07-07 16:22:24,2025-07-07 16:22:24
-30,Survei Harga Produsen,SHP,2025-07-07 16:22:24,2025-07-07 16:22:24
-31,Survei Harga Perdagangan Besar,SHPB,2025-07-07 16:22:24,2025-07-07 16:22:24
-32,Survey Harga Produsen,SHP,2025-07-07 16:22:24,2025-07-07 16:22:24
-33,Pengolahan Survei Sosial Ekonomi Nasional,P-SSN-MARET,2025-07-07 16:22:24,2025-07-07 16:22:24
-34,Survei Objek Daya Tarik Wisata,VDTW,2025-07-10 08:03:05,2025-07-10 08:03:05
-35,Survei Perusahaan/Usaha Penyedia Jasa Akomodasi,VHTL,2025-07-10 08:15:58,2025-07-10 08:15:58
-36,Survei Tingkat Penghunian Kamar Hotel,VHTS,2025-07-10 08:18:11,2025-07-10 08:18:11
-37,Survei Perdagangan Barang Domestik,VPBD,2025-07-10 08:21:37,2025-07-10 08:21:37
-38,Survei Pergudangan dan Jasa Penunjang Angkutan,VPEK,2025-07-10 08:23:14,2025-07-10 08:23:14
-39,Survei Usaha Penyediaan Makanan Minuman,VREST,2025-07-10 08:24:37,2025-07-10 08:24:37
-40,Survei Survei Pola Usaha Non Pertanian,SPUNP,2025-07-10 08:27:32,2025-07-10 08:27:32
-41,Updating Direktori,UD,2025-07-10 08:29:06,2025-07-10 08:29:06
-42,Survei Lembaga Keuangan,SLK,2025-07-10 08:30:16,2025-07-10 08:30:16
-43,Survei Volume Penjualan Eceran Beras,SVPEB,2025-07-10 08:41:13,2025-07-10 08:41:13
-44,Potensi Desa,PODES,2025-07-10 08:43:34,2025-07-10 08:43:34
-45,Survei Captive Power,SCP,2025-07-10 08:49:31,2025-07-10 08:49:31
-46,Survei Industri Mikro dan Kecil,IMK,2025-07-10 08:56:49,2025-07-10 08:56:49
-47,Survei Non Migas,SNM,2025-07-10 09:10:55,2025-07-10 09:10:55
-48,Survei Perusahaan Hortikultura,SPH,2025-07-10 09:18:07,2025-07-10 09:18:07
-49,Survei Perusahaan Kehutanan,SPK,2025-07-10 09:19:35,2025-07-10 09:19:35
-50,Survei Perusahaan Peternakan,SPP,2025-07-10 09:20:51,2025-07-10 09:20:51
-51,Survei Khusus Lembaga Non Profit Rumah Tangga Triwulanan,SKLNPRT,2025-07-10 09:26:15,2025-07-10 09:26:15
+id,master_survey_id,triwulan,year,payment_id,team_id,rate,file,is_scored,is_synced,status,created_at,updated_at
+1,34,2,2025,1,4,1,NULL,1,0,not started,2025-07-10 08:03:24,2025-07-10 08:15:11
+2,35,2,2025,1,4,1,NULL,1,0,not started,2025-07-10 08:16:21,2025-07-10 08:16:54
+3,36,2,2025,1,4,1,NULL,1,0,not started,2025-07-10 08:18:32,2025-07-10 08:19:52
+4,37,2,2025,1,4,1,NULL,1,0,not started,2025-07-10 08:21:49,2025-07-10 08:22:11
+5,38,2,2025,1,4,1,NULL,1,0,not started,2025-07-10 08:23:22,2025-07-10 08:23:44
+6,39,2,2025,1,4,1,NULL,1,0,not started,2025-07-10 08:24:47,2025-07-10 08:25:08
+7,40,2,2025,1,4,1,NULL,1,0,not started,2025-07-10 08:27:40,2025-07-10 08:28:17
+8,41,2,2025,1,4,1,NULL,1,0,not started,2025-07-10 08:29:13,2025-07-10 08:29:45
+9,42,2,2025,1,4,1,NULL,1,0,not started,2025-07-10 08:30:28,2025-07-10 08:31:06
+10,29,2,2025,1,7,1,NULL,1,0,not started,2025-07-10 08:36:36,2025-07-10 08:37:16
+11,30,2,2025,1,7,1,NULL,1,0,not started,2025-07-10 08:37:53,2025-07-10 08:38:43
+12,31,2,2025,1,7,1,NULL,1,0,not started,2025-07-10 08:40:10,2025-07-10 08:40:53
+13,43,2,2025,1,7,1,NULL,1,0,not started,2025-07-10 08:41:35,2025-07-10 08:41:57
+14,44,2,2025,1,2,1,NULL,1,0,not started,2025-07-10 08:43:45,2025-07-10 08:44:25
+15,16,2,2025,1,2,1,NULL,1,0,not started,2025-07-10 08:45:49,2025-07-10 08:46:45
+16,45,2,2025,1,3,1,NULL,1,0,not started,2025-07-10 08:49:39,2025-07-10 08:50:18
+17,19,2,2025,1,3,1,NULL,1,0,not started,2025-07-10 08:51:26,2025-07-10 08:51:48
+18,46,2,2025,1,3,1,NULL,1,0,not started,2025-07-10 08:56:58,2025-07-10 08:57:38
+19,20,2,2025,1,3,1,NULL,1,0,not started,2025-07-10 08:58:31,2025-07-10 08:58:56
+20,21,2,2025,1,3,1,NULL,1,0,not started,2025-07-10 08:59:34,2025-07-10 09:02:08
+21,22,2,2025,1,3,1,NULL,1,0,not started,2025-07-10 09:03:26,2025-07-10 09:09:12
+22,47,2,2025,1,3,1,NULL,1,0,not started,2025-07-10 09:11:03,2025-07-10 09:11:19
+23,23,2,2025,1,3,1,NULL,1,0,not started,2025-07-10 09:12:06,2025-07-10 09:12:30
+24,48,2,2025,1,3,1,NULL,1,0,not started,2025-07-10 09:18:16,2025-07-10 09:18:46
+25,49,2,2025,1,3,1,NULL,1,0,not started,2025-07-10 09:19:47,2025-07-10 09:20:07
+26,50,2,2025,1,3,1,NULL,1,0,not started,2025-07-10 09:21:03,2025-07-10 09:22:04
+27,24,2,2025,1,3,1,NULL,1,0,not started,2025-07-10 09:22:36,2025-07-10 09:22:56
+28,51,2,2025,1,5,1,NULL,1,0,not started,2025-07-10 09:26:50,2025-07-10 09:29:31
+29,26,2,2025,1,5,1,NULL,1,0,not started,2025-07-10 09:30:07,2025-07-10 09:30:50
+30,12,2,2025,1,6,1,NULL,0,0,not started,2025-07-10 09:32:40,2025-07-10 09:32:40

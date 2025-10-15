@@ -1,0 +1,24 @@
+id,name,code,created_at,updated_at,type
+3,Pengolahan Survei Sosial Ekonomi Nasional,SUSENAS,2025-07-07 16:22:24,2025-07-07 16:22:24,Rumah Tangga
+5,Survey Ketenagakerjaan Nasional Februari,SAK,2025-07-07 16:22:24,2025-07-07 16:22:24,Rumah Tangga
+8,Survei Sosial Ekonomi Nasional,SUSENASMARET,2025-07-07 16:22:24,2025-07-07 16:22:24,Rumah Tangga
+12,Pengolahan Survei Ekonomi Rumah Tangga Triwulanan,P-SERUTI,2025-07-07 16:22:24,2025-07-07 16:22:24,Rumah Tangga
+13,Pengolahan Survei Sosial Ekonomi Nasional,SUSENAS,2025-07-07 16:22:24,2025-07-07 16:22:24,Rumah Tangga
+15,Survey Ketenagakerjaan Nasional Februari,SAK,2025-07-07 16:22:24,2025-07-07 16:22:24,Rumah Tangga
+16,Survei Ekonomi Rumah Tangga,SERUTI,2025-07-07 16:22:24,2025-07-07 16:22:24,Rumah Tangga
+18,Survei Sosial Ekonomi Nasional,SUSENASMARET,2025-07-07 16:22:24,2025-07-07 16:22:24,Rumah Tangga
+19,Survey Industri Besar Sedang,IBS,2025-07-07 16:22:24,2025-07-07 16:22:24,Perusahaan
+23,Survei Perusahaan Air Bersih,SPAB,2025-07-07 16:22:24,2025-07-07 16:22:24,Perusahaan
+25,Survei Khusus Lembaga Non Profit Rumah Tangga,SKLNPRT,2025-07-07 16:22:24,2025-07-07 16:22:24,Rumah Tangga
+27,Survei Triwulanan Kegiatan Usaha,SKTU,2025-07-07 16:22:24,2025-07-07 16:22:24,Perusahaan
+31,Survei Harga Perdagangan Besar,SHPB,2025-07-07 16:22:24,2025-07-07 16:22:24,Perusahaan
+35,Survei Perusahaan/Usaha Penyedia Jasa Akomodasi,VHTL,2025-07-10 08:15:58,2025-07-10 08:15:58,Perusahaan
+37,Survei Perdagangan Barang Domestik,VPBD,2025-07-10 08:21:37,2025-07-10 08:21:37,Perusahaan
+39,Survei Usaha Penyediaan Makanan Minuman,VREST,2025-07-10 08:24:37,2025-07-10 08:24:37,Perusahaan
+40,Survei Survei Pola Usaha Non Pertanian,SPUNP,2025-07-10 08:27:32,2025-07-10 08:27:32,Perusahaan
+44,Potensi Desa,PODES,2025-07-10 08:43:34,2025-07-10 08:43:34,Rumah Tangga
+46,Survei Industri Mikro dan Kecil,IMK,2025-07-10 08:56:49,2025-07-10 08:56:49,Perusahaan
+48,Survei Perusahaan Hortikultura,SPH,2025-07-10 09:18:07,2025-07-10 09:18:07,Perusahaan
+49,Survei Perusahaan Kehutanan,SPK,2025-07-10 09:19:35,2025-07-10 09:19:35,Perusahaan
+50,Survei Perusahaan Peternakan,SPP,2025-07-10 09:20:51,2025-07-10 09:20:51,Perusahaan
+51,Survei Khusus Lembaga Non Profit Rumah Tangga Triwulanan,SKLNPRT,2025-07-10 09:26:15,2025-07-10 09:26:15,Rumah Tangga
