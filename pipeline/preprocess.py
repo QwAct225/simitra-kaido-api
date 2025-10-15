@@ -47,38 +47,91 @@ def run_preprocess(base_dir: str, mode: str = "overwrite"):
     df_s = pd.read_csv(survey_in, dtype=str).fillna("")
     df_s["name"] = df_s["name"].apply(lambda x: re.sub(r"\s+", " ", str(x).strip()))
 
-    def categorize_bagian(name, code):
+    def categorize_bagian(name, code=None):
         name_lower = name.lower()
-        code_upper = code.upper()
-
-        perusahaan_keywords = [
-            "usaha", "industri", "perusahaan", "umkm", "karyawan", "tenaga kerja",
-            "konstruksi", "hotel", "perdagangan", "penjualan", "lembaga keuangan",
-            "hortikultura", "peternakan", "kehutanan", "makanan minuman",
-            "akomodasi", "air bersih", "captive power", "non migas", "penyedia jasa",
-            "pergudangan", "angkutan", "triwulanan kegiatan usaha", "mikro", "kecil",
-            "produsen"
-        ]
+        code_lower = code.lower() if code else ""
+        
+        search_text = name_lower + " " + code_lower
+        
         rumah_tangga_keywords = [
-            "rumah tangga", "penduduk", "konsumsi", "keluarga", "pekerja informal",
-            "sosial ekonomi", "susenas", "seruti", "literasi", "ketenagakerjaan",
-            "pola usaha", "potensi desa", "kemahalan", "harga konsumen"
+            "rumah tangga", "penduduk", "konsumsi", "keluarga",
+            "sosial ekonomi", "susenas", "seruti",
+            "ketenagakerjaan", "tenaga kerja", "literasi keuangan", 
+            "inklusi keuangan", "nasional literasi", "ekonomi rumah tangga",
+            "lnprt", "lembaga non profit rumah tangga", "sak", "snlik"
         ]
-        perusahaan_codes = [
-            "SHP", "IBS", "SPAB", "VHTS", "VHTL", "VPBD", "VPEK", "VREST",
-            "IMK", "SNM", "SPH", "SPK", "SPP", "SHKK", "SKTU"
+        
+        pertanian_keywords = [
+            "ubinan", "hortikultura", "peternakan", "kehutanan", 
+            "pangan", "ternak", "pemotongan ternak", "sph", "spk", "spp", "lptb"
         ]
-        rumah_tangga_codes = [
-            "UBINAN", "SUSENAS", "SAK", "SERUTI", "PODES", "SKLNPRT", "SHK"
+        
+        perusahaan_keywords = [
+            "perusahaan", "industri", "usaha", "umkm",
+            "perdagangan", "penjualan", "makanan minuman",
+            "air bersih", "captive power", "non migas",
+            "pergudangan", "angkutan", "mikro", "kecil",
+            "kegiatan usaha", "pola usaha", "direktori",
+            "lembaga keuangan", "volume penjualan", "ibs", "spab", 
+            "sktu", "vpbd", "vpek", "vrest", "spunp", "svpeb", 
+            "scp", "imk", "snm", "slk"
+        ]
+        
+        pariwisata_keywords = [
+            "wisata", "hotel", "penghunian kamar", "daya tarik wisata", 
+            "akomodasi", "penyedia jasa akomodasi", "objek daya tarik",
+            "vhts", "vdtw", "vhtl"
+        ]
+        
+        infrastruktur_keywords = [
+            "konstruksi", "pembangunan", "infrastruktur", "konstruksi"
+        ]
+        
+        harga_keywords = [
+            "harga konsumen", "harga produsen", "harga perdagangan besar",
+            "kemahalan konstruksi", "shk", "shp", "shpb", "shkk"
+        ]
+        
+        area_keywords = [
+            "kerangka sampel area", "ksa", "potensi desa", "podes"
+        ]
+        
+        produksi_keywords = [
+            "neraca produksi", "sktnp", "updating direktori", "ud"
         ]
 
-        if any(k in name_lower for k in perusahaan_keywords) or code_upper in perusahaan_codes:
-            return "Perusahaan"
-        if any(k in name_lower for k in rumah_tangga_keywords) or code_upper in rumah_tangga_codes:
+        if any(k in search_text for k in rumah_tangga_keywords):
             return "Rumah Tangga"
-        return "Rumah Tangga"
+        
+        if any(k in search_text for k in pertanian_keywords):
+            return "Pertanian"
+        
+        if any(k in search_text for k in perusahaan_keywords):
+            return "Perusahaan"
+        
+        if any(k in search_text for k in pariwisata_keywords):
+            return "Pariwisata"
+        
+        if any(k in search_text for k in infrastruktur_keywords):
+            return "Infrastruktur"
+        
+        if any(k in search_text for k in harga_keywords):
+            return "Keuangan"
+        
+        if any(k in search_text for k in area_keywords):
+            return "Area/Regional"
+        
+        if any(k in search_text for k in produksi_keywords):
+            return "Produksi"
+        
+        if "survey" in search_text or "survei" in search_text:
+            if "test" in search_text or "dev" in search_text or "stod" in search_text:
+                return "Testing/Development"
+            return "Lainnya"
+        
+        return "Lainnya"
 
-    df_s["bidang"] = df_s.apply(lambda x: categorize_bagian(x["name"], x["code"]), axis=1)
+    df_s["type"] = df_s.apply(lambda row: categorize_bagian(row["name"], row["code"]), axis=1)
     df_s.to_csv(survey_out_csv, index=False)
     df_s.to_json(survey_out_json, orient="records", indent=4, force_ascii=False)
 
@@ -111,7 +164,7 @@ def run_preprocess(base_dir: str, mode: str = "overwrite"):
             id SERIAL PRIMARY KEY,
             name VARCHAR(255),
             code VARCHAR(100),
-            bidang VARCHAR(50),
+            type VARCHAR(100),
             created_at TIMESTAMP,
             updated_at TIMESTAMP
         );
@@ -132,10 +185,10 @@ def run_preprocess(base_dir: str, mode: str = "overwrite"):
 
     for _, r in df_s.iterrows():
         cur.execute("""
-            INSERT INTO survey_enriched (name, code, bidang, created_at, updated_at)
+            INSERT INTO survey_enriched (name, code, type, created_at, updated_at)
             VALUES (%s,%s,%s,%s,%s);
         """, (
-            r["name"], r["code"], r["bidang"], r["created_at"], r["updated_at"]
+            r["name"], r["code"], r["type"], r["created_at"], r["updated_at"]
         ))
 
     conn.commit()

@@ -5,7 +5,7 @@
         "code":"STOD",
         "created_at":"2025-07-07 16:22:24",
         "updated_at":"2025-07-07 16:22:24",
-        "bidang":"Rumah Tangga"
+        "type":"Testing\/Development"
     },
     {
         "id":"3",
@@ -13,7 +13,7 @@
         "code":"SUSENAS",
         "created_at":"2025-07-07 16:22:24",
         "updated_at":"2025-07-07 16:22:24",
-        "bidang":"Rumah Tangga"
+        "type":"Rumah Tangga"
     },
     {
         "id":"5",
@@ -21,7 +21,7 @@
         "code":"SAK",
         "created_at":"2025-07-07 16:22:24",
         "updated_at":"2025-07-07 16:22:24",
-        "bidang":"Rumah Tangga"
+        "type":"Rumah Tangga"
     },
     {
         "id":"7",
@@ -29,7 +29,7 @@
         "code":"SNLIK",
         "created_at":"2025-07-07 16:22:24",
         "updated_at":"2025-07-07 16:22:24",
-        "bidang":"Rumah Tangga"
+        "type":"Rumah Tangga"
     },
     {
         "id":"8",
@@ -37,7 +37,7 @@
         "code":"SUSENASMARET",
         "created_at":"2025-07-07 16:22:24",
         "updated_at":"2025-07-07 16:22:24",
-        "bidang":"Rumah Tangga"
+        "type":"Rumah Tangga"
     },
     {
         "id":"11",
@@ -45,7 +45,7 @@
         "code":"STOD",
         "created_at":"2025-07-07 16:22:24",
         "updated_at":"2025-07-07 16:22:24",
-        "bidang":"Rumah Tangga"
+        "type":"Testing\/Development"
     },
     {
         "id":"12",
@@ -53,7 +53,7 @@
         "code":"P-SERUTI",
         "created_at":"2025-07-07 16:22:24",
         "updated_at":"2025-07-07 16:22:24",
-        "bidang":"Rumah Tangga"
+        "type":"Rumah Tangga"
     },
     {
         "id":"13",
@@ -61,7 +61,7 @@
         "code":"SUSENAS",
         "created_at":"2025-07-07 16:22:24",
         "updated_at":"2025-07-07 16:22:24",
-        "bidang":"Rumah Tangga"
+        "type":"Rumah Tangga"
     },
     {
         "id":"14",
@@ -69,7 +69,7 @@
         "code":"SHKK",
         "created_at":"2025-07-07 16:22:24",
         "updated_at":"2025-07-07 16:22:24",
-        "bidang":"Perusahaan"
+        "type":"Infrastruktur"
     },
     {
         "id":"15",
@@ -77,7 +77,7 @@
         "code":"SAK",
         "created_at":"2025-07-07 16:22:24",
         "updated_at":"2025-07-07 16:22:24",
-        "bidang":"Rumah Tangga"
+        "type":"Rumah Tangga"
     },
     {
         "id":"16",
@@ -85,7 +85,7 @@
         "code":"SERUTI",
         "created_at":"2025-07-07 16:22:24",
         "updated_at":"2025-07-07 16:22:24",
-        "bidang":"Rumah Tangga"
+        "type":"Rumah Tangga"
     },
     {
         "id":"17",
@@ -93,7 +93,7 @@
         "code":"SNLIK",
         "created_at":"2025-07-07 16:22:24",
         "updated_at":"2025-07-07 16:22:24",
-        "bidang":"Rumah Tangga"
+        "type":"Rumah Tangga"
     },
     {
         "id":"18",
@@ -101,7 +101,7 @@
         "code":"SUSENASMARET",
         "created_at":"2025-07-07 16:22:24",
         "updated_at":"2025-07-07 16:22:24",
-        "bidang":"Rumah Tangga"
+        "type":"Rumah Tangga"
     },
     {
         "id":"19",
@@ -109,7 +109,7 @@
         "code":"IBS",
         "created_at":"2025-07-07 16:22:24",
         "updated_at":"2025-07-07 16:22:24",
-        "bidang":"Perusahaan"
+        "type":"Perusahaan"
     },
     {
         "id":"20",
@@ -117,7 +117,7 @@
         "code":"KONSTRUKSI",
         "created_at":"2025-07-07 16:22:24",
         "updated_at":"2025-07-07 16:22:24",
-        "bidang":"Perusahaan"
+        "type":"Infrastruktur"
     },
     {
         "id":"21",
@@ -125,7 +125,7 @@
         "code":"KSA",
         "created_at":"2025-07-07 16:22:24",
         "updated_at":"2025-07-07 16:22:24",
-        "bidang":"Rumah Tangga"
+        "type":"Area\/Regional"
     },
     {
         "id":"22",
@@ -133,7 +133,7 @@
         "code":"LPTB",
         "created_at":"2025-07-07 16:22:24",
         "updated_at":"2025-07-07 16:22:24",
-        "bidang":"Rumah Tangga"
+        "type":"Pertanian"
     },
     {
         "id":"23",
@@ -141,7 +141,7 @@
         "code":"SPAB",
         "created_at":"2025-07-07 16:22:24",
         "updated_at":"2025-07-07 16:22:24",
-        "bidang":"Perusahaan"
+        "type":"Perusahaan"
     },
     {
         "id":"24",
@@ -149,7 +149,7 @@
         "code":"UBINAN",
         "created_at":"2025-07-07 16:22:24",
         "updated_at":"2025-07-07 16:22:24",
-        "bidang":"Rumah Tangga"
+        "type":"Pertanian"
     },
     {
         "id":"25",
@@ -157,7 +157,7 @@
         "code":"SKLNPRT",
         "created_at":"2025-07-07 16:22:24",
         "updated_at":"2025-07-07 16:22:24",
-        "bidang":"Rumah Tangga"
+        "type":"Rumah Tangga"
     },
     {
         "id":"26",
@@ -165,7 +165,7 @@
         "code":"SKTNP",
         "created_at":"2025-07-07 16:22:24",
         "updated_at":"2025-07-07 16:22:24",
-        "bidang":"Rumah Tangga"
+        "type":"Produksi"
     },
     {
         "id":"27",
@@ -173,7 +173,7 @@
         "code":"SKTU",
         "created_at":"2025-07-07 16:22:24",
         "updated_at":"2025-07-07 16:22:24",
-        "bidang":"Perusahaan"
+        "type":"Perusahaan"
     },
     {
         "id":"28",
@@ -181,7 +181,7 @@
         "code":"VHTS",
         "created_at":"2025-07-07 16:22:24",
         "updated_at":"2025-07-07 16:22:24",
-        "bidang":"Perusahaan"
+        "type":"Pariwisata"
     },
     {
         "id":"29",
@@ -189,7 +189,7 @@
         "code":"SHK",
         "created_at":"2025-07-07 16:22:24",
         "updated_at":"2025-07-07 16:22:24",
-        "bidang":"Rumah Tangga"
+        "type":"Keuangan"
     },
     {
         "id":"30",
@@ -197,7 +197,7 @@
         "code":"SHP",
         "created_at":"2025-07-07 16:22:24",
         "updated_at":"2025-07-07 16:22:24",
-        "bidang":"Perusahaan"
+        "type":"Keuangan"
     },
     {
         "id":"31",
@@ -205,7 +205,7 @@
         "code":"SHPB",
         "created_at":"2025-07-07 16:22:24",
         "updated_at":"2025-07-07 16:22:24",
-        "bidang":"Perusahaan"
+        "type":"Perusahaan"
     },
     {
         "id":"32",
@@ -213,7 +213,7 @@
         "code":"SHP",
         "created_at":"2025-07-07 16:22:24",
         "updated_at":"2025-07-07 16:22:24",
-        "bidang":"Perusahaan"
+        "type":"Keuangan"
     },
     {
         "id":"33",
@@ -221,7 +221,7 @@
         "code":"P-SSN-MARET",
         "created_at":"2025-07-07 16:22:24",
         "updated_at":"2025-07-07 16:22:24",
-        "bidang":"Rumah Tangga"
+        "type":"Rumah Tangga"
     },
     {
         "id":"34",
@@ -229,7 +229,7 @@
         "code":"VDTW",
         "created_at":"2025-07-10 08:03:05",
         "updated_at":"2025-07-10 08:03:05",
-        "bidang":"Rumah Tangga"
+        "type":"Pariwisata"
     },
     {
         "id":"35",
@@ -237,7 +237,7 @@
         "code":"VHTL",
         "created_at":"2025-07-10 08:15:58",
         "updated_at":"2025-07-10 08:15:58",
-        "bidang":"Perusahaan"
+        "type":"Perusahaan"
     },
     {
         "id":"36",
@@ -245,7 +245,7 @@
         "code":"VHTS",
         "created_at":"2025-07-10 08:18:11",
         "updated_at":"2025-07-10 08:18:11",
-        "bidang":"Perusahaan"
+        "type":"Pariwisata"
     },
     {
         "id":"37",
@@ -253,7 +253,7 @@
         "code":"VPBD",
         "created_at":"2025-07-10 08:21:37",
         "updated_at":"2025-07-10 08:21:37",
-        "bidang":"Perusahaan"
+        "type":"Perusahaan"
     },
     {
         "id":"38",
@@ -261,7 +261,7 @@
         "code":"VPEK",
         "created_at":"2025-07-10 08:23:14",
         "updated_at":"2025-07-10 08:23:14",
-        "bidang":"Perusahaan"
+        "type":"Perusahaan"
     },
     {
         "id":"39",
@@ -269,7 +269,7 @@
         "code":"VREST",
         "created_at":"2025-07-10 08:24:37",
         "updated_at":"2025-07-10 08:24:37",
-        "bidang":"Perusahaan"
+        "type":"Perusahaan"
     },
     {
         "id":"40",
@@ -277,7 +277,7 @@
         "code":"SPUNP",
         "created_at":"2025-07-10 08:27:32",
         "updated_at":"2025-07-10 08:27:32",
-        "bidang":"Perusahaan"
+        "type":"Perusahaan"
     },
     {
         "id":"41",
@@ -285,7 +285,7 @@
         "code":"UD",
         "created_at":"2025-07-10 08:29:06",
         "updated_at":"2025-07-10 08:29:06",
-        "bidang":"Rumah Tangga"
+        "type":"Perusahaan"
     },
     {
         "id":"42",
@@ -293,7 +293,7 @@
         "code":"SLK",
         "created_at":"2025-07-10 08:30:16",
         "updated_at":"2025-07-10 08:30:16",
-        "bidang":"Perusahaan"
+        "type":"Perusahaan"
     },
     {
         "id":"43",
@@ -301,7 +301,7 @@
         "code":"SVPEB",
         "created_at":"2025-07-10 08:41:13",
         "updated_at":"2025-07-10 08:41:13",
-        "bidang":"Perusahaan"
+        "type":"Perusahaan"
     },
     {
         "id":"44",
@@ -309,7 +309,7 @@
         "code":"PODES",
         "created_at":"2025-07-10 08:43:34",
         "updated_at":"2025-07-10 08:43:34",
-        "bidang":"Rumah Tangga"
+        "type":"Area\/Regional"
     },
     {
         "id":"45",
@@ -317,7 +317,7 @@
         "code":"SCP",
         "created_at":"2025-07-10 08:49:31",
         "updated_at":"2025-07-10 08:49:31",
-        "bidang":"Perusahaan"
+        "type":"Perusahaan"
     },
     {
         "id":"46",
@@ -325,7 +325,7 @@
         "code":"IMK",
         "created_at":"2025-07-10 08:56:49",
         "updated_at":"2025-07-10 08:56:49",
-        "bidang":"Perusahaan"
+        "type":"Perusahaan"
     },
     {
         "id":"47",
@@ -333,7 +333,7 @@
         "code":"SNM",
         "created_at":"2025-07-10 09:10:55",
         "updated_at":"2025-07-10 09:10:55",
-        "bidang":"Perusahaan"
+        "type":"Perusahaan"
     },
     {
         "id":"48",
@@ -341,7 +341,7 @@
         "code":"SPH",
         "created_at":"2025-07-10 09:18:07",
         "updated_at":"2025-07-10 09:18:07",
-        "bidang":"Perusahaan"
+        "type":"Pertanian"
     },
     {
         "id":"49",
@@ -349,7 +349,7 @@
         "code":"SPK",
         "created_at":"2025-07-10 09:19:35",
         "updated_at":"2025-07-10 09:19:35",
-        "bidang":"Perusahaan"
+        "type":"Pertanian"
     },
     {
         "id":"50",
@@ -357,7 +357,7 @@
         "code":"SPP",
         "created_at":"2025-07-10 09:20:51",
         "updated_at":"2025-07-10 09:20:51",
-        "bidang":"Perusahaan"
+        "type":"Pertanian"
     },
     {
         "id":"51",
@@ -365,6 +365,6 @@
         "code":"SKLNPRT",
         "created_at":"2025-07-10 09:26:15",
         "updated_at":"2025-07-10 09:26:15",
-        "bidang":"Rumah Tangga"
+        "type":"Rumah Tangga"
     }
 ]
