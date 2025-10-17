@@ -18,15 +18,14 @@ def run_preprocess(base_dir: str, mode: str = "overwrite"):
 
     def make_paths(name):
         return (
-            os.path.join(processed_dir, f"cleaned_{name}.csv"),
-            os.path.join(processed_dir, f"cleaned_{name}.json"),
+            os.path.join(processed_dir, f"cleaned_{name}.csv")
         )
 
-    mitra_out_csv, mitra_out_json = make_paths("mitras")
-    master_out_csv, master_out_json = make_paths("master_surveys")
-    survey_out_csv, survey_out_json = make_paths("surveys")
-    trans_out_csv, trans_out_json = make_paths("transactions")
-    nilai_out_csv, nilai_out_json = make_paths("nilai1s")
+    mitra_out_csv = make_paths("mitras")
+    master_out_csv = make_paths("master_surveys")
+    survey_out_csv = make_paths("surveys")
+    trans_out_csv = make_paths("transactions")
+    nilai_out_csv= make_paths("nilai1s")
 
     if os.environ.get("AIRFLOW_HOME"):
         detected_host = "postgres"
@@ -50,7 +49,6 @@ def run_preprocess(base_dir: str, mode: str = "overwrite"):
     df_m["name"] = df_m["name"].apply(lambda n: re.sub(pat, "", str(n)) if pd.notna(n) else n)
 
     df_m.to_csv(mitra_out_csv, index=False)
-    df_m.to_json(mitra_out_json, orient="records", indent=4, force_ascii=False)
 
     df_ms = pd.read_csv(master_in, dtype=str).fillna("")
     df_ms["name"] = df_ms["name"].apply(lambda x: re.sub(r"\s+", " ", str(x).strip()))
@@ -68,7 +66,6 @@ def run_preprocess(base_dir: str, mode: str = "overwrite"):
     df_ms["type"] = df_ms.apply(lambda r: categorize_bagian(r["name"], r["code"]), axis=1)
     df_ms = df_ms[df_ms["type"].isin(["Rumah Tangga", "Perusahaan"])].reset_index(drop=True)
     df_ms.to_csv(master_out_csv, index=False)
-    df_ms.to_json(master_out_json, orient="records", indent=4, force_ascii=False)
 
     def clean_df(path):
         df = pd.read_csv(path, dtype=str)
@@ -79,13 +76,12 @@ def run_preprocess(base_dir: str, mode: str = "overwrite"):
     df_t = clean_df(trans_in)
     df_n = clean_df(nilai_in)
 
-    for df, csv_path, json_path in [
-        (df_s, survey_out_csv, survey_out_json),
-        (df_t, trans_out_csv, trans_out_json),
-        (df_n, nilai_out_csv, nilai_out_json),
+    for df, csv_path in [
+        (df_s, survey_out_csv),
+        (df_t, trans_out_csv),
+        (df_n, nilai_out_csv),
     ]:
         df.to_csv(csv_path, index=False)
-        df.to_json(json_path, orient="records", indent=4, force_ascii=False)
 
     conn = psycopg2.connect(**DB_CONFIG)
     cur = conn.cursor()

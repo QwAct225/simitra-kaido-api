@@ -9,7 +9,6 @@ def run_feature_engineering(base_dir: str):
 
     processed_dir = os.path.join(base_dir, "data", "processed")
     output_csv = os.path.join(processed_dir, "features_mitra_survey.csv")
-    output_json = os.path.join(processed_dir, "features_mitra_survey.json")
 
     mitras = pd.read_csv(os.path.join(processed_dir, "cleaned_mitras.csv"))
     master_surveys = pd.read_csv(os.path.join(processed_dir, "cleaned_master_surveys.csv"))
@@ -76,7 +75,6 @@ def run_feature_engineering(base_dir: str):
         print("📊 Contoh data:\n", df_final.head().to_string(index=False))
 
     df_final.to_csv(output_csv, index=False)
-    df_final.to_json(output_json, orient="records", indent=4, force_ascii=False)
 
     DB_CONFIG = {
         "dbname": os.getenv("DB_NAME"),
@@ -120,7 +118,6 @@ def run_feature_engineering(base_dir: str):
 
     return {
         "feature_csv": output_csv,
-        "feature_json": output_json,
         "table": "features_mitra_survey",
         "rows": len(df_final)
     }

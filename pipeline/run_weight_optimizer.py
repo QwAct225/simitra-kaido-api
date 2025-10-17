@@ -75,10 +75,10 @@ def weight_optimizer(base_dir: str):
     df = df.sort_values(by="optimized_score", ascending=False).reset_index(drop=True)
 
     out_csv = os.path.join(report_dir, "pso_optimized_mitra.csv")
-    out_json = os.path.join(report_dir, "pso_optimized_mitra.json")
+
+    df = df.drop(columns=["final_recommendation_score"], errors="ignore")
 
     df.to_csv(out_csv, index=False)
-    df.to_json(out_json, orient="records", indent=4, force_ascii=False)
 
     print(f"\n📊 Hasil akhir disimpan di:")
     print(f"   {out_csv}")

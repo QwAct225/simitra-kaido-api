@@ -111,10 +111,8 @@ def run_fuzzy_cbf(base_dir: str):
     df_final = df_final.loc[:, ~df_final.columns.duplicated()]
 
     out_path_csv = os.path.join(report_dir, "cbf_ranked_mitra.csv")
-    out_path_json = os.path.join(report_dir, "cbf_ranked_mitra.json")
 
     df_final.to_csv(out_path_csv, index=False)
-    df_final.to_json(out_path_json, orient="records", indent=4, force_ascii=False)
 
     print(f"✅ Fuzzy + CBF berhasil dijalankan → {len(df_final)} mitra total (termasuk yang belum survei).")
     print(f"📊 Output disimpan di: {out_path_csv}")

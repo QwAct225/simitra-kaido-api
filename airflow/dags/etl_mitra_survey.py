@@ -18,7 +18,7 @@ with DAG(
     start_date=datetime(2025, 10, 14),
     schedule_interval=None,
     catchup=False,
-    tags=["ETL", "Mitra", "Linguistic", "CBF"],
+    tags=["ETL", "Recommedation", "Linguistic", "CBF", "PSO", "Ranking"],
 ) as dag:
 
     ingest = PythonOperator(
