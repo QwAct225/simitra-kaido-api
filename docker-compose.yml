@@ -26,7 +26,7 @@ services:
       AIRFLOW__CORE__SQL_ALCHEMY_CONN: postgresql+psycopg2://${DB_USER}:${DB_PASS}@postgres:5432/${DB_NAME}
       PROJECT_BASE_DIR: /opt/airflow/project
       AIRFLOW__WEBSERVER__RBAC: "True"
-      _PIP_ADDITIONAL_REQUIREMENTS: pandas psycopg2-binary python-dotenv
+      _PIP_ADDITIONAL_REQUIREMENTS: pandas psycopg2-binary python-dotenv scikit-learn
     ports:
       - "8080:8080"
     volumes:

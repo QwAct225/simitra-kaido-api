@@ -1,6 +1,6 @@
 from airflow.models import BaseOperator
 from airflow.utils.decorators import apply_defaults
-from pipeline.preprocess import run_preprocess
+from pipeline.run_preprocess import run_preprocess
 
 class PreprocessOperator(BaseOperator):
     @apply_defaults

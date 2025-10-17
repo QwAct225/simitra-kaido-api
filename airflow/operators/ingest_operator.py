@@ -1,6 +1,6 @@
 from airflow.models import BaseOperator
 from airflow.utils.decorators import apply_defaults
-from pipeline.ingest import run_ingest
+from pipeline.run_ingest import run_ingest
 
 class IngestOperator(BaseOperator):
     @apply_defaults

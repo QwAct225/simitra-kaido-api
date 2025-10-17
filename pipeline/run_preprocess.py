@@ -44,15 +44,13 @@ def run_preprocess(base_dir: str, mode: str = "overwrite"):
         "port": os.getenv("DB_PORT"),
     }
 
-    df_m = pd.read_csv(mitra_in, dtype=str).fillna("")
-    df_m = df_m.replace(["NULL", "null", "None", "none", "-", " "], "")
-    req = ["id", "sobat_id", "name", "email", "jenis_kelamin"]
-    df_clean_m = df_m[~df_m[req].apply(lambda x: x.eq("").any(), axis=1)].reset_index(drop=True)
+    df_m = pd.read_csv(mitra_in, dtype=str)
+    df_m = df_m.replace(["NULL", "null", "None", "none", "-", " "], pd.NA)
     pat = re.compile(r"[\\'\"`´]")
-    df_clean_m["name"] = df_clean_m["name"].apply(lambda n: re.sub(pat, "", str(n)).strip())
+    df_m["name"] = df_m["name"].apply(lambda n: re.sub(pat, "", str(n)) if pd.notna(n) else n)
 
-    df_clean_m.to_csv(mitra_out_csv, index=False)
-    df_clean_m.to_json(mitra_out_json, orient="records", indent=4, force_ascii=False)
+    df_m.to_csv(mitra_out_csv, index=False)
+    df_m.to_json(mitra_out_json, orient="records", indent=4, force_ascii=False)
 
     df_ms = pd.read_csv(master_in, dtype=str).fillna("")
     df_ms["name"] = df_ms["name"].apply(lambda x: re.sub(r"\s+", " ", str(x).strip()))
@@ -73,8 +71,8 @@ def run_preprocess(base_dir: str, mode: str = "overwrite"):
     df_ms.to_json(master_out_json, orient="records", indent=4, force_ascii=False)
 
     def clean_df(path):
-        df = pd.read_csv(path, dtype=str).fillna("")
-        df = df.replace(["NULL", "null", "None", "none", "-", " "], "")
+        df = pd.read_csv(path, dtype=str)
+        df = df.replace(["NULL", "null", "None", "none", "-", " "], pd.NA)
         return df.reset_index(drop=True)
 
     df_s = clean_df(survey_in)
@@ -116,7 +114,6 @@ def run_preprocess(base_dir: str, mode: str = "overwrite"):
             updated_at TIMESTAMP
         );
     """)
-
     cur.execute("""
         CREATE TABLE IF NOT EXISTS master_surveys_enriched (
             id BIGINT PRIMARY KEY,
@@ -127,7 +124,6 @@ def run_preprocess(base_dir: str, mode: str = "overwrite"):
             type VARCHAR(100)
         );
     """)
-
     cur.execute("""
         CREATE TABLE IF NOT EXISTS surveys_cleaned (
             id BIGINT PRIMARY KEY,
@@ -145,7 +141,6 @@ def run_preprocess(base_dir: str, mode: str = "overwrite"):
             updated_at TIMESTAMP
         );
     """)
-
     cur.execute("""
         CREATE TABLE IF NOT EXISTS transactions_cleaned (
             id BIGINT PRIMARY KEY,
@@ -157,7 +152,6 @@ def run_preprocess(base_dir: str, mode: str = "overwrite"):
             updated_at TIMESTAMP
         );
     """)
-
     cur.execute("""
         CREATE TABLE IF NOT EXISTS nilai1s_cleaned (
             transaction_id BIGINT,
@@ -172,31 +166,33 @@ def run_preprocess(base_dir: str, mode: str = "overwrite"):
     conn.commit()
 
     def noneify(v):
-        if v in ["", " ", None, "NULL", "null"]:
+        if pd.isna(v) or str(v).strip() in ["", " ", "NULL", "null"]:
             return None
         return v
 
-    for _, r in df_clean_m.iterrows():
+    for _, r in df_m.iterrows():
         cur.execute("""
             INSERT INTO mitra_cleaned (
                 id, sobat_id, name, user_id, email, pendidikan,
                 jenis_kelamin, tanggal_lahir, photo, created_at, updated_at
-            ) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s);
+            ) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)
+            ON CONFLICT (id) DO NOTHING;
         """, (
-            noneify(r["id"]), noneify(r["sobat_id"]), noneify(r["name"]),
-            noneify(r["user_id"]), noneify(r["email"]), noneify(r["pendidikan"]),
-            noneify(r["jenis_kelamin"]), noneify(r["tanggal_lahir"]),
-            noneify(r["photo"]), noneify(r["created_at"]), noneify(r["updated_at"])
+            noneify(r.get("id")), noneify(r.get("sobat_id")), noneify(r.get("name")),
+            noneify(r.get("user_id")), noneify(r.get("email")), noneify(r.get("pendidikan")),
+            noneify(r.get("jenis_kelamin")), noneify(r.get("tanggal_lahir")),
+            noneify(r.get("photo")), noneify(r.get("created_at")), noneify(r.get("updated_at"))
         ))
 
     for _, r in df_ms.iterrows():
         cur.execute("""
             INSERT INTO master_surveys_enriched (
                 id, name, code, created_at, updated_at, type
-            ) VALUES (%s,%s,%s,%s,%s,%s);
+            ) VALUES (%s,%s,%s,%s,%s,%s)
+            ON CONFLICT (id) DO NOTHING;
         """, (
-            noneify(r["id"]), noneify(r["name"]), noneify(r["code"]),
-            noneify(r["created_at"]), noneify(r["updated_at"]), noneify(r["type"])
+            noneify(r.get("id")), noneify(r.get("name")), noneify(r.get("code")),
+            noneify(r.get("created_at")), noneify(r.get("updated_at")), noneify(r.get("type"))
         ))
 
     for _, r in df_s.iterrows():
@@ -204,14 +200,16 @@ def run_preprocess(base_dir: str, mode: str = "overwrite"):
             INSERT INTO surveys_cleaned (
                 id, master_survey_id, triwulan, year, payment_id, team_id,
                 rate, file, is_scored, is_synced, status, created_at, updated_at
-            ) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s);
+            ) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)
+            ON CONFLICT (id) DO NOTHING;
         """, tuple(noneify(v) for v in r.values))
 
     for _, r in df_t.iterrows():
         cur.execute("""
             INSERT INTO transactions_cleaned (
                 id, mitra_id, survey_id, target, rate, created_at, updated_at
-            ) VALUES (%s,%s,%s,%s,%s,%s,%s);
+            ) VALUES (%s,%s,%s,%s,%s,%s,%s)
+            ON CONFLICT (id) DO NOTHING;
         """, tuple(noneify(v) for v in r.values))
 
     for _, r in df_n.iterrows():
@@ -225,4 +223,4 @@ def run_preprocess(base_dir: str, mode: str = "overwrite"):
     cur.close()
     conn.close()
 
-    print(f"📤 Uploaded {len(df_clean_m)} mitra, {len(df_ms)} master surveys, {len(df_s)} surveys, {len(df_t)} transactions, {len(df_n)} nilai1s.")
+    print(f"📤 Uploaded {len(df_m)} mitra, {len(df_ms)} master surveys, {len(df_s)} surveys, {len(df_t)} transactions, {len(df_n)} nilai1s.")

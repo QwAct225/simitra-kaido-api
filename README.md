@@ -40,9 +40,5 @@ Sistem dirancang dengan arsitektur terpisah antara profil mitra (ML pipeline) da
     ```
 4. **Jalankan PostgreSQL menggunakan Docker**
     ```bash
-    docker compose up -d
-    ```
-5. **Jalankan Preprocessing**
-    ```bash
-    python scripts/run_preprocessing.py
+    docker compose up -d --build
     ```

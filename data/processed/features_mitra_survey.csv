@@ -1,0 +1,143 @@
+mitra_ID,mitra_name,mitra_gender,mitra_age,survey_ID,survey_type
+1,SUTARTI YUNI ASTUTIK,Perempuan,55,1,
+2,Emman Suparji,Perempuan,44,1,
+3,SONNA ASDINATA,Perempuan,43,1,
+4,Didiet Ananto Widodo,Perempuan,61,1,
+5,Shindy Ayu Widyaswara,Perempuan,32,2,Perusahaan
+2,Emman Suparji,Perempuan,44,2,Perusahaan
+3,SONNA ASDINATA,Perempuan,43,2,Perusahaan
+4,Didiet Ananto Widodo,Perempuan,61,2,Perusahaan
+6,Hilda Seskowati,Perempuan,34,2,Perusahaan
+1,SUTARTI YUNI ASTUTIK,Perempuan,55,2,Perusahaan
+7,Zulfian Arif,Perempuan,57,2,Perusahaan
+8,Arif Hambali,Perempuan,42,2,Perusahaan
+9,Tri Wahyu Utomo,Perempuan,55,2,Perusahaan
+5,Shindy Ayu Widyaswara,Perempuan,32,3,
+2,Emman Suparji,Perempuan,44,3,
+3,SONNA ASDINATA,Perempuan,43,3,
+4,Didiet Ananto Widodo,Perempuan,61,3,
+6,Hilda Seskowati,Perempuan,34,3,
+1,SUTARTI YUNI ASTUTIK,Perempuan,55,3,
+7,Zulfian Arif,Perempuan,57,3,
+8,Arif Hambali,Perempuan,42,3,
+9,Tri Wahyu Utomo,Perempuan,55,3,
+10,Dessy Anggrainy,Perempuan,38,4,Perusahaan
+2,Emman Suparji,Perempuan,44,4,Perusahaan
+4,Didiet Ananto Widodo,Perempuan,61,4,Perusahaan
+11,KUSMILAH,Perempuan,52,4,Perusahaan
+12,TITIEK TRISOESILOWATI,Perempuan,55,4,Perusahaan
+7,Zulfian Arif,Perempuan,57,4,Perusahaan
+8,Arif Hambali,Perempuan,42,5,
+5,Shindy Ayu Widyaswara,Perempuan,32,6,Perusahaan
+6,Hilda Seskowati,Perempuan,34,6,Perusahaan
+12,TITIEK TRISOESILOWATI,Perempuan,55,6,Perusahaan
+13,IKE MARDIANA SADIYAH,Perempuan,53,6,Perusahaan
+2,Emman Suparji,Perempuan,44,7,Perusahaan
+12,TITIEK TRISOESILOWATI,Perempuan,55,7,Perusahaan
+7,Zulfian Arif,Perempuan,57,7,Perusahaan
+14,Muhammad Jehan Rabbani,Perempuan,20,8,
+5,Shindy Ayu Widyaswara,Perempuan,32,8,
+10,Dessy Anggrainy,Perempuan,38,8,
+2,Emman Suparji,Perempuan,44,8,
+3,SONNA ASDINATA,Perempuan,43,8,
+15,Riyono,Perempuan,46,8,
+6,Hilda Seskowati,Perempuan,34,8,
+1,SUTARTI YUNI ASTUTIK,Perempuan,55,8,
+12,TITIEK TRISOESILOWATI,Perempuan,55,8,
+13,IKE MARDIANA SADIYAH,Perempuan,53,8,
+7,Zulfian Arif,Perempuan,57,8,
+8,Arif Hambali,Perempuan,42,8,
+2,Emman Suparji,Perempuan,44,9,
+12,TITIEK TRISOESILOWATI,Perempuan,55,9,
+16,Ardhea Citra Dhamayanty,Perempuan,28,10,
+17,Mila Nurjana,Perempuan,40,10,
+18,Ila Nur Chasanah,Perempuan,55,10,
+19,Khoirunisa Sukma Hadi,Perempuan,55,10,
+20,Yessy Tri Hardiyanti,Perempuan,55,10,
+21,Indah Wahyuningsih,Perempuan,55,10,
+22,Sharon Mahar Tanjung,Perempuan,55,10,
+2,Emman Suparji,Perempuan,44,11,
+15,Riyono,Perempuan,46,11,
+4,Didiet Ananto Widodo,Perempuan,61,11,
+23,Arry Puspitasari,Perempuan,55,11,
+11,KUSMILAH,Perempuan,52,11,
+12,TITIEK TRISOESILOWATI,Perempuan,55,11,
+7,Zulfian Arif,Perempuan,57,11,
+2,Emman Suparji,Perempuan,44,12,Perusahaan
+7,Zulfian Arif,Perempuan,57,12,Perusahaan
+21,Indah Wahyuningsih,Perempuan,55,12,Perusahaan
+12,TITIEK TRISOESILOWATI,Perempuan,55,12,Perusahaan
+4,Didiet Ananto Widodo,Perempuan,61,12,Perusahaan
+1,SUTARTI YUNI ASTUTIK,Perempuan,55,12,Perusahaan
+16,Ardhea Citra Dhamayanty,Perempuan,28,13,
+17,Mila Nurjana,Perempuan,40,13,
+21,Indah Wahyuningsih,Perempuan,55,13,
+5,Shindy Ayu Widyaswara,Perempuan,32,14,Rumah Tangga
+2,Emman Suparji,Perempuan,44,14,Rumah Tangga
+24,Rujiyani,Perempuan,53,14,Rumah Tangga
+6,Hilda Seskowati,Perempuan,34,14,Rumah Tangga
+13,IKE MARDIANA SADIYAH,Perempuan,53,14,Rumah Tangga
+25,Theresiana Septioningrum,Perempuan,55,14,Rumah Tangga
+26,Puji Rahayu,Perempuan,48,15,Rumah Tangga
+27,Era Dhani Restari,Perempuan,49,15,Rumah Tangga
+28,ROOS PANDAN WANGI(WIWIN,Unknown,0,15,Rumah Tangga
+29,Farida Achadyah,Perempuan,55,15,Rumah Tangga
+30,Aris Sugiarti,Perempuan,55,15,Rumah Tangga
+31,YUNIAR PANDANSARI,Perempuan,58,15,Rumah Tangga
+23,Arry Puspitasari,Perempuan,55,15,Rumah Tangga
+32,Rodiyah,Perempuan,55,15,Rumah Tangga
+33,Dewi Ayu Indriani,Perempuan,43,15,Rumah Tangga
+34,HERTIN SULISTYO RINI,Perempuan,46,15,Rumah Tangga
+5,Shindy Ayu Widyaswara,Perempuan,32,16,
+23,Arry Puspitasari,Perempuan,55,16,
+11,KUSMILAH,Perempuan,52,16,
+12,TITIEK TRISOESILOWATI,Perempuan,55,16,
+35,Eka Astuti,Perempuan,55,16,
+36,HENI KUSUMAWATI,Perempuan,55,16,
+37,Dicky Ramadhan,Perempuan,55,16,
+36,HENI KUSUMAWATI,Perempuan,55,17,Perusahaan
+2,Emman Suparji,Perempuan,44,17,Perusahaan
+38,Juwariyah,Perempuan,55,18,Perusahaan
+39,Muhammad Handy Rizki Prasetyo,Perempuan,55,18,Perusahaan
+24,Rujiyani,Perempuan,53,18,Perusahaan
+40,TEJO WIRAWAN,Perempuan,55,18,Perusahaan
+41,Agus Dwi Prasetyo,Perempuan,55,18,Perusahaan
+42,Fenny Gunawan,Perempuan,55,18,Perusahaan
+12,TITIEK TRISOESILOWATI,Perempuan,55,18,Perusahaan
+43,ERNAWATI,Perempuan,55,18,Perusahaan
+36,HENI KUSUMAWATI,Perempuan,55,18,Perusahaan
+44,Maulid Diyah Kholis Saputri,Perempuan,55,18,Perusahaan
+39,Muhammad Handy Rizki Prasetyo,Perempuan,55,19,
+41,Agus Dwi Prasetyo,Perempuan,55,19,
+12,TITIEK TRISOESILOWATI,Perempuan,55,19,
+44,Maulid Diyah Kholis Saputri,Perempuan,55,19,
+37,Dicky Ramadhan,Perempuan,55,19,
+11,KUSMILAH,Perempuan,52,19,
+36,HENI KUSUMAWATI,Perempuan,55,19,
+11,KUSMILAH,Perempuan,52,20,
+43,ERNAWATI,Perempuan,55,20,
+36,HENI KUSUMAWATI,Perempuan,55,20,
+35,Eka Astuti,Perempuan,55,20,
+37,Dicky Ramadhan,Perempuan,55,20,
+45,Nurfuady Rafi Alfauznursy,Perempuan,55,21,
+36,HENI KUSUMAWATI,Perempuan,55,22,
+36,HENI KUSUMAWATI,Perempuan,55,23,Perusahaan
+12,TITIEK TRISOESILOWATI,Perempuan,55,24,Perusahaan
+44,Maulid Diyah Kholis Saputri,Perempuan,55,24,Perusahaan
+36,HENI KUSUMAWATI,Perempuan,55,25,Perusahaan
+36,HENI KUSUMAWATI,Perempuan,55,26,Perusahaan
+11,KUSMILAH,Perempuan,52,27,
+43,ERNAWATI,Perempuan,55,27,
+35,Eka Astuti,Perempuan,55,27,
+37,Dicky Ramadhan,Perempuan,55,27,
+1,SUTARTI YUNI ASTUTIK,Perempuan,55,28,Rumah Tangga
+13,IKE MARDIANA SADIYAH,Perempuan,53,28,Rumah Tangga
+25,Theresiana Septioningrum,Perempuan,55,28,Rumah Tangga
+46,TALITHA ALIFAH,Perempuan,55,29,
+10,Dessy Anggrainy,Perempuan,38,29,
+47,ALFIATUL KHAMIMAH,Perempuan,37,29,
+48,Arinda Putri Dewi,Perempuan,32,29,
+35,Eka Astuti,Perempuan,55,29,
+49,Aulia Rachman,Perempuan,55,30,Rumah Tangga
+50,Catur Sandy Cahyono,Perempuan,55,30,Rumah Tangga
+51,Feri Achmad Ardiansyah,Perempuan,25,30,Rumah Tangga
