@@ -9,6 +9,7 @@ from pipeline.run_ingest import run_ingest
 from pipeline.run_preprocess import run_preprocess
 from pipeline.run_feature_engineering import run_feature_engineering
 from pipeline.run_ranking_mitra import run_fuzzy_cbf
+from pipeline.run_weight_optimizer import weight_optimizer
 
 BASE_DIR = "/opt/airflow/project"
 
@@ -44,4 +45,10 @@ with DAG(
         op_kwargs={"base_dir": BASE_DIR},
     )
 
-    ingest >> preprocess >> feature_engineering >> fuzzy_cbf
+    optimize_weight = PythonOperator(
+        task_id="optimize_weights",
+        python_callable=weight_optimizer,
+        op_kwargs={"base_dir": BASE_DIR},
+    )
+
+    ingest >> preprocess >> feature_engineering >> fuzzy_cbf >> optimize_weight
