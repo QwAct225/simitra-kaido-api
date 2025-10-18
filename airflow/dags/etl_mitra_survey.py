@@ -10,6 +10,7 @@ from pipeline.run_preprocess import run_preprocess
 from pipeline.run_feature_engineering import run_feature_engineering
 from pipeline.run_ranking_mitra import run_fuzzy_cbf
 from pipeline.run_weight_optimizer import weight_optimizer
+from pipeline.run_recommendation_event import run_recommendation_event
 
 BASE_DIR = "/opt/airflow/project"
 
@@ -18,7 +19,7 @@ with DAG(
     start_date=datetime(2025, 10, 14),
     schedule_interval=None,
     catchup=False,
-    tags=["ETL", "Recommedation", "Linguistic", "CBF", "PSO", "Ranking"],
+    tags=["ETL", "Recommedation", "Linguistic", "CBF", "PSO", "Ranking", "SurveyEvent"],
 ) as dag:
 
     ingest = PythonOperator(
@@ -51,4 +52,10 @@ with DAG(
         op_kwargs={"base_dir": BASE_DIR},
     )
 
-    ingest >> preprocess >> feature_engineering >> fuzzy_cbf >> optimize_weight
+    recommend_survey_mitra = PythonOperator(
+        task_id="generate_survey_recommendation",
+        python_callable=run_recommendation_event,
+        op_kwargs={"base_dir": BASE_DIR},
+    )
+
+    ingest >> preprocess >> feature_engineering >> fuzzy_cbf >> optimize_weight >> recommend_survey_mitra
