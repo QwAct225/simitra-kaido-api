@@ -4,23 +4,19 @@ import pandas as pd
 import psycopg2
 from dotenv import load_dotenv, find_dotenv
 
-# --- Fungsi fitness PSO ---
 def fitness_function(weights, df):
     w1, w2 = weights
     df["pso_score"] = w1 * df["fuzzy_score"] + w2 * df["cbf_avg_similarity"]
-    df["pso_score"] /= df["pso_score"].max()  # normalisasi
-    return -np.std(df["pso_score"])  # minimalkan variansi
+    df["pso_score"] /= df["pso_score"].max()
+    return -np.std(df["pso_score"])
 
-# --- Algoritma PSO utama ---
 def run_pso(df, n_particles=20, n_iterations=50, inertia=0.5, c1=1.5, c2=1.5):
     np.random.seed(42)
     min_bound, max_bound = 0.0, 1.0
 
-    # Inisialisasi partikel dan velocity
     particles = np.random.uniform(min_bound, max_bound, (n_particles, 2))
     velocities = np.zeros_like(particles)
 
-    # Nilai personal & global terbaik
     personal_best = particles.copy()
     personal_best_scores = np.array([fitness_function(p, df) for p in particles])
     global_best_idx = np.argmax(personal_best_scores)
@@ -54,7 +50,6 @@ def run_pso(df, n_particles=20, n_iterations=50, inertia=0.5, c1=1.5, c2=1.5):
     print(f"   w_fuzzy = {global_best[0]:.4f}, w_cbf = {global_best[1]:.4f}")
     return global_best
 
-# --- Pipeline utama PSO ---
 def weight_optimizer(base_dir: str):
     load_dotenv(find_dotenv(), override=True)
 
@@ -67,24 +62,20 @@ def weight_optimizer(base_dir: str):
     df = pd.read_csv(ranked_path)
     df = df.dropna(subset=["fuzzy_score", "cbf_avg_similarity"])
 
-    # Jalankan optimasi PSO
     best_weights = run_pso(df)
 
-    # Hitung skor dengan bobot terbaik
     df["optimized_score"] = (
         best_weights[0] * df["fuzzy_score"] + best_weights[1] * df["cbf_avg_similarity"]
     )
     df["optimized_score"] /= df["optimized_score"].max()
     df = df.sort_values(by="optimized_score", ascending=False).reset_index(drop=True)
 
-    # Simpan ke CSV
     out_csv = os.path.join(report_dir, "pso_optimized_mitra.csv")
     df.to_csv(out_csv, index=False)
 
     print(f"📤 Disimpan ke {out_csv}")
     print(f"🏆 Bobot optimal: Fuzzy={best_weights[0]:.4f}, CBF={best_weights[1]:.4f}")
 
-    # --- Simpan ke PostgreSQL ---
     db_cfg = {
         "dbname": os.getenv("DB_NAME"),
         "user": os.getenv("DB_USER"),

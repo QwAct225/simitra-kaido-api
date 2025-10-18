@@ -15,7 +15,6 @@ def run_recommendation_event(base_dir: str):
     df_survey = pd.read_csv(os.path.join(processed_dir, "cleaned_surveys.csv"))
     df_master = pd.read_csv(os.path.join(processed_dir, "cleaned_master_surveys.csv"))
 
-    # --- Merge survey + master survey ---
     df_survey = df_survey.merge(
         df_master[["id", "type"]],
         left_on="master_survey_id",
@@ -24,7 +23,6 @@ def run_recommendation_event(base_dir: str):
         suffixes=("", "_master")
     ).rename(columns={"type": "survey_type", "id": "survey_id_final"}).drop(columns=["id_master"])
 
-    # --- Gabung transaksi + nilai + survey type ---
     df_join = df_trans.merge(df_nilai, left_on="id", right_on="transaction_id", how="left")
     df_join = df_join.merge(df_survey[["survey_id_final", "survey_type"]],
                             left_on="survey_id", right_on="survey_id_final", how="left")
@@ -32,13 +30,11 @@ def run_recommendation_event(base_dir: str):
     df_join = df_join[["mitra_id", "survey_type", "transaction_id", "rerata"]].dropna()
     df_join["rerata"] = df_join["rerata"].astype(float)
 
-    # --- Hitung rata-rata dan jumlah survey ---
     df_agg = (
         df_join.groupby(["mitra_id", "survey_type"], as_index=False)
         .agg(survey_score=("rerata", "mean"), jumlah_survey=("transaction_id", "count"))
     )
 
-    # --- Gabung dengan data PSO ---
     df_final = df_agg.merge(
         df_pso[["mitra_ID", "mitra_name", "optimized_score"]],
         left_on="mitra_id",
@@ -62,15 +58,12 @@ def run_recommendation_event(base_dir: str):
         0.5 * df_final["rating_mitra"] + 0.5 * (df_final["weighted_score"] / max(df_final["weighted_score"].max(), 1))
     )
 
-    # --- Pisah hasil per tipe survey ---
     df_rt = df_final[df_final["survey_type"] == "Rumah Tangga"].reset_index(drop=True)
     df_pr = df_final[df_final["survey_type"] == "Perusahaan"].reset_index(drop=True)
 
-    # --- Hapus kolom bantu ---
     df_rt = df_rt.drop(columns=["mitra_ID"], errors="ignore")
     df_pr = df_pr.drop(columns=["mitra_ID"], errors="ignore")
 
-    # --- Urutan kolom ---
     desired_cols = [
         "mitra_id",
         "mitra_name",
@@ -86,7 +79,6 @@ def run_recommendation_event(base_dir: str):
     df_rt = df_rt.reindex(columns=[c for c in desired_cols if c in df_rt.columns])
     df_pr = df_pr.reindex(columns=[c for c in desired_cols if c in df_pr.columns])
 
-    # --- Simpan ke PostgreSQL ---
     DB_CONFIG = {
         "dbname": os.getenv("DB_NAME"),
         "user": os.getenv("DB_USER"),
@@ -98,7 +90,6 @@ def run_recommendation_event(base_dir: str):
     conn = psycopg2.connect(**DB_CONFIG)
     cur = conn.cursor()
 
-    # --- Create table ---
     for table in ["recommendation_rumah_tangga", "recommendation_perusahaan"]:
         cur.execute(f"""
             CREATE TABLE IF NOT EXISTS {table} (
@@ -117,7 +108,6 @@ def run_recommendation_event(base_dir: str):
     conn.commit()
     cur.execute("TRUNCATE TABLE recommendation_rumah_tangga, recommendation_perusahaan;")
 
-    # --- Insert data dynamically ---
     def insert_df(df, table_name):
         if len(df) == 0:
             print(f"⚠️ Tidak ada data untuk {table_name}.")

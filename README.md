@@ -1,22 +1,66 @@
 # 🧠 Machine Learning Backend Service (Mitra Ranking & Survey Aggregator)
+
 Backend ML ini bertugas untuk mengelola, memproses, dan menghitung hasil pemeringkatan mitra serta performa survei secara otomatis.
 Sistem dirancang dengan arsitektur terpisah antara profil mitra (ML pipeline) dan hasil survei (aggregator pipeline) agar proses lebih modular, efisien, dan mudah di-maintain.
 
 ## 🧱 Struktur Folder
+
     simitra-kaido-api/
+    ├── airflow/
+    │   ├── dags/
+    │   │   ├── etl_mitra_survey.py
+    │   │   └── etl_recommendation_event.py
+    │   │
+    │   ├── operators/
+    │   │   ├── featiure_engineering_operator.py
+    │   │   ├── ingest_operator.py
+    │   │   ├── preprocess_operator.py
+    │   │   ├── ranking_mitra_operator.py
+    │   │   ├── recommendation_event_operator.py
+    │   │   └── weight_optimizer_operator.py
+    │   │
+    │   └── requirements.txt
+    │
     ├── data/
     │   └── raw/
     │       ├── raw_mitra.csv
     │       ├── cleaned_mitra.csv
     │       └── cleaned_mitra.json
-    ├── scripts/
-    │   ├── run_preprocessing.py
-    │   └── run_ingestion.py
+    │
+    ├── api/
+    │   ├── routers/
+    │   │   ├── __init__.py
+    │   │   ├── mitra_router.py
+    │   │   └── recommendation_router.py
+    │   │
+    │   ├── services/
+    │   │   ├── __init__.py
+    │   │   └── database_service.py
+    │   │
+    │   ├── Dockerfile
+    │   ├── main.py
+    │   └── requirements.txt
+    │
+    ├── data/
+    │   └── raw/
+    │       ├── raw_mitra.csv
+    │       ├── cleaned_mitra.csv
+    │       └── cleaned_mitra.json
+    │
+    ├── Pipeline/
+    │   ├── __init__.py
+    │   ├── run_feature_engineering.py
+    │   ├── run_ingest.py
+    │   ├── run_preprocess.py
+    │   ├── run_ranking_mitra.py
+    │   ├── run_recommendation_event.py
+    │   └── run_weight_optimizer.py
+    │
     ├── docker-compose.yml
+    ├── .gitignore
     ├── .env.example
     ├── requirements.txt
     └── README.md
-
 
 ## 🚀 Quick Start
 
@@ -26,19 +70,49 @@ Sistem dirancang dengan arsitektur terpisah antara profil mitra (ML pipeline) da
    cd simitra-kaido-api
    ```
 2. **Aktifkan virtual environment dan install dependencies**
-    ```bash
-    python -m venv venv
-    source venv/bin/activate   # untuk macOS/Linux/WSL
-    # atau:
-    venv\Scripts\activate      # untuk Windows PowerShell
 
-    pip install -r requirements.txt
-    ```
+   ```bash
+   python -m venv venv
+   source venv/bin/activate   # untuk macOS/Linux/WSL
+   # atau:
+   venv\Scripts\activate      # untuk Windows PowerShell
+
+   pip install -r requirements.txt
+   ```
+
 3. **Copy Environment File**
-    ```bash
-    cp .env.example .env
-    ```
+   ```bash
+   cp .env.example .env
+   ```
 4. **Jalankan PostgreSQL menggunakan Docker**
-    ```bash
-    docker compose up -d --build
-    ```
+   ```bash
+   docker compose up -d --build
+   ```
+
+## 🔧 Troubleshooting (Windows)
+
+Jika Anda tidak dapat mengakses PostgreSQL karena port tertahan oleh service lokal atau tidak bisa menjalankan `docker compose down -v`, coba langkah berikut di Windows (jalankan terminal sebagai Administrator):
+
+1. Hentikan service PostgreSQL lokal (contoh nama service: postgresql-x64-17)
+
+```powershell
+net stop postgresql-x64-17
+# atau di PowerShell sebagai alternatif:
+Stop-Service -Name postgresql-x64-17 -Force
+```
+
+2. Periksa apakah port 5432 masih digunakan oleh proses lain
+
+```powershell
+netstat -ano | findstr 5432
+# hasil menampilkan PID proses yang memakai port 5432; gunakan Task Manager atau
+# `taskkill /PID <pid> /F` untuk menghentikannya bila perlu
+```
+
+3. Setelah memastikan port 5432 bebas, jalankan kembali Docker Compose
+
+```powershell
+docker compose up -d --build
+```
+
+Catatan: perintah `net stop`/`Stop-Service` akan menghentikan service PostgreSQL yang di-install secara native pada Windows. Gunakan pendekatan ini hanya jika Anda memang menjalankan instance Postgres lokal yang mengganggu kontainer Docker.
