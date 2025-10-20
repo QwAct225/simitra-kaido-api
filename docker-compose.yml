@@ -58,7 +58,7 @@ services:
       DB_HOST: postgres
       DB_PORT: 5432
     ports:
-      - "8000:8000"
+      - "8001:8000"
     volumes:
       - ./api:/app
       - ./.env:/app/.env:ro

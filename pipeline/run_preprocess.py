@@ -55,16 +55,37 @@ def run_preprocess(base_dir: str, mode: str = "overwrite"):
 
     def categorize_bagian(name, code=None):
         text = (str(name) + " " + str(code)).lower()
-        rumah_tangga = ["rumah tangga", "penduduk", "susenas", "seruti", "lnprt", "sak", "srtn", "podes"]
-        perusahaan = ["usaha", "perusahaan", "industri", "umkm", "perdagangan", "imk", "ibs", "spk", "spp", "sph", "spab"]
-        if any(k in text for k in rumah_tangga):
+        
+        rumah_tangga_keywords = [
+            "rumah tangga", "penduduk", "susenas", "seruti", "lnprt", "sak", 
+            "srtn", "podes", "sosial ekonomi nasional", "ketenagakerjaan nasional",
+            "ekonomi rumah tangga", "literasi", "inklusi keuangan", "snlik",
+            "kerangka sampel area", "ksa", "sklnprt"
+        ]
+        
+        perusahaan_keywords = [
+            "usaha", "perusahaan", "industri", "umkm", "perdagangan", "imk", "ibs", 
+            "spk", "spp", "sph", "spab", "konstruksi", "hotel", "akomodasi", "wisata",
+            "makanan minuman", "resto", "objek daya tarik", "dtw", "hts", "pbd", "pek",
+            "vrest", "vhtl", "vhts", "vpbd", "vpek", "vdtw", "spunp", "updating direktori",
+            "lembaga keuangan", "slk", "volume penjualan", "svpeb", "captive power", "scp",
+            "non migas", "snm", "hortikultura", "kehutanan", "peternakan", "harga produsen",
+            "shp", "harga perdagangan besar", "shpb", "harga kemahalan", "shkk", 
+            "triwulanan kegiatan usaha", "sktu", "sktnp", "pemotongan ternak", "lptb",
+            "ubinan", "harga konsumen", "shk", "neraca produksi", "pergudangan", "angkutan"
+        ]
+        
+        if any(keyword in text for keyword in rumah_tangga_keywords):
             return "Rumah Tangga"
-        if any(k in text for k in perusahaan):
+        
+        if any(keyword in text for keyword in perusahaan_keywords):
             return "Perusahaan"
-        return "Lainnya"
+        
+        return "Perusahaan"
 
     df_ms["type"] = df_ms.apply(lambda r: categorize_bagian(r["name"], r["code"]), axis=1)
-    df_ms = df_ms[df_ms["type"].isin(["Rumah Tangga", "Perusahaan"])].reset_index(drop=True)
+    
+    df_ms = df_ms.reset_index(drop=True)
     df_ms.to_csv(master_out_csv, index=False)
 
     def clean_df(path):
