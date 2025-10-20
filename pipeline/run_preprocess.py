@@ -28,18 +28,15 @@ def run_preprocess(base_dir: str, mode: str = "overwrite"):
     nilai_out_csv= make_paths("nilai1s")
 
     if os.environ.get("AIRFLOW_HOME"):
-        detected_host = "postgres"
-    elif platform.system().lower().startswith("windows"):
-        detected_host = "host.docker.internal"
+        detected_host = os.getenv("DB_HOST", "postgres")
     else:
-        detected_host = "127.0.0.1"
+        detected_host = os.getenv("DB_HOST", "127.0.0.1")
 
-    db_host = os.getenv("DB_HOST", detected_host)
     DB_CONFIG = {
         "dbname": os.getenv("DB_NAME"),
         "user": os.getenv("DB_USER"),
         "password": os.getenv("DB_PASS"),
-        "host": db_host,
+        "host": detected_host,
         "port": os.getenv("DB_PORT"),
     }
 
