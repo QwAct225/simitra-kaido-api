@@ -6,63 +6,119 @@ services:
     container_name: simitra_postgres
     restart: always
     environment:
-      POSTGRES_DB: ${DB_NAME}
-      POSTGRES_USER: ${DB_USER}
-      POSTGRES_PASSWORD: ${DB_PASS}
+      POSTGRES_DB: ${DB_NAME:-postgres}
+      POSTGRES_USER: ${DB_USER:-postgres}
+      POSTGRES_PASSWORD: ${DB_PASS:-postgres}
       POSTGRES_HOST_AUTH_METHOD: md5
     ports:
       - "5432:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
+      - ./sql/init-databases.sql:/docker-entrypoint-initdb.d/01-init-databases.sql:ro
+    networks:
+      - simitra_network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${DB_USER:-postgres}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
 
   airflow:
     image: apache/airflow:2.10.2
-    container_name: airflow
+    container_name: simitra_airflow
+    restart: always
     depends_on:
-      - postgres
+      postgres:
+        condition: service_healthy
     environment:
       AIRFLOW__CORE__EXECUTOR: LocalExecutor
       AIRFLOW__CORE__LOAD_EXAMPLES: "False"
-      AIRFLOW__CORE__SQL_ALCHEMY_CONN: postgresql+psycopg2://${DB_USER}:${DB_PASS}@postgres:5432/${DB_NAME}
+      AIRFLOW__CORE__DAGS_ARE_PAUSED_AT_CREATION: "False"
+      AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://${DB_USER:-postgres}:${DB_PASS:-postgres}@postgres:5432/airflow_metadata
+      AIRFLOW__WEBSERVER__AUTHENTICATE: "False"
+      AIRFLOW__WEBSERVER__AUTH_BACKEND: airflow.www.security.NoAuth
+      AIRFLOW__API__AUTH_BACKENDS: airflow.api.auth.backend.basic_auth
+      AIRFLOW__WEBSERVER__EXPOSE_CONFIG: "True"
+      AIRFLOW__WEBSERVER__SECRET_KEY: simitra-kaido-secret-key-2025
       PROJECT_BASE_DIR: /opt/airflow/project
-      AIRFLOW__WEBSERVER__RBAC: "True"
-      _PIP_ADDITIONAL_REQUIREMENTS: pandas psycopg2-binary python-dotenv scikit-learn
+      BASE_DIR: /opt/airflow/project
+      _PIP_ADDITIONAL_REQUIREMENTS: >
+        pandas==2.2.2
+        psycopg2-binary==2.9.9
+        python-dotenv==1.0.1
+        scikit-learn
+        numpy
+        requests==2.31.0
+        mysql-connector-python
+
+      DB_NAME: ${DB_NAME:-mitra_kaido}
+      DB_USER: ${DB_USER:-postgres}
+      DB_PASS: ${DB_PASS:-postgres}
+      DB_HOST: postgres
+      DB_PORT: 5432
+
+      LARAVEL_DB_HOST: ${LARAVEL_DB_HOST:-host.docker.internal}
+      LARAVEL_DB_PORT: ${LARAVEL_DB_PORT:-3306}
+      LARAVEL_DB_NAME: ${LARAVEL_DB_NAME:-kaido_kit}
+      LARAVEL_DB_USER: ${LARAVEL_DB_USER:-root}
+      LARAVEL_DB_PASS: ${LARAVEL_DB_PASS:-}
+
+      LARAVEL_API_URL: ${LARAVEL_API_URL:-http://host.docker.internal:8000}
+
     ports:
       - "8080:8080"
     volumes:
       - ./airflow/dags:/opt/airflow/dags
-      - ./airflow/plugins:/opt/airflow/plugins
-      - ./airflow/requirements.txt:/requirements.txt
-      - ./:/opt/airflow/project
+      - ./airflow/operators:/opt/airflow/operators
+      - ./airflow/webserver_config.py:/opt/airflow/webserver_config.py
+      - ./airflow/init-airflow.sh:/opt/airflow/init-airflow.sh
+      - ./airflow/requirements.txt:/opt/airflow/requirements.txt
       - ./.env:/opt/airflow/project/.env:ro
-    command: >
-      bash -c "
-      airflow db init &&
-      airflow users create --username admin --password admin --role Admin --firstname Naufal --lastname Zhafran --email admin@example.com &&
-      airflow webserver &
-      airflow scheduler
-      "
-    restart: always
+    command: bash /opt/airflow/init-airflow.sh
+    networks:
+      - simitra_network
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
 
   api:
     build:
       context: .
       dockerfile: ./api/Dockerfile
     container_name: simitra_api
+    restart: always
     depends_on:
-      - postgres
+      postgres:
+        condition: service_healthy
     environment:
-      DB_NAME: ${DB_NAME}
-      DB_USER: ${DB_USER}
-      DB_PASS: ${DB_PASS}
+      DB_NAME: ${DB_NAME:-mitra_kaido}
+      DB_USER: ${DB_USER:-postgres}
+      DB_PASS: ${DB_PASS:-postgres}
       DB_HOST: postgres
       DB_PORT: 5432
+      AIRFLOW_URL: http://airflow:8080
+      AIRFLOW_USERNAME: ""
+      AIRFLOW_PASSWORD: ""
+      LARAVEL_API_URL: ${LARAVEL_API_URL:-http://host.docker.internal:8000}
+
+      LARAVEL_DB_HOST: ${LARAVEL_DB_HOST:-host.docker.internal}
+      LARAVEL_DB_PORT: ${LARAVEL_DB_PORT:-3306}
+      LARAVEL_DB_NAME: ${LARAVEL_DB_NAME:-kaido_kit}
+      LARAVEL_DB_USER: ${LARAVEL_DB_USER:-root}
+      LARAVEL_DB_PASS: ${LARAVEL_DB_PASS:-}
     ports:
       - "8001:8000"
     volumes:
       - ./api:/app
       - ./.env:/app/.env:ro
     command: uvicorn main:app --host 0.0.0.0 --port 8000 --reload
+    networks:
+      - simitra_network
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
 
 volumes:
   postgres_data:
+
+networks:
+  simitra_network:
+    driver: bridge

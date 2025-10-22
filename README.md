@@ -65,29 +65,53 @@ Sistem dirancang dengan arsitektur terpisah antara profil mitra (ML pipeline) da
 ## 🚀 Quick Start
 
 1. **Clone repository ini**
+
    ```bash
    git clone https://github.com/namamu/simitra-kaido-api.git
    cd simitra-kaido-api
    ```
-2. **Aktifkan virtual environment dan install dependencies**
 
-   ```bash
-   python -m venv venv
-   source venv/bin/activate   # untuk macOS/Linux/WSL
-   # atau:
-   venv\Scripts\activate      # untuk Windows PowerShell
+2. **Copy Environment File**
 
-   pip install -r requirements.txt
-   ```
-
-3. **Copy Environment File**
    ```bash
    cp .env.example .env
    ```
-4. **Jalankan PostgreSQL menggunakan Docker**
+
+3. **Start Docker Containers**
+
    ```bash
-   docker compose up -d --build
+   docker-compose up -d --build
    ```
+
+   **📊 Database akan otomatis dibuat:**
+
+   - `airflow_metadata` - Airflow internal database (WAJIB!)
+   - `mitra_kaido` - ML results database
+
+   > 💡 **Untuk developer baru**: Lihat [Database Setup Guide](docs/DATABASE_SETUP.md) untuk troubleshooting
+
+4. **Tunggu ~30 detik untuk initialization**
+
+5. **Verifikasi services running:**
+
+   ```bash
+   docker-compose ps
+   ```
+
+   Expected:
+
+   - ✅ `simitra_postgres` - Up (healthy)
+   - ✅ `simitra_airflow` - Up (port 8080)
+   - ✅ `simitra_api` - Up (port 8001)
+
+6. **Access services:**
+   - Airflow UI: http://localhost:8080
+   - API Docs: http://localhost:8001/docs
+
+## 📚 Documentation
+
+- [Database Setup Guide](docs/DATABASE_SETUP.md) - PostgreSQL setup & troubleshooting
+- [Architecture Overview](ARCHITECTURE_FINAL.md) - System architecture & ML pipeline
 
 ## 🔧 Troubleshooting (Windows)
 

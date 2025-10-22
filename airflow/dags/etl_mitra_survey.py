@@ -9,17 +9,47 @@ from pipeline.run_ingest import run_ingest
 from pipeline.run_preprocess import run_preprocess
 from pipeline.run_feature_engineering import run_feature_engineering
 from pipeline.run_ranking_mitra import run_fuzzy_cbf
-from pipeline.run_weight_optimizer import weight_optimizer
-from pipeline.run_recommendation_event import run_recommendation_event
+from pipeline.run_weight_optimizer import weight_optimizer, merge_pso_results
+from pipeline.run_experience_aggregation import aggregate_experience
 
 BASE_DIR = "/opt/airflow/project"
+
+def optimize_weight_rumah_tangga():
+    """
+    Run PSO optimization for Rumah Tangga survey type only
+    """
+    print("🏠 Starting PSO optimization for Rumah Tangga...")
+    return weight_optimizer(BASE_DIR, survey_type="rumah_tangga")
+
+def optimize_weight_perusahaan():
+    """
+    Run PSO optimization for Perusahaan survey type only
+    """
+    print("🏢 Starting PSO optimization for Perusahaan...")
+    return weight_optimizer(BASE_DIR, survey_type="perusahaan")
+
+def merge_pso_outputs():
+    """
+    Merge individual PSO result files into combined file and upload to PostgreSQL
+    """
+    print("🔗 Merging PSO results...")
+    return merge_pso_results(BASE_DIR)
+
+def aggregate_experience_recommendations():
+    """
+    Aggregate ML ratings with historical performance & experience
+    Generate final recommendations with combined scoring
+    """
+    print("📊 Starting experience aggregation...")
+    return aggregate_experience(BASE_DIR)
 
 with DAG(
     dag_id="master_mitra_survey",
     start_date=datetime(2025, 10, 14),
     schedule_interval=None,
     catchup=False,
-    tags=["ETL", "Recommedation", "Linguistic", "CBF", "PSO", "Ranking", "SurveyEvent"],
+    tags=["ETL", "ML-Training", "Linguistic", "CBF", "PSO", "Dual-Model", "Experience"],
+    description="ML Training Pipeline - Generates 2 models + Experience-based recommendations",
 ) as dag:
 
     ingest = PythonOperator(
@@ -46,16 +76,24 @@ with DAG(
         op_kwargs={"base_dir": BASE_DIR},
     )
 
-    optimize_weight = PythonOperator(
-        task_id="optimize_weights",
-        python_callable=weight_optimizer,
-        op_kwargs={"base_dir": BASE_DIR},
+    optimize_weight_rt = PythonOperator(
+        task_id="optimize_weight_rumah_tangga",
+        python_callable=optimize_weight_rumah_tangga,
     )
 
-    recommend_survey_mitra = PythonOperator(
-        task_id="generate_survey_recommendation",
-        python_callable=run_recommendation_event,
-        op_kwargs={"base_dir": BASE_DIR},
+    optimize_weight_pr = PythonOperator(
+        task_id="optimize_weight_perusahaan",
+        python_callable=optimize_weight_perusahaan,
     )
 
-    ingest >> preprocess >> feature_engineering >> fuzzy_cbf >> optimize_weight >> recommend_survey_mitra
+    merge_pso_task = PythonOperator(
+        task_id="merge_pso_results",
+        python_callable=merge_pso_outputs,
+    )
+
+    aggregate_experience_task = PythonOperator(
+        task_id="aggregate_experience",
+        python_callable=aggregate_experience_recommendations,
+    )
+
+    ingest >> preprocess >> feature_engineering >> fuzzy_cbf >> [optimize_weight_rt, optimize_weight_pr] >> merge_pso_task >> aggregate_experience_task
