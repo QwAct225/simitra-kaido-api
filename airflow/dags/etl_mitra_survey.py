@@ -4,15 +4,16 @@ from datetime import datetime
 from airflow import DAG
 from airflow.operators.python import PythonOperator
 
-sys.path.append(os.path.join(os.path.dirname(__file__), "../project"))
+BASE_DIR = "/opt/airflow/project"
+if BASE_DIR not in sys.path:
+    sys.path.insert(0, BASE_DIR)
+
 from pipeline.run_ingest import run_ingest
 from pipeline.run_preprocess import run_preprocess
 from pipeline.run_feature_engineering import run_feature_engineering
 from pipeline.run_ranking_mitra import run_fuzzy_cbf
 from pipeline.run_weight_optimizer import weight_optimizer, merge_pso_results
 from pipeline.run_experience_aggregation import aggregate_experience
-
-BASE_DIR = "/opt/airflow/project"
 
 def optimize_weight_rumah_tangga():
     """

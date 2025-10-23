@@ -88,8 +88,6 @@ Sistem dirancang dengan arsitektur terpisah antara profil mitra (ML pipeline) da
    - `airflow_metadata` - Airflow internal database (WAJIB!)
    - `mitra_kaido` - ML results database
 
-   > 💡 **Untuk developer baru**: Lihat [Database Setup Guide](docs/DATABASE_SETUP.md) untuk troubleshooting
-
 4. **Tunggu ~30 detik untuk initialization**
 
 5. **Verifikasi services running:**
@@ -108,10 +106,6 @@ Sistem dirancang dengan arsitektur terpisah antara profil mitra (ML pipeline) da
    - Airflow UI: http://localhost:8080
    - API Docs: http://localhost:8001/docs
 
-## 📚 Documentation
-
-- [Database Setup Guide](docs/DATABASE_SETUP.md) - PostgreSQL setup & troubleshooting
-- [Architecture Overview](ARCHITECTURE_FINAL.md) - System architecture & ML pipeline
 
 ## 🔧 Troubleshooting (Windows)
 
@@ -123,6 +117,11 @@ Jika Anda tidak dapat mengakses PostgreSQL karena port tertahan oleh service lok
 net stop postgresql-x64-17
 # atau di PowerShell sebagai alternatif:
 Stop-Service -Name postgresql-x64-17 -Force
+
+# gunakan Linux environtment untuk mematikan mendalam
+sudo service postgresql stop
+
+sudo systemctl disable postgres
 ```
 
 2. Periksa apakah port 5432 masih digunakan oleh proses lain
@@ -133,10 +132,18 @@ netstat -ano | findstr 5432
 # `taskkill /PID <pid> /F` untuk menghentikannya bila perlu
 ```
 
-3. Setelah memastikan port 5432 bebas, jalankan kembali Docker Compose
+3. Lakukan clean up docker postgres volume
+
+```
+docker-compose down
+
+docker volume rm simitra-kaido-api_postgres_data
+```
+
+4. Setelah memastikan port 5432 bebas, jalankan kembali Docker Compose
 
 ```powershell
-docker compose up -d --build
+docker-compose up -d
 ```
 
 Catatan: perintah `net stop`/`Stop-Service` akan menghentikan service PostgreSQL yang di-install secara native pada Windows. Gunakan pendekatan ini hanya jika Anda memang menjalankan instance Postgres lokal yang mengganggu kontainer Docker.

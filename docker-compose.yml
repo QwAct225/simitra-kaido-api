@@ -10,6 +10,7 @@ services:
       POSTGRES_USER: ${DB_USER:-postgres}
       POSTGRES_PASSWORD: ${DB_PASS:-postgres}
       POSTGRES_HOST_AUTH_METHOD: md5
+      PGDATA: /var/lib/postgresql/data/pgdata
     ports:
       - "5432:5432"
     volumes:
@@ -18,10 +19,12 @@ services:
     networks:
       - simitra_network
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U ${DB_USER:-postgres}"]
+      test: ["CMD-SHELL", "pg_isready -U ${DB_USER:-postgres} -h localhost"]
       interval: 10s
       timeout: 5s
       retries: 5
+    stop_grace_period: 30s
+    stop_signal: SIGTERM
 
   airflow:
     image: apache/airflow:2.10.2
@@ -74,6 +77,8 @@ services:
       - ./airflow/init-airflow.sh:/opt/airflow/init-airflow.sh
       - ./airflow/requirements.txt:/opt/airflow/requirements.txt
       - ./.env:/opt/airflow/project/.env:ro
+      - ./pipeline:/opt/airflow/project/pipeline
+      - ./data:/opt/airflow/project/data
     command: bash /opt/airflow/init-airflow.sh
     networks:
       - simitra_network
