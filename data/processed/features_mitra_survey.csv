@@ -141,3 +141,580 @@ mitra_ID,mitra_name,mitra_gender,mitra_age,survey_ID,survey_type
 49,Aulia Rachman,Perempuan,55,30,Rumah Tangga
 50,Catur Sandy Cahyono,Perempuan,55,30,Rumah Tangga
 51,Feri Achmad Ardiansyah,Perempuan,25,30,Rumah Tangga
+5,Shindy Ayu Widyaswara,Perempuan,32,31,Rumah Tangga
+10,Dessy Anggrainy,Perempuan,38,31,Rumah Tangga
+2,Emman Suparji,Perempuan,44,31,Rumah Tangga
+15,Riyono,Perempuan,46,31,Rumah Tangga
+17,Mila Nurjana,Perempuan,40,31,Rumah Tangga
+47,ALFIATUL KHAMIMAH,Perempuan,37,31,Rumah Tangga
+4,Didiet Ananto Widodo,Perempuan,61,31,Rumah Tangga
+6,Hilda Seskowati,Perempuan,34,31,Rumah Tangga
+12,TITIEK TRISOESILOWATI,Perempuan,55,31,Rumah Tangga
+13,IKE MARDIANA SADIYAH,Perempuan,53,31,Rumah Tangga
+7,Zulfian Arif,Perempuan,57,31,Rumah Tangga
+8,Arif Hambali,Perempuan,42,31,Rumah Tangga
+5,Shindy Ayu Widyaswara,Perempuan,32,32,Perusahaan
+6,Hilda Seskowati,Perempuan,34,32,Perusahaan
+13,IKE MARDIANA SADIYAH,Perempuan,53,32,Perusahaan
+52,Ariesta Putri Sayekti,Perempuan,55,32,Perusahaan
+16,Ardhea Citra Dhamayanty,Perempuan,28,33,Perusahaan
+17,Mila Nurjana,Perempuan,40,33,Perusahaan
+21,Indah Wahyuningsih,Perempuan,55,33,Perusahaan
+2,Emman Suparji,Perempuan,44,34,Perusahaan
+12,TITIEK TRISOESILOWATI,Perempuan,55,34,Perusahaan
+7,Zulfian Arif,Perempuan,57,34,Perusahaan
+5,Shindy Ayu Widyaswara,Perempuan,32,35,Perusahaan
+2,Emman Suparji,Perempuan,44,35,Perusahaan
+3,SONNA ASDINATA,Perempuan,43,35,Perusahaan
+4,Didiet Ananto Widodo,Perempuan,61,35,Perusahaan
+6,Hilda Seskowati,Perempuan,34,35,Perusahaan
+1,SUTARTI YUNI ASTUTIK,Perempuan,55,35,Perusahaan
+7,Zulfian Arif,Perempuan,57,35,Perusahaan
+8,Arif Hambali,Perempuan,42,35,Perusahaan
+9,Tri Wahyu Utomo,Perempuan,55,35,Perusahaan
+16,Ardhea Citra Dhamayanty,Perempuan,28,36,Perusahaan
+17,Mila Nurjana,Perempuan,40,36,Perusahaan
+18,Ila Nur Chasanah,Perempuan,55,36,Perusahaan
+19,Khoirunisa Sukma Hadi,Perempuan,55,36,Perusahaan
+21,Indah Wahyuningsih,Perempuan,55,36,Perusahaan
+22,Sharon Mahar Tanjung,Perempuan,55,36,Perusahaan
+2,Emman Suparji,Perempuan,44,37,Perusahaan
+15,Riyono,Perempuan,46,37,Perusahaan
+4,Didiet Ananto Widodo,Perempuan,61,37,Perusahaan
+23,Arry Puspitasari,Perempuan,55,37,Perusahaan
+11,KUSMILAH,Perempuan,52,37,Perusahaan
+12,TITIEK TRISOESILOWATI,Perempuan,55,37,Perusahaan
+7,Zulfian Arif,Perempuan,57,37,Perusahaan
+2,Emman Suparji,Perempuan,44,38,Perusahaan
+4,Didiet Ananto Widodo,Perempuan,61,38,Perusahaan
+1,SUTARTI YUNI ASTUTIK,Perempuan,55,38,Perusahaan
+12,TITIEK TRISOESILOWATI,Perempuan,55,38,Perusahaan
+7,Zulfian Arif,Perempuan,57,38,Perusahaan
+21,Indah Wahyuningsih,Perempuan,55,38,Perusahaan
+16,Ardhea Citra Dhamayanty,Perempuan,28,39,Perusahaan
+17,Mila Nurjana,Perempuan,40,39,Perusahaan
+18,Ila Nur Chasanah,Perempuan,55,39,Perusahaan
+19,Khoirunisa Sukma Hadi,Perempuan,55,39,Perusahaan
+20,Yessy Tri Hardiyanti,Perempuan,55,39,Perusahaan
+21,Indah Wahyuningsih,Perempuan,55,39,Perusahaan
+22,Sharon Mahar Tanjung,Perempuan,55,39,Perusahaan
+2,Emman Suparji,Perempuan,44,40,Rumah Tangga
+24,Rujiyani,Perempuan,53,40,Rumah Tangga
+40,TEJO WIRAWAN,Perempuan,55,40,Rumah Tangga
+26,Puji Rahayu,Perempuan,48,40,Rumah Tangga
+27,Era Dhani Restari,Perempuan,49,40,Rumah Tangga
+28,ROOS PANDAN WANGI(WIWIN,Unknown,0,40,Rumah Tangga
+29,Farida Achadyah,Perempuan,55,40,Rumah Tangga
+30,Aris Sugiarti,Perempuan,55,40,Rumah Tangga
+23,Arry Puspitasari,Perempuan,55,40,Rumah Tangga
+32,Rodiyah,Perempuan,55,40,Rumah Tangga
+33,Dewi Ayu Indriani,Perempuan,43,40,Rumah Tangga
+25,Theresiana Septioningrum,Perempuan,55,40,Rumah Tangga
+34,HERTIN SULISTYO RINI,Perempuan,46,40,Rumah Tangga
+53,Devita Aprilia Purwitasari,Perempuan,27,40,Rumah Tangga
+54,Retno Herawati,Perempuan,30,40,Rumah Tangga
+55,Wiwik Ambarwati,Perempuan,35,40,Rumah Tangga
+56,YULIATI,Perempuan,55,40,Rumah Tangga
+57,MIFTAKHUL HIDAYAH,Perempuan,49,40,Rumah Tangga
+58,Dian Falah Fitriyana,Perempuan,33,40,Rumah Tangga
+59,SRI WILUJENG,Perempuan,47,40,Rumah Tangga
+60,Sekar Widiasmara,Perempuan,37,40,Rumah Tangga
+61,Orlin Tiara Oktavia Purnama,Perempuan,26,40,Rumah Tangga
+62,Sulastri Ningsih,Perempuan,44,40,Rumah Tangga
+63,Suhariyanti,Perempuan,39,40,Rumah Tangga
+64,Anis Zauzzaenah,Perempuan,55,40,Rumah Tangga
+65,Ninik Wahyuni,Perempuan,47,40,Rumah Tangga
+66,Anggraeni Istanti,Perempuan,48,40,Rumah Tangga
+67,FITRI HIDAYATI,Perempuan,46,40,Rumah Tangga
+68,MARISA RAHMAWATI,Perempuan,55,40,Rumah Tangga
+38,Juwariyah,Perempuan,55,41,Rumah Tangga
+26,Puji Rahayu,Perempuan,48,41,Rumah Tangga
+27,Era Dhani Restari,Perempuan,49,41,Rumah Tangga
+48,Arinda Putri Dewi,Perempuan,32,41,Rumah Tangga
+28,ROOS PANDAN WANGI(WIWIN,Unknown,0,41,Rumah Tangga
+62,Sulastri Ningsih,Perempuan,44,41,Rumah Tangga
+30,Aris Sugiarti,Perempuan,55,41,Rumah Tangga
+31,YUNIAR PANDANSARI,Perempuan,58,41,Rumah Tangga
+23,Arry Puspitasari,Perempuan,55,41,Rumah Tangga
+1,SUTARTI YUNI ASTUTIK,Perempuan,55,41,Rumah Tangga
+32,Rodiyah,Perempuan,55,41,Rumah Tangga
+33,Dewi Ayu Indriani,Perempuan,43,41,Rumah Tangga
+66,Anggraeni Istanti,Perempuan,48,41,Rumah Tangga
+55,Wiwik Ambarwati,Perempuan,35,41,Rumah Tangga
+25,Theresiana Septioningrum,Perempuan,55,41,Rumah Tangga
+34,HERTIN SULISTYO RINI,Perempuan,46,41,Rumah Tangga
+69,YENI MILAWATI,Perempuan,49,41,Rumah Tangga
+70,NINA YULIANA PRIYATININGSIH,Perempuan,41,41,Rumah Tangga
+71,Eddy Subagio,Perempuan,55,41,Rumah Tangga
+72,Lilis Sunarmi,Perempuan,44,41,Rumah Tangga
+73,Diana Christanty Handayani,Perempuan,53,41,Rumah Tangga
+46,TALITHA ALIFAH,Perempuan,55,42,Rumah Tangga
+58,Dian Falah Fitriyana,Perempuan,33,42,Rumah Tangga
+59,SRI WILUJENG,Perempuan,47,42,Rumah Tangga
+38,Juwariyah,Perempuan,55,42,Rumah Tangga
+61,Orlin Tiara Oktavia Purnama,Perempuan,26,42,Rumah Tangga
+15,Riyono,Perempuan,46,42,Rumah Tangga
+47,ALFIATUL KHAMIMAH,Perempuan,37,42,Rumah Tangga
+48,Arinda Putri Dewi,Perempuan,32,42,Rumah Tangga
+72,Lilis Sunarmi,Perempuan,44,42,Rumah Tangga
+53,Devita Aprilia Purwitasari,Perempuan,27,42,Rumah Tangga
+63,Suhariyanti,Perempuan,39,42,Rumah Tangga
+73,Diana Christanty Handayani,Perempuan,53,42,Rumah Tangga
+64,Anis Zauzzaenah,Perempuan,55,42,Rumah Tangga
+54,Retno Herawati,Perempuan,30,42,Rumah Tangga
+1,SUTARTI YUNI ASTUTIK,Perempuan,55,42,Rumah Tangga
+57,MIFTAKHUL HIDAYAH,Perempuan,49,42,Rumah Tangga
+69,YENI MILAWATI,Perempuan,49,42,Rumah Tangga
+65,Ninik Wahyuni,Perempuan,47,42,Rumah Tangga
+70,NINA YULIANA PRIYATININGSIH,Perempuan,41,42,Rumah Tangga
+71,Eddy Subagio,Perempuan,55,42,Rumah Tangga
+66,Anggraeni Istanti,Perempuan,48,42,Rumah Tangga
+67,FITRI HIDAYATI,Perempuan,46,42,Rumah Tangga
+74,Windy Arum Ningtyas,Perempuan,55,42,Rumah Tangga
+68,MARISA RAHMAWATI,Perempuan,55,42,Rumah Tangga
+75,SRI HARTINI,Perempuan,55,42,Rumah Tangga
+76,SRI HARTATIK,Perempuan,55,42,Rumah Tangga
+77,Sri mutini,Perempuan,55,42,Rumah Tangga
+78,Enis Dwi Sri Wahyuni,Perempuan,37,42,Rumah Tangga
+38,Juwariyah,Perempuan,55,43,Rumah Tangga
+26,Puji Rahayu,Perempuan,48,43,Rumah Tangga
+27,Era Dhani Restari,Perempuan,49,43,Rumah Tangga
+48,Arinda Putri Dewi,Perempuan,32,43,Rumah Tangga
+28,ROOS PANDAN WANGI(WIWIN,Unknown,0,43,Rumah Tangga
+62,Sulastri Ningsih,Perempuan,44,43,Rumah Tangga
+72,Lilis Sunarmi,Perempuan,44,43,Rumah Tangga
+30,Aris Sugiarti,Perempuan,55,43,Rumah Tangga
+31,YUNIAR PANDANSARI,Perempuan,58,43,Rumah Tangga
+23,Arry Puspitasari,Perempuan,55,43,Rumah Tangga
+73,Diana Christanty Handayani,Perempuan,53,43,Rumah Tangga
+1,SUTARTI YUNI ASTUTIK,Perempuan,55,43,Rumah Tangga
+69,YENI MILAWATI,Perempuan,49,43,Rumah Tangga
+70,NINA YULIANA PRIYATININGSIH,Perempuan,41,43,Rumah Tangga
+32,Rodiyah,Perempuan,55,43,Rumah Tangga
+33,Dewi Ayu Indriani,Perempuan,43,43,Rumah Tangga
+71,Eddy Subagio,Perempuan,55,43,Rumah Tangga
+66,Anggraeni Istanti,Perempuan,48,43,Rumah Tangga
+55,Wiwik Ambarwati,Perempuan,35,43,Rumah Tangga
+25,Theresiana Septioningrum,Perempuan,55,43,Rumah Tangga
+34,HERTIN SULISTYO RINI,Perempuan,46,43,Rumah Tangga
+36,HENI KUSUMAWATI,Perempuan,55,44,Perusahaan
+59,SRI WILUJENG,Perempuan,47,45,Perusahaan
+2,Emman Suparji,Perempuan,44,45,Perusahaan
+39,Muhammad Handy Rizki Prasetyo,Perempuan,55,45,Perusahaan
+24,Rujiyani,Perempuan,53,45,Perusahaan
+40,TEJO WIRAWAN,Perempuan,55,45,Perusahaan
+41,Agus Dwi Prasetyo,Perempuan,55,45,Perusahaan
+42,Fenny Gunawan,Perempuan,55,45,Perusahaan
+62,Sulastri Ningsih,Perempuan,44,45,Perusahaan
+31,YUNIAR PANDANSARI,Perempuan,58,45,Perusahaan
+11,KUSMILAH,Perempuan,52,45,Perusahaan
+12,TITIEK TRISOESILOWATI,Perempuan,55,45,Perusahaan
+43,ERNAWATI,Perempuan,55,45,Perusahaan
+35,Eka Astuti,Perempuan,55,45,Perusahaan
+45,Nurfuady Rafi Alfauznursy,Perempuan,55,45,Perusahaan
+79,Selina Fathriska Ramadani,Perempuan,55,45,Perusahaan
+80,Alifionita Nur Hikmaningtyas,Perempuan,55,45,Perusahaan
+81,LULIS RAHAYUNINGSIH,Perempuan,55,45,Perusahaan
+82,Atik Mujiati,Perempuan,51,45,Perusahaan
+83,Dewi Agustiningrum,Perempuan,48,45,Perusahaan
+38,Juwariyah,Perempuan,55,46,Perusahaan
+39,Muhammad Handy Rizki Prasetyo,Perempuan,55,46,Perusahaan
+24,Rujiyani,Perempuan,53,46,Perusahaan
+40,TEJO WIRAWAN,Perempuan,55,46,Perusahaan
+41,Agus Dwi Prasetyo,Perempuan,55,46,Perusahaan
+42,Fenny Gunawan,Perempuan,55,46,Perusahaan
+12,TITIEK TRISOESILOWATI,Perempuan,55,46,Perusahaan
+43,ERNAWATI,Perempuan,55,46,Perusahaan
+36,HENI KUSUMAWATI,Perempuan,55,46,Perusahaan
+44,Maulid Diyah Kholis Saputri,Perempuan,55,46,Perusahaan
+11,KUSMILAH,Perempuan,52,47,Rumah Tangga
+43,ERNAWATI,Perempuan,55,47,Rumah Tangga
+35,Eka Astuti,Perempuan,55,47,Rumah Tangga
+37,Dicky Ramadhan,Perempuan,55,47,Rumah Tangga
+36,HENI KUSUMAWATI,Perempuan,55,47,Rumah Tangga
+45,Nurfuady Rafi Alfauznursy,Perempuan,55,48,Perusahaan
+44,Maulid Diyah Kholis Saputri,Perempuan,55,49,Perusahaan
+84,Rike indarwati,Perempuan,38,49,Perusahaan
+11,KUSMILAH,Perempuan,52,50,Perusahaan
+43,ERNAWATI,Perempuan,55,50,Perusahaan
+35,Eka Astuti,Perempuan,55,50,Perusahaan
+37,Dicky Ramadhan,Perempuan,55,50,Perusahaan
+38,Juwariyah,Perempuan,55,51,Rumah Tangga
+47,ALFIATUL KHAMIMAH,Perempuan,37,51,Rumah Tangga
+48,Arinda Putri Dewi,Perempuan,32,51,Rumah Tangga
+71,Eddy Subagio,Perempuan,55,51,Rumah Tangga
+12,TITIEK TRISOESILOWATI,Perempuan,55,52,Rumah Tangga
+1,SUTARTI YUNI ASTUTIK,Perempuan,55,53,Rumah Tangga
+13,IKE MARDIANA SADIYAH,Perempuan,53,53,Rumah Tangga
+25,Theresiana Septioningrum,Perempuan,55,53,Rumah Tangga
+1,SUTARTI YUNI ASTUTIK,Perempuan,55,54,Perusahaan
+11,KUSMILAH,Perempuan,52,54,Perusahaan
+12,TITIEK TRISOESILOWATI,Perempuan,55,54,Perusahaan
+13,IKE MARDIANA SADIYAH,Perempuan,53,54,Perusahaan
+25,Theresiana Septioningrum,Perempuan,55,54,Perusahaan
+85,Eni Widiarti,Perempuan,52,54,Perusahaan
+46,TALITHA ALIFAH,Perempuan,55,55,Perusahaan
+10,Dessy Anggrainy,Perempuan,38,55,Perusahaan
+47,ALFIATUL KHAMIMAH,Perempuan,37,55,Perusahaan
+48,Arinda Putri Dewi,Perempuan,32,55,Perusahaan
+35,Eka Astuti,Perempuan,55,55,Perusahaan
+86,Fitriatin Yulaikah,Perempuan,42,56,Rumah Tangga
+87,Mila Amalia Damayanti,Perempuan,0,56,Rumah Tangga
+88,Ani koirunisak,Perempuan,36,56,Rumah Tangga
+14,Muhammad Jehan Rabbani,Perempuan,20,56,Rumah Tangga
+89,Dimas Zainul Umar Fahri,Perempuan,55,56,Rumah Tangga
+90,Indah Wulandari,Perempuan,30,56,Rumah Tangga
+91,Oria Arda Bella,Perempuan,43,56,Rumah Tangga
+92,Zulfikar Rifqi,Perempuan,33,56,Rumah Tangga
+93,Saiful arif,Perempuan,55,56,Rumah Tangga
+5,Shindy Ayu Widyaswara,Perempuan,32,56,Rumah Tangga
+94,Lidya Pradina Ayuningtyas,Perempuan,40,56,Rumah Tangga
+95,Yulli Handayani,Perempuan,44,56,Rumah Tangga
+96,Indrawati,Perempuan,55,56,Rumah Tangga
+97,Arvina,Perempuan,55,56,Rumah Tangga
+98,Rr. Nanien Setyaningsih,Perempuan,55,56,Rumah Tangga
+99,Titania Franciska Dewi,Perempuan,27,56,Rumah Tangga
+100,Purwatiningsih,Perempuan,55,56,Rumah Tangga
+101,Sofyan S.Ap,Perempuan,44,56,Rumah Tangga
+102,Adi Khisbul Wathon,Perempuan,55,56,Rumah Tangga
+10,Dessy Anggrainy,Perempuan,38,56,Rumah Tangga
+103,Novi Inisyahika,Perempuan,55,56,Rumah Tangga
+104,Sugeng Hari Priyanto,Perempuan,55,56,Rumah Tangga
+39,Muhammad Handy Rizki Prasetyo,Perempuan,55,56,Rumah Tangga
+105,Siti Cholifah,Perempuan,58,56,Rumah Tangga
+3,SONNA ASDINATA,Perempuan,43,56,Rumah Tangga
+106,Rusmiana,Perempuan,55,56,Rumah Tangga
+107,Dian Purwanti,Perempuan,34,56,Rumah Tangga
+80,Alifionita Nur Hikmaningtyas,Perempuan,55,56,Rumah Tangga
+108,M. Hafizh Al Hanif SE.,Perempuan,55,56,Rumah Tangga
+109,Rani Karlina,Perempuan,55,56,Rumah Tangga
+110,HERDYAN APRIANTO,Perempuan,55,56,Rumah Tangga
+111,SUNARSIH,Perempuan,55,56,Rumah Tangga
+41,Agus Dwi Prasetyo,Perempuan,55,56,Rumah Tangga
+112,Novi mahmudah lailatus stani,Perempuan,55,56,Rumah Tangga
+113,Elly Herlinda,Perempuan,55,56,Rumah Tangga
+114,DZIKRI MUDHOFAR,Perempuan,0,56,Rumah Tangga
+49,Aulia Rachman,Perempuan,55,56,Rumah Tangga
+115,Erlin Prasetyowati,Perempuan,55,56,Rumah Tangga
+116,Sri Indrayani,Perempuan,40,56,Rumah Tangga
+117,Ratrin blester linata,Perempuan,34,56,Rumah Tangga
+16,Ardhea Citra Dhamayanty,Perempuan,28,56,Rumah Tangga
+17,Mila Nurjana,Perempuan,40,56,Rumah Tangga
+42,Fenny Gunawan,Perempuan,55,56,Rumah Tangga
+18,Ila Nur Chasanah,Perempuan,55,56,Rumah Tangga
+118,Kartika Dwi Ariyani,Perempuan,55,56,Rumah Tangga
+4,Didiet Ananto Widodo,Perempuan,61,56,Rumah Tangga
+119,Aisni Nurul Rochmah,Perempuan,55,56,Rumah Tangga
+52,Ariesta Putri Sayekti,Perempuan,55,56,Rumah Tangga
+120,Irfan Santosa,Perempuan,40,56,Rumah Tangga
+121,Rakryan Shelbidilla,Perempuan,0,56,Rumah Tangga
+122,MUSLIHIN,Perempuan,51,56,Rumah Tangga
+123,VANNI PUJI HERMAWATI,Perempuan,55,56,Rumah Tangga
+124,Azizah,Perempuan,55,56,Rumah Tangga
+6,Hilda Seskowati,Perempuan,34,56,Rumah Tangga
+125,Wahyu Ika Setyaningsih,Perempuan,55,56,Rumah Tangga
+73,Diana Christanty Handayani,Perempuan,53,56,Rumah Tangga
+126,Titik Indrawati,Perempuan,45,56,Rumah Tangga
+127,FATCHIYAH SE,Perempuan,55,56,Rumah Tangga
+11,KUSMILAH,Perempuan,52,56,Rumah Tangga
+12,TITIEK TRISOESILOWATI,Perempuan,55,56,Rumah Tangga
+81,LULIS RAHAYUNINGSIH,Perempuan,55,56,Rumah Tangga
+128,Chiqmatus Sania,Perempuan,55,56,Rumah Tangga
+129,FEMMY FIRMAN WIGATI,Perempuan,55,56,Rumah Tangga
+43,ERNAWATI,Perempuan,55,56,Rumah Tangga
+82,Atik Mujiati,Perempuan,51,56,Rumah Tangga
+130,RIZCHA VERDA AMARILLO,Perempuan,0,56,Rumah Tangga
+75,SRI HARTINI,Perempuan,55,56,Rumah Tangga
+35,Eka Astuti,Perempuan,55,56,Rumah Tangga
+131,Atik purwati,Perempuan,55,56,Rumah Tangga
+132,Tri Wahyuni,Perempuan,47,56,Rumah Tangga
+133,Bella Novanda,Perempuan,55,56,Rumah Tangga
+134,Moh Agus Romadhoni,Perempuan,45,56,Rumah Tangga
+135,Yusnia Rizky Amalia,Perempuan,37,56,Rumah Tangga
+13,IKE MARDIANA SADIYAH,Perempuan,53,56,Rumah Tangga
+7,Zulfian Arif,Perempuan,57,56,Rumah Tangga
+76,SRI HARTATIK,Perempuan,55,56,Rumah Tangga
+136,Hanik mashuda,Perempuan,55,56,Rumah Tangga
+137,Hanang Asmuntoro,Perempuan,55,56,Rumah Tangga
+138,Puryadi,Perempuan,51,56,Rumah Tangga
+139,AL AMIN BAYU MUSTIKA,Perempuan,55,56,Rumah Tangga
+36,HENI KUSUMAWATI,Perempuan,55,56,Rumah Tangga
+21,Indah Wahyuningsih,Perempuan,55,56,Rumah Tangga
+140,Risky Fajar Afrianto,Perempuan,55,56,Rumah Tangga
+85,Eni Widiarti,Perempuan,52,56,Rumah Tangga
+141,Rinil Indarti,Perempuan,58,56,Rumah Tangga
+142,Amin Yuli Astuti,Perempuan,44,56,Rumah Tangga
+143,SUGIANTO,Perempuan,55,56,Rumah Tangga
+144,Anik Hidayati,Perempuan,55,56,Rumah Tangga
+145,Yuyun Rinawati Ningsih,Perempuan,50,56,Rumah Tangga
+146,Maulut ulfa dwiyanti,Perempuan,55,56,Rumah Tangga
+147,Lilun arbiyanti salatina,Perempuan,55,56,Rumah Tangga
+148,Riris Rukma Nisita,Perempuan,36,56,Rumah Tangga
+149,Anggi maudy priyanti,Perempuan,26,56,Rumah Tangga
+150,Vika Lusita Anggraeni,Perempuan,33,56,Rumah Tangga
+151,SUSIOWATI,Perempuan,55,56,Rumah Tangga
+152,Waode Pristanti Nuri Rachmawati,Perempuan,55,56,Rumah Tangga
+153,Herni natalia,Perempuan,55,56,Rumah Tangga
+154,MAYA INDRIYANI,Perempuan,55,56,Rumah Tangga
+155,Rina indiana,Perempuan,55,56,Rumah Tangga
+156,ENGGA RESTU DIAN SAGITA,Perempuan,39,56,Rumah Tangga
+157,Anni Khoirun Nisa,Perempuan,55,56,Rumah Tangga
+158,Aataina Thoiin,Perempuan,55,56,Rumah Tangga
+159,NENI YUTRIKASARI,Perempuan,38,56,Rumah Tangga
+160,Sherly anggraeni cahya putri,Perempuan,0,56,Rumah Tangga
+161,Cynthia June Indah Widiyasari,Perempuan,31,56,Rumah Tangga
+162,Vita rakhmawati,Perempuan,32,56,Rumah Tangga
+83,Dewi Agustiningrum,Perempuan,48,56,Rumah Tangga
+78,Enis Dwi Sri Wahyuni,Perempuan,37,56,Rumah Tangga
+163,Radias Tarwoco Putro,Perempuan,55,56,Rumah Tangga
+164,SANDRA DEWI SARASWATI,Perempuan,55,56,Rumah Tangga
+165,Wilda Wahyuningsih,Perempuan,55,56,Rumah Tangga
+166,Ika Rahmawati,Perempuan,38,56,Rumah Tangga
+74,Windy Arum Ningtyas,Perempuan,55,56,Rumah Tangga
+167,Maudini Mutiara Wandarti,Perempuan,0,56,Rumah Tangga
+168,Erdina Elfi Riana,Perempuan,31,56,Rumah Tangga
+169,VENNIA DIAN RESTANI,Perempuan,26,56,Rumah Tangga
+170,Diah Mesti,Perempuan,55,56,Rumah Tangga
+171,Satya Bram Wiratma,Perempuan,36,56,Rumah Tangga
+172,Chusnul Chotimah,Perempuan,55,56,Rumah Tangga
+173,Suryani Pradina Mp,Perempuan,55,56,Rumah Tangga
+174,SUCIANI KUMARIAH,Perempuan,42,56,Rumah Tangga
+175,JULIZA TRIPUSPITA RACHMAWATI,Perempuan,30,56,Rumah Tangga
+176,Pratiwi dita ayu putri setya permana,Perempuan,55,56,Rumah Tangga
+177,Eli Saputri,Perempuan,55,56,Rumah Tangga
+178,ENI SUCI HARIATI,Perempuan,55,56,Rumah Tangga
+179,Andi Bagus Alfrianto,Perempuan,55,56,Rumah Tangga
+180,Lina Siti Maryamah,Perempuan,55,56,Rumah Tangga
+181,Jati Laksono,Perempuan,0,56,Rumah Tangga
+182,NADIA NURBAITI,Perempuan,55,56,Rumah Tangga
+183,Rr Ajar Wikhu Redhati,Perempuan,26,56,Rumah Tangga
+8,Arif Hambali,Perempuan,42,56,Rumah Tangga
+184,NABIILAH RAUDHANISA,Perempuan,55,56,Rumah Tangga
+185,Eka Indah Nur Fatimah Mashud,Perempuan,29,56,Rumah Tangga
+186,DYANA IKA SARI,Perempuan,37,56,Rumah Tangga
+79,Selina Fathriska Ramadani,Perempuan,55,56,Rumah Tangga
+187,Achmad Fatchur Rizqi,Perempuan,27,56,Rumah Tangga
+188,ZAKIYATUL FAKHIROH,Perempuan,35,56,Rumah Tangga
+189,Rosi Risa Haris,Perempuan,55,56,Rumah Tangga
+190,Mas Lutfi Afandi,Perempuan,55,56,Rumah Tangga
+191,Muhammad Riza Fachruddin,Perempuan,31,56,Rumah Tangga
+22,Sharon Mahar Tanjung,Perempuan,55,56,Rumah Tangga
+192,PUTRI WAHYU SARIARTI,Perempuan,55,56,Rumah Tangga
+193,Ferary ayu novitasari,Perempuan,55,56,Rumah Tangga
+194,Eka Prasetya Nugraha,Perempuan,29,56,Rumah Tangga
+195,Mustika Siwi Amumpuni,Perempuan,45,56,Rumah Tangga
+196,Tarisya Izzahirah Permana,Perempuan,0,56,Rumah Tangga
+197,Laili Dzakiyyah Efendi,Perempuan,0,56,Rumah Tangga
+198,Benny Yogga Pratama,Perempuan,40,56,Rumah Tangga
+199,FIRMANSYAH HARIS HERLAMBANG,Perempuan,55,56,Rumah Tangga
+200,Maudi Eka Putri,Perempuan,0,56,Rumah Tangga
+201,Setyarini,Perempuan,53,56,Rumah Tangga
+202,KEVYN GALUH JUARDINO,Perempuan,55,56,Rumah Tangga
+203,Nelly Avrilia Nur Putri,Perempuan,55,56,Rumah Tangga
+204,KHARISMA LATIFATUNNISA,Perempuan,0,56,Rumah Tangga
+205,DYAH BAYU EKA PRAMESWARI,Perempuan,55,56,Rumah Tangga
+206,Nurul azmi,Perempuan,55,56,Rumah Tangga
+207,Nova Lailatul Zanah,Perempuan,55,56,Rumah Tangga
+208,Nadine Ranisyademas H.C,Perempuan,55,56,Rumah Tangga
+209,ADYATMA NUGRAHSANTO WICAKSONO,Perempuan,55,56,Rumah Tangga
+210,Iqbal Firmansyah,Perempuan,55,56,Rumah Tangga
+211,Muhammad Khoirul Basyar,Perempuan,27,56,Rumah Tangga
+212,Naufal Khalid Ghali  muhammad,Perempuan,55,56,Rumah Tangga
+213,Adelisa Rizki Zaharani,Perempuan,55,56,Rumah Tangga
+214,Novi Silvia,Perempuan,55,56,Rumah Tangga
+215,Nurfikri Amru Al-fayinursy,Perempuan,55,56,Rumah Tangga
+216,Moch Aldi Putra Permata,Perempuan,0,56,Rumah Tangga
+217,MUHAMMAD CHOLILI,Perempuan,55,56,Rumah Tangga
+218,Melinda Kristin,Perempuan,55,56,Rumah Tangga
+219,Desi harini,Perempuan,45,56,Rumah Tangga
+220,Christin Mairina Priandini,Perempuan,55,56,Rumah Tangga
+221,Desi Puspita,Perempuan,55,56,Rumah Tangga
+222,Ahmad Fariz Rahmadani,Perempuan,55,56,Rumah Tangga
+223,Ferry Hardiansyah Hadi Seputra,Perempuan,45,56,Rumah Tangga
+224,Idham Kholiq,Perempuan,55,56,Rumah Tangga
+225,Mulyono Arief,Perempuan,55,56,Rumah Tangga
+226,Nurul Siti Fatimah,Perempuan,55,56,Rumah Tangga
+227,Saiful Akbar,Perempuan,52,56,Rumah Tangga
+228,Moch.Heri Utomo,Perempuan,55,56,Rumah Tangga
+229,Vicky Prasetia Bakti,Perempuan,55,56,Rumah Tangga
+230,Kadang Pancoro,Perempuan,53,56,Rumah Tangga
+231,Muhammad Adam Dairis,Perempuan,26,56,Rumah Tangga
+232,CANDRA SRI UTAMI,Perempuan,45,56,Rumah Tangga
+233,Ignasius Tri Hariyono,Perempuan,55,56,Rumah Tangga
+234,Umbar Wulandari,Perempuan,55,56,Rumah Tangga
+235,Mira Kurniasari,Perempuan,51,56,Rumah Tangga
+236,NELA DWINGUDIYAHSARI,Perempuan,55,56,Rumah Tangga
+237,Raihan Adenoer Ekaputra,Perempuan,55,56,Rumah Tangga
+238,Sudarmi,Perempuan,50,56,Rumah Tangga
+239,Nur Farida,Perempuan,32,56,Rumah Tangga
+240,RATIH MAYKURNIA,Perempuan,41,56,Rumah Tangga
+241,Risha alfa safitri,Perempuan,55,56,Rumah Tangga
+242,Wiwik Indriani,Perempuan,32,56,Rumah Tangga
+243,MOH SLAMET,Perempuan,39,56,Rumah Tangga
+244,ISTIKOMAH WIDYA,Perempuan,55,56,Rumah Tangga
+245,Doni Erfanto,Perempuan,46,56,Rumah Tangga
+246,Faisal Amin,Perempuan,26,56,Rumah Tangga
+247,Khusnul Kholidah,Perempuan,55,56,Rumah Tangga
+248,Samsul Mashuri,Perempuan,41,56,Rumah Tangga
+249,Muhammad Hanif Firnanda,Perempuan,55,56,Rumah Tangga
+250,Ika Suryaningsih,Perempuan,55,56,Rumah Tangga
+251,Dessy Anggraeni,Perempuan,35,56,Rumah Tangga
+252,MERLINA ADI KURNIAWATI,Perempuan,55,56,Rumah Tangga
+253,Rani Hafilianawati,Perempuan,45,56,Rumah Tangga
+254,Ismi Alfiah,Perempuan,34,56,Rumah Tangga
+255,FIFIN AGUS PRIYA UTAMA,Perempuan,43,56,Rumah Tangga
+256,Tria Warsa Enggal,Perempuan,39,56,Rumah Tangga
+257,Yasmina Majidah Imanamahirah,Perempuan,25,56,Rumah Tangga
+258,Qorina Anindhita Prameswari,Perempuan,55,56,Rumah Tangga
+259,Daniel,Perempuan,37,56,Rumah Tangga
+260,Fahrisyal Ainur Roziqin,Perempuan,55,56,Rumah Tangga
+261,Dian Ratnasari,Perempuan,55,56,Rumah Tangga
+262,Dista Dwi Cahyani,Perempuan,24,56,Rumah Tangga
+263,Farhan Mirza Zakky,Perempuan,24,56,Rumah Tangga
+264,Achmad Firmansah,Perempuan,43,56,Rumah Tangga
+265,Bahjatul Imaniyyah,Perempuan,55,56,Rumah Tangga
+266,Sofwan Meiridho,Perempuan,55,56,Rumah Tangga
+267,Helmalia Intan Azzahra,Perempuan,55,56,Rumah Tangga
+268,Dewi Hafi Doturochma,Perempuan,55,56,Rumah Tangga
+269,Aji Muktioko Utomo,Perempuan,36,56,Rumah Tangga
+270,NANDA ANDI PURNAMANSYAH S.Si.,Perempuan,23,56,Rumah Tangga
+271,Amelia nur rahma,Perempuan,26,56,Rumah Tangga
+272,Nunik Indrawati,Perempuan,55,56,Rumah Tangga
+273,ARIS HIDAYAT,Perempuan,55,56,Rumah Tangga
+274,Berliano budiono,Perempuan,26,56,Rumah Tangga
+275,Ruliyanto Ratno Saputro,Perempuan,55,56,Rumah Tangga
+276,Mochamad bandi,Perempuan,55,56,Rumah Tangga
+277,MOCHAMMAD REVALINO VARGAS,Perempuan,55,56,Rumah Tangga
+278,Eka Pujiyanti,Perempuan,44,56,Rumah Tangga
+279,Avilia agustin,Perempuan,55,56,Rumah Tangga
+280,M. Rudi,Perempuan,55,56,Rumah Tangga
+281,Suliati,Perempuan,49,56,Rumah Tangga
+282,Ovita Sellgi Liesdamaiyanti,Perempuan,55,56,Rumah Tangga
+283,Nani Puji Rahayu,Perempuan,51,56,Rumah Tangga
+284,BENNY RIYANTO,Perempuan,55,56,Rumah Tangga
+285,M. Asny Fajri Ulamai,Perempuan,29,56,Rumah Tangga
+286,Catur Sisworini,Perempuan,55,56,Rumah Tangga
+287,Akhmad Budi,Perempuan,39,56,Rumah Tangga
+288,Woro Ratih Andayani,Perempuan,40,56,Rumah Tangga
+289,LAILATUL FADJRIJAH,Perempuan,57,56,Rumah Tangga
+290,Nur chasanah,Perempuan,55,56,Rumah Tangga
+291,Anang Maret Tri Basuki,Perempuan,55,56,Rumah Tangga
+292,SRI ASIH,Perempuan,55,56,Rumah Tangga
+293,Seno Febriyanto,Perempuan,55,56,Rumah Tangga
+294,Moch syarifudin hidayatullah,Perempuan,33,56,Rumah Tangga
+295,Witria Linawati,Perempuan,55,56,Rumah Tangga
+296,Hargi Pranoto,Perempuan,55,56,Rumah Tangga
+297,Ani mutmainah,Perempuan,42,56,Rumah Tangga
+298,Ina Fayati,Perempuan,55,56,Rumah Tangga
+299,CHANDRA WIDY HARTATO,Perempuan,55,56,Rumah Tangga
+300,Lensi Rachmawati,Perempuan,44,56,Rumah Tangga
+301,Yulfaridah Eka Ariani,Perempuan,55,56,Rumah Tangga
+302,Inawan Pamoengkas,Perempuan,47,56,Rumah Tangga
+303,Meryta Devi Anggraini,Perempuan,28,56,Rumah Tangga
+304,Eryk Sareyang Hasan,Perempuan,49,56,Rumah Tangga
+305,Wahdaniar Sri Utami,Perempuan,36,56,Rumah Tangga
+306,Marliya Ika Irmawati,Perempuan,34,56,Rumah Tangga
+307,NURMA KURNIAWATI,Perempuan,55,56,Rumah Tangga
+308,Ida Kurnia wati,Perempuan,46,56,Rumah Tangga
+309,EVIE RESTU WILUJENG,Perempuan,55,56,Rumah Tangga
+310,Titik nurhajati,Perempuan,53,56,Rumah Tangga
+311,ERIA FEBRI SUSANTI,Perempuan,55,56,Rumah Tangga
+312,Mitha Munawaroh,Perempuan,38,56,Rumah Tangga
+313,Cindy Christiningsih Neno,Perempuan,28,56,Rumah Tangga
+314,Reny Diana,Perempuan,55,56,Rumah Tangga
+315,SOEHERIS,Perempuan,55,56,Rumah Tangga
+316,Yuny Damayanti,Perempuan,37,56,Rumah Tangga
+317,SRI HARI WURYANTI,Perempuan,57,56,Rumah Tangga
+318,Yonarisa Febryanti,Perempuan,55,56,Rumah Tangga
+319,Ilham Octavia Pratama,Perempuan,23,56,Rumah Tangga
+320,Suherna,Perempuan,57,56,Rumah Tangga
+321,Rini Arthanti Agustini,Perempuan,55,56,Rumah Tangga
+322,Ivana kartikasari,Perempuan,41,56,Rumah Tangga
+323,LIA KURNIA SARI,Perempuan,37,56,Rumah Tangga
+324,Ridha Nur Rohma,Perempuan,27,56,Rumah Tangga
+325,Kartika juwita,Perempuan,42,56,Rumah Tangga
+326,Karuniawati,Perempuan,45,56,Rumah Tangga
+327,EVA OKTAVININGSIH,Perempuan,41,56,Rumah Tangga
+328,MEGA CAHYANI,Perempuan,33,56,Rumah Tangga
+329,Septiana iriyanti,Perempuan,30,56,Rumah Tangga
+330,Ita Christina,Perempuan,55,56,Rumah Tangga
+331,Agis Suryawan,Perempuan,56,56,Rumah Tangga
+332,Danty Oktiana Prastiwi,Perempuan,27,56,Rumah Tangga
+333,SULIS INDRAWATI,Perempuan,42,56,Rumah Tangga
+334,Zulfa Amelia,Perempuan,26,56,Rumah Tangga
+335,Agus Tri Andriatmoko,Perempuan,51,56,Rumah Tangga
+336,Aulia Lestari,Perempuan,55,56,Rumah Tangga
+337,Erwis wirdiyanti,Perempuan,52,56,Rumah Tangga
+338,Vonny,Perempuan,49,56,Rumah Tangga
+339,Sri Wilujeng,Perempuan,55,56,Rumah Tangga
+340,Fajar Widiyanto,Perempuan,45,56,Rumah Tangga
+341,Ahmad Rijal Pahlevy,Perempuan,55,56,Rumah Tangga
+342,Ayu Puspita Sari,Perempuan,55,56,Rumah Tangga
+343,Bella Agustina Pratiwi,Perempuan,31,56,Rumah Tangga
+344,Istiqomatul Amanah Amalia Nur Azizah,Perempuan,55,56,Rumah Tangga
+345,Mukhammad Athok Illah,Perempuan,26,56,Rumah Tangga
+346,Lestari,Perempuan,52,56,Rumah Tangga
+347,Vina Irawati,Perempuan,55,56,Rumah Tangga
+348,Widyaningsih,Perempuan,55,56,Rumah Tangga
+349,ASAD ANDI YAHYA,Perempuan,25,56,Rumah Tangga
+350,Sapphiretita Oktarissa Farakh Heydina,Perempuan,28,56,Rumah Tangga
+351,Robiatul Adawiyah,Perempuan,55,56,Rumah Tangga
+352,Silva ahmad adini,Perempuan,37,56,Rumah Tangga
+353,Dewi Martia Ningsih,Perempuan,34,56,Rumah Tangga
+354,Wiwin Widya Wati,Perempuan,55,56,Rumah Tangga
+355,Chandra Rusbianto,Perempuan,55,56,Rumah Tangga
+356,David Rakha Sutjipto,Perempuan,55,56,Rumah Tangga
+357,linda oktavia irawati,Perempuan,30,56,Rumah Tangga
+358,MAHBUBATUN NISWAH,Perempuan,55,56,Rumah Tangga
+359,Brillian Musa Maulana,Perempuan,55,56,Rumah Tangga
+360,Rani Indahwati,Perempuan,55,56,Rumah Tangga
+361,Bagus Mahardika Satria Nugraha,Perempuan,41,56,Rumah Tangga
+362,MERRY KUSUMAWATI,Perempuan,55,56,Rumah Tangga
+363,Enuk Egowati,Perempuan,55,56,Rumah Tangga
+364,Asri Wulandari Purnayudya,Perempuan,40,56,Rumah Tangga
+365,DWI YOES TINUS PRIHANTO,Perempuan,55,56,Rumah Tangga
+366,Moh Kristiawan Trimaryono,Perempuan,39,56,Rumah Tangga
+367,M. Pancalaharti,Perempuan,55,56,Rumah Tangga
+368,Aqila Nur Rahmalia,Perempuan,55,56,Rumah Tangga
+369,Ongki Antonio,Perempuan,35,56,Rumah Tangga
+370,Intan Eka Purnama Sari,Perempuan,37,56,Rumah Tangga
+371,Noer Cahyono Setyawan,Perempuan,42,56,Rumah Tangga
+372,Faisal Ahmad Rodhi,Perempuan,55,56,Rumah Tangga
+373,Rahmah nur cahyani,Perempuan,26,56,Rumah Tangga
+374,Angela Ratih Kusuma Andari SE,Perempuan,41,56,Rumah Tangga
+375,Warti ratna ikawati,Perempuan,47,56,Rumah Tangga
+376,zainul arifin,Perempuan,60,56,Rumah Tangga
+377,SUSWATI,Perempuan,55,56,Rumah Tangga
+378,GARANITA MANGGAR PUTRI,Perempuan,55,56,Rumah Tangga
+379,Ravika Indah Kharisma,Perempuan,23,56,Rumah Tangga
+277,MOCHAMMAD REVALINO VARGAS,Perempuan,55,57,Rumah Tangga
+49,Aulia Rachman,Perempuan,55,57,Rumah Tangga
+372,Faisal Ahmad Rodhi,Perempuan,55,57,Rumah Tangga
+380,AINUN SEGAR RAHMAWATI,Perempuan,0,57,Rumah Tangga
+246,Faisal Amin,Perempuan,26,57,Rumah Tangga
+263,Farhan Mirza Zakky,Perempuan,24,57,Rumah Tangga
+191,Muhammad Riza Fachruddin,Perempuan,31,57,Rumah Tangga
+266,Sofwan Meiridho,Perempuan,55,57,Rumah Tangga
+202,KEVYN GALUH JUARDINO,Perempuan,55,57,Rumah Tangga
+207,Nova Lailatul Zanah,Perempuan,55,57,Rumah Tangga
+213,Adelisa Rizki Zaharani,Perempuan,55,57,Rumah Tangga
+214,Novi Silvia,Perempuan,55,57,Rumah Tangga
+381,Wilda Aulia Fathoni,Perempuan,55,57,Rumah Tangga
+382,Ahmad Habibi,Perempuan,55,57,Rumah Tangga
+383,Dhuiki Nursepta Aldiansyah,Perempuan,55,57,Rumah Tangga
+384,Sajidan Wildan Ahmad,Perempuan,55,57,Rumah Tangga
+385,MUCHAMMAD RIZAL SYAKIRUDDIN,Perempuan,55,57,Rumah Tangga
+386,Irena Salsabila,Perempuan,55,57,Rumah Tangga
+387,Christian Nathanael,Perempuan,23,57,Rumah Tangga
+388,Muhammad Muzaky Verdian Firmansyah,Perempuan,21,57,Rumah Tangga
+389,Akemat Rio Setiawan,Perempuan,22,57,Rumah Tangga
+390,Moh Taufiq Ismu Abadi,Perempuan,32,57,Rumah Tangga
+391,Yonatan Hendra Wijaya,Perempuan,21,57,Rumah Tangga
+392,Devy Prasetyono,Perempuan,55,57,Rumah Tangga
+371,Noer Cahyono Setyawan,Perempuan,42,58,Rumah Tangga
+50,Catur Sandy Cahyono,Perempuan,55,58,Rumah Tangga
+121,Rakryan Shelbidilla,Perempuan,0,58,Rumah Tangga
+258,Qorina Anindhita Prameswari,Perempuan,55,58,Rumah Tangga
+259,Daniel,Perempuan,37,58,Rumah Tangga
+51,Feri Achmad Ardiansyah,Perempuan,25,59,Rumah Tangga
+348,Widyaningsih,Perempuan,55,59,Rumah Tangga

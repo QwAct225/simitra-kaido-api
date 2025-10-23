@@ -1,14 +1,11 @@
 id,name,code,created_at,updated_at,type
-1,Survey-Test-on-Dev,STOD,2025-07-07 16:22:24,2025-07-07 16:22:24,Perusahaan
 3,Pengolahan Survei Sosial Ekonomi Nasional,SUSENAS,2025-07-07 16:22:24,2025-07-07 16:22:24,Rumah Tangga
-5,Survey Ketenagakerjaan Nasional Februari,SAK,2025-07-07 16:22:24,2025-07-07 16:22:24,Rumah Tangga
+5,Survey Ketenagakerjaan Nasional,SAK,2025-07-07 16:22:24,2025-10-15 04:32:31,Rumah Tangga
 7,Survei Nasional Literasi dan Inklusi Keuangan,SNLIK,2025-07-07 16:22:24,2025-07-07 16:22:24,Rumah Tangga
-8,Survei Sosial Ekonomi Nasional,SUSENASMARET,2025-07-07 16:22:24,2025-07-07 16:22:24,Rumah Tangga
-11,Survey-Test-on-Dev,STOD,2025-07-07 16:22:24,2025-07-07 16:22:24,Perusahaan
+8,Survei Sosial Ekonomi Nasional,SSN,2025-07-07 16:22:24,2025-10-15 05:14:51,Rumah Tangga
 12,Pengolahan Survei Ekonomi Rumah Tangga Triwulanan,P-SERUTI,2025-07-07 16:22:24,2025-07-07 16:22:24,Rumah Tangga
 13,Pengolahan Survei Sosial Ekonomi Nasional,SUSENAS,2025-07-07 16:22:24,2025-07-07 16:22:24,Rumah Tangga
 14,Survei Harga Kemahalan Konstruksi,SHKK,2025-07-07 16:22:24,2025-07-07 16:22:24,Perusahaan
-15,Survey Ketenagakerjaan Nasional Februari,SAK,2025-07-07 16:22:24,2025-07-07 16:22:24,Rumah Tangga
 16,Survei Ekonomi Rumah Tangga,SERUTI,2025-07-07 16:22:24,2025-07-07 16:22:24,Rumah Tangga
 17,Survei Nasional Literasi dan Inklusi Keuangan,SNLIK,2025-07-07 16:22:24,2025-07-07 16:22:24,Rumah Tangga
 18,Survei Sosial Ekonomi Nasional,SUSENASMARET,2025-07-07 16:22:24,2025-07-07 16:22:24,Rumah Tangga
@@ -21,12 +18,11 @@ id,name,code,created_at,updated_at,type
 25,Survei Khusus Lembaga Non Profit Rumah Tangga,SKLNPRT,2025-07-07 16:22:24,2025-07-07 16:22:24,Rumah Tangga
 26,Survei Khusus Triwulanan Neraca Produksi,SKTNP,2025-07-07 16:22:24,2025-07-07 16:22:24,Perusahaan
 27,Survei Triwulanan Kegiatan Usaha,SKTU,2025-07-07 16:22:24,2025-07-07 16:22:24,Perusahaan
-28,Survei Tingkat Penghunian Kamar Hotel,VHTS,2025-07-07 16:22:24,2025-07-07 16:22:24,Perusahaan
 29,Survey Harga Konsumen,SHK,2025-07-07 16:22:24,2025-07-07 16:22:24,Perusahaan
 30,Survei Harga Produsen,SHP,2025-07-07 16:22:24,2025-07-07 16:22:24,Perusahaan
 31,Survei Harga Perdagangan Besar,SHPB,2025-07-07 16:22:24,2025-07-07 16:22:24,Perusahaan
 32,Survey Harga Produsen,SHP,2025-07-07 16:22:24,2025-07-07 16:22:24,Perusahaan
-33,Pengolahan Survei Sosial Ekonomi Nasional,P-SSN-MARET,2025-07-07 16:22:24,2025-07-07 16:22:24,Rumah Tangga
+33,Pengolahan Survei Sosial Ekonomi Nasional,P-SSN,2025-07-07 16:22:24,2025-10-15 08:20:25,Rumah Tangga
 34,Survei Objek Daya Tarik Wisata,VDTW,2025-07-10 08:03:05,2025-07-10 08:03:05,Perusahaan
 35,Survei Perusahaan/Usaha Penyedia Jasa Akomodasi,VHTL,2025-07-10 08:15:58,2025-07-10 08:15:58,Perusahaan
 36,Survei Tingkat Penghunian Kamar Hotel,VHTS,2025-07-10 08:18:11,2025-07-10 08:18:11,Perusahaan
@@ -45,3 +41,15 @@ id,name,code,created_at,updated_at,type
 49,Survei Perusahaan Kehutanan,SPK,2025-07-10 09:19:35,2025-07-10 09:19:35,Perusahaan
 50,Survei Perusahaan Peternakan,SPP,2025-07-10 09:20:51,2025-07-10 09:20:51,Perusahaan
 51,Survei Khusus Lembaga Non Profit Rumah Tangga Triwulanan,SKLNPRT,2025-07-10 09:26:15,2025-07-10 09:26:15,Rumah Tangga
+52,Survey Bahan Pokok,SBP,2025-10-15 03:38:25,2025-10-15 03:38:25,Rumah Tangga
+53,E-Commerce,EC,2025-10-15 03:54:05,2025-10-15 03:54:05,Perusahaan
+54,Survey Pola Distribusi,SPD,2025-10-15 04:08:46,2025-10-15 04:08:46,Perusahaan
+55,Survei Volume Penjualan Eceran Komoditas Spesifik,SVK,2025-10-15 04:26:17,2025-10-15 04:26:17,Perusahaan
+56,Survei Penduduk Antar Sensus,SUPAS,2025-10-15 05:10:17,2025-10-15 05:10:17,Rumah Tangga
+57,Survei Industri Mikro dan Kecil Tahunan,IMK-T,2025-10-15 05:20:40,2025-10-15 05:20:40,Perusahaan
+58,Survei Konversi Gabah ke Beras,SKGB,2025-10-15 07:37:21,2025-10-15 07:37:21,Perusahaan
+59,Makanan Bergizi Gratis Baseline,MBG-Baseline,2025-10-15 07:42:46,2025-10-15 07:42:46,Rumah Tangga
+60,Makanan Bergizi Gratis Khusus,MBG-Khusus,2025-10-15 07:46:00,2025-10-15 07:46:00,Rumah Tangga
+61,Survei Khusus Studi Penyusunan Perubahan Inventori,SKSPPI,2025-10-15 07:50:08,2025-10-15 07:50:08,Perusahaan
+62,Updating Wilayah Kerja Statistik,WILKERSTAT,2025-10-15 07:56:53,2025-10-15 07:56:53,Rumah Tangga
+63,Pengolahan Updating Wilayah Kerja Statistik,P-WILKERSTAT,2025-10-15 08:14:31,2025-10-15 08:14:31,Rumah Tangga

@@ -36,7 +36,7 @@ def run_ingest(base_dir: str):
     ]
     master_survey_headers = ["id","name","code","created_at","updated_at"]
     survey_headers = [
-        "id","master_survey_id","triwulan","year","payment_id",
+        "id","master_survey_id","triwulan","year","payment_month","payment_id",
         "team_id","rate","file","is_scored","is_synced","status","created_at","updated_at"
     ]
     transaction_headers = [
