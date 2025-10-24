@@ -77,15 +77,6 @@ Sistem dirancang dengan arsitektur terpisah antara profil mitra (ML pipeline) da
    cp .env.example .env
    ```
 
-   > **⚠️ Untuk pengguna Windows:**  
-   > Git akan otomatis menangani line endings dengan benar berkat file `.gitattributes`.  
-   > Jika mengalami error terkait `\r` atau `invalid option` saat menjalankan Docker, rebuild ulang container:
-   >
-   > ```bash
-   > docker-compose down
-   > docker-compose up -d --build
-   > ```
-
 3. **Start Docker Containers**
 
    ```bash
@@ -115,7 +106,49 @@ Sistem dirancang dengan arsitektur terpisah antara profil mitra (ML pipeline) da
    - Airflow UI: http://localhost:8080
    - API Docs: http://localhost:8001/docs
 
-## 🔧 Troubleshooting (Windows)
+
+## 🔧 Troubleshooting
+
+### ⚠️ Error: `$'\r': command not found` atau `invalid option` (Line Endings Issue)
+
+**Gejala:**
+```
+/opt/airflow/init-airflow.sh: line 2: set: -
+set: usage: set [-abefhkmnptuvxBCEHPT] [-o option-name] [--] [-] [arg ...]
+/opt/airflow/init-airflow.sh: line 3: $'\r': command not found
+```
+
+**Penyebab:**  
+File `init-airflow.sh` menggunakan Windows line endings (CRLF) sedangkan Linux container memerlukan Unix line endings (LF).
+
+**Solusi:**  
+Dockerfile sudah dikonfigurasi dengan `dos2unix` untuk otomatis mengkonversi line endings. Cukup **rebuild container**:
+
+```bash
+# Stop dan hapus container
+docker-compose down
+
+# Rebuild tanpa cache untuk memastikan dos2unix dijalankan
+docker-compose build --no-cache airflow
+
+# Start ulang
+docker-compose up -d
+```
+
+**Verifikasi:**
+```bash
+docker logs simitra_airflow -f --tail 50
+```
+
+Jika berhasil, Anda akan melihat:
+```
+✅ Airflow initialization complete!
+🌐 Webserver will be accessible at http://localhost:8080
+```
+
+---
+
+### 🐘 PostgreSQL Port Conflict (Windows)
 
 Jika Anda tidak dapat mengakses PostgreSQL karena port tertahan oleh service lokal atau tidak bisa menjalankan `docker compose down -v`, coba langkah berikut di Windows (jalankan terminal sebagai Administrator):
 
