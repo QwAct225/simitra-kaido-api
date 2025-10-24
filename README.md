@@ -106,45 +106,18 @@ Sistem dirancang dengan arsitektur terpisah antara profil mitra (ML pipeline) da
    - Airflow UI: http://localhost:8080
    - API Docs: http://localhost:8001/docs
 
-
 ## 🔧 Troubleshooting
 
-### ⚠️ Error: `$'\r': command not found` atau `invalid option` (Line Endings Issue)
+### 🐧 Cross-Platform Compatibility
 
-**Gejala:**
-```
-/opt/airflow/init-airflow.sh: line 2: set: -
-set: usage: set [-abefhkmnptuvxBCEHPT] [-o option-name] [--] [-] [arg ...]
-/opt/airflow/init-airflow.sh: line 3: $'\r': command not found
-```
+**Sistem yang Didukung:**
 
-**Penyebab:**  
-File `init-airflow.sh` menggunakan Windows line endings (CRLF) sedangkan Linux container memerlukan Unix line endings (LF).
+- ✅ Windows 10/11
+- ✅ macOS (Intel & Apple Silicon)
+- ✅ Linux (Ubuntu, Debian, Fedora, dll)
 
-**Solusi:**  
-Dockerfile sudah dikonfigurasi dengan `dos2unix` untuk otomatis mengkonversi line endings. Cukup **rebuild container**:
-
-```bash
-# Stop dan hapus container
-docker-compose down
-
-# Rebuild tanpa cache untuk memastikan dos2unix dijalankan
-docker-compose build --no-cache airflow
-
-# Start ulang
-docker-compose up -d
-```
-
-**Verifikasi:**
-```bash
-docker logs simitra_airflow -f --tail 50
-```
-
-Jika berhasil, Anda akan melihat:
-```
-✅ Airflow initialization complete!
-🌐 Webserver will be accessible at http://localhost:8080
-```
+**Catatan Penting:**  
+Proyek ini menggunakan **inline bash commands** di `docker-compose.yml` untuk menghindari masalah line endings (CRLF vs LF) yang sering terjadi saat kolaborasi antar OS. Tidak ada file shell script eksternal yang perlu di-manage untuk inisialisasi Airflow.
 
 ---
 

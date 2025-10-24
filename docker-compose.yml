@@ -104,12 +104,25 @@ services:
       - ./airflow/dags:/opt/airflow/dags
       - ./airflow/operators:/opt/airflow/operators
       - ./airflow/webserver_config.py:/opt/airflow/webserver_config.py
-      - ./airflow/init-airflow.sh:/opt/airflow/init-airflow.sh
       - ./airflow/requirements.txt:/opt/airflow/requirements.txt
       - ./.env:/opt/airflow/project/.env:ro
       - ./pipeline:/opt/airflow/project/pipeline
       - ./data:/opt/airflow/project/data
-    command: bash /opt/airflow/init-airflow.sh
+    command: >
+      bash -c "
+      echo '🚀 Initializing Airflow...' &&
+      echo '📊 Running database migrations...' &&
+      airflow db migrate &&
+      echo '👤 Creating default admin user...' &&
+      airflow users create --username admin --password admin --firstname Admin --lastname User --role Admin --email admin@example.com 2>/dev/null || echo 'Admin user already exists' &&
+      echo '✅ Airflow initialization complete!' &&
+      echo '🌐 Webserver will be accessible at http://localhost:8080 (No login required!)' &&
+      echo '' &&
+      echo '🎯 Starting Airflow Webserver...' &&
+      airflow webserver &
+      echo '📅 Starting Airflow Scheduler...' &&
+      airflow scheduler
+      "
     networks:
       - simitra_network
     extra_hosts:
