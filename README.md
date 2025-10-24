@@ -77,6 +77,15 @@ Sistem dirancang dengan arsitektur terpisah antara profil mitra (ML pipeline) da
    cp .env.example .env
    ```
 
+   > **⚠️ Untuk pengguna Windows:**  
+   > Git akan otomatis menangani line endings dengan benar berkat file `.gitattributes`.  
+   > Jika mengalami error terkait `\r` atau `invalid option` saat menjalankan Docker, rebuild ulang container:
+   >
+   > ```bash
+   > docker-compose down
+   > docker-compose up -d --build
+   > ```
+
 3. **Start Docker Containers**
 
    ```bash
@@ -105,7 +114,6 @@ Sistem dirancang dengan arsitektur terpisah antara profil mitra (ML pipeline) da
 6. **Access services:**
    - Airflow UI: http://localhost:8080
    - API Docs: http://localhost:8001/docs
-
 
 ## 🔧 Troubleshooting (Windows)
 
