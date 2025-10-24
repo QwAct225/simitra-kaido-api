@@ -3,9 +3,9 @@ set -e
 
 echo "🚀 Initializing Airflow..."
 
-# Initialize database
-echo "📊 Running database migrations..."
-airflow db migrate
+# Initialize or migrate database
+echo "📊 Running database initialization/migration..."
+airflow db init || airflow db migrate
 
 # Create admin user (fallback, but won't be needed for public access)
 echo "👤 Creating default admin user (username: admin, password: admin)..."

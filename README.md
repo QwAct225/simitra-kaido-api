@@ -116,8 +116,24 @@ Sistem dirancang dengan arsitektur terpisah antara profil mitra (ML pipeline) da
 - ✅ macOS (Intel & Apple Silicon)
 - ✅ Linux (Ubuntu, Debian, Fedora, dll)
 
-**Catatan Penting:**  
-Proyek ini menggunakan **inline bash commands** di `docker-compose.yml` untuk menghindari masalah line endings (CRLF vs LF) yang sering terjadi saat kolaborasi antar OS. Tidak ada file shell script eksternal yang perlu di-manage untuk inisialisasi Airflow.
+**Solusi Line Endings:**  
+Proyek ini menggunakan **custom Dockerfile dengan `dos2unix`** untuk otomatis mengkonversi line endings dari CRLF (Windows) ke LF (Linux/Unix) saat build image. File `.gitattributes` juga memastikan Git menangani line endings dengan benar.
+
+**Jika Mengalami Error:**
+
+```bash
+# Stop container
+docker-compose down
+
+# Rebuild dengan clean cache
+docker-compose build --no-cache airflow
+
+# Start ulang
+docker-compose up -d
+
+# Monitor logs
+docker logs simitra_airflow -f --tail 50
+```
 
 ---
 

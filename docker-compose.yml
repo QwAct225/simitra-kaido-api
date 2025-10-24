@@ -11,24 +11,23 @@ services:
       POSTGRES_PASSWORD: ${DB_PASS:-postgres}
       POSTGRES_HOST_AUTH_METHOD: md5
       PGDATA: /var/lib/postgresql/data/pgdata
-      # Performance & Logging Optimization
       POSTGRES_INITDB_ARGS: "-c checkpoint_timeout=15min -c log_checkpoints=off -c log_statement=none"
     command:
       - "postgres"
       - "-c"
-      - "checkpoint_timeout=15min" # Checkpoint setiap 15 menit (default: 5 menit)
+      - "checkpoint_timeout=15min" 
       - "-c"
-      - "log_checkpoints=off" # Matikan checkpoint logging
+      - "log_checkpoints=off" 
       - "-c"
-      - "log_statement=none" # Matikan statement logging
+      - "log_statement=none" 
       - "-c"
-      - "logging_collector=off" # Matikan log collector
+      - "logging_collector=off" 
       - "-c"
-      - "shared_buffers=256MB" # Increase memory for better performance
+      - "shared_buffers=256MB" 
       - "-c"
-      - "max_connections=100" # Limit connections
+      - "max_connections=100" 
       - "-c"
-      - "work_mem=8MB" # Memory per query operation
+      - "work_mem=8MB" 
     ports:
       - "5432:5432"
     volumes:
@@ -45,7 +44,9 @@ services:
     stop_signal: SIGTERM
 
   airflow:
-    image: apache/airflow:2.10.2
+    build:
+      context: .
+      dockerfile: ./airflow/Dockerfile
     container_name: simitra_airflow
     restart: always
     depends_on:
@@ -62,16 +63,14 @@ services:
       AIRFLOW__WEBSERVER__EXPOSE_CONFIG: "True"
       AIRFLOW__WEBSERVER__SECRET_KEY: simitra-kaido-secret-key-2025
 
-      # Webserver Optimization (Fix gunicorn timeout)
-      AIRFLOW__WEBSERVER__WORKERS: 2 # Reduce from 4 to 2 workers
-      AIRFLOW__WEBSERVER__WORKER_REFRESH_INTERVAL: 1800 # Refresh every 30min
-      AIRFLOW__WEBSERVER__WEB_SERVER_MASTER_TIMEOUT: 300 # Increase timeout to 5min
-      AIRFLOW__WEBSERVER__WEB_SERVER_WORKER_TIMEOUT: 300 # Increase timeout to 5min
+      AIRFLOW__WEBSERVER__WORKERS: 2 
+      AIRFLOW__WEBSERVER__WORKER_REFRESH_INTERVAL: 1800 
+      AIRFLOW__WEBSERVER__WEB_SERVER_MASTER_TIMEOUT: 300
+      AIRFLOW__WEBSERVER__WEB_SERVER_WORKER_TIMEOUT: 300
 
-      # Logging Optimization
-      AIRFLOW__LOGGING__LOGGING_LEVEL: WARNING # Reduce log verbosity (default: INFO)
-      AIRFLOW__SCHEDULER__ORPHANED_TASKS_CHECK_INTERVAL: 600.0 # Check every 10 minutes (default: 300s/5min)
-      AIRFLOW__SCHEDULER__SCHEDULER_HEARTBEAT_SEC: 10 # Heartbeat every 10s (default: 5s)
+      AIRFLOW__LOGGING__LOGGING_LEVEL: WARNING 
+      AIRFLOW__SCHEDULER__ORPHANED_TASKS_CHECK_INTERVAL: 600.0
+      AIRFLOW__SCHEDULER__SCHEDULER_HEARTBEAT_SEC: 10 
 
       PROJECT_BASE_DIR: /opt/airflow/project
       BASE_DIR: /opt/airflow/project
@@ -108,21 +107,7 @@ services:
       - ./.env:/opt/airflow/project/.env:ro
       - ./pipeline:/opt/airflow/project/pipeline
       - ./data:/opt/airflow/project/data
-    command: >
-      bash -c "
-      echo '🚀 Initializing Airflow...' &&
-      echo '📊 Running database migrations...' &&
-      airflow db migrate &&
-      echo '👤 Creating default admin user...' &&
-      airflow users create --username admin --password admin --firstname Admin --lastname User --role Admin --email admin@example.com 2>/dev/null || echo 'Admin user already exists' &&
-      echo '✅ Airflow initialization complete!' &&
-      echo '🌐 Webserver will be accessible at http://localhost:8080 (No login required!)' &&
-      echo '' &&
-      echo '🎯 Starting Airflow Webserver...' &&
-      airflow webserver &
-      echo '📅 Starting Airflow Scheduler...' &&
-      airflow scheduler
-      "
+    command: bash /opt/airflow/init-airflow.sh
     networks:
       - simitra_network
     extra_hosts:

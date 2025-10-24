@@ -10,21 +10,17 @@ RUN apt-get update && \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
-USER airflow
-
-# Copy and install Python requirements
-COPY airflow/requirements.txt /opt/airflow/requirements.txt
-
-RUN pip install --no-cache-dir -r /opt/airflow/requirements.txt
-
-# Copy initialization script and fix line endings
-USER root
+# Copy initialization script and fix line endings FIRST
 COPY airflow/init-airflow.sh /opt/airflow/init-airflow.sh
 RUN dos2unix /opt/airflow/init-airflow.sh && \
     chmod +x /opt/airflow/init-airflow.sh && \
     chown airflow:root /opt/airflow/init-airflow.sh
 
 USER airflow
+
+# Copy and install Python requirements
+COPY airflow/requirements.txt /opt/airflow/requirements.txt
+RUN pip install --no-cache-dir -r /opt/airflow/requirements.txt
 
 # Set working directory
 WORKDIR /opt/airflow
