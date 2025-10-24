@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from routers import mitra_router, recommendation_router
+from routers import mitra_router, recommendation_router, sync_router
 
 app = FastAPI(
     title="Mitra Recommendation API",
@@ -13,3 +13,5 @@ def root():
 
 app.include_router(mitra_router.router)
 app.include_router(recommendation_router.router)
+app.include_router(sync_router.router)
+

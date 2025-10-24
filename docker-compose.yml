@@ -11,6 +11,24 @@ services:
       POSTGRES_PASSWORD: ${DB_PASS:-postgres}
       POSTGRES_HOST_AUTH_METHOD: md5
       PGDATA: /var/lib/postgresql/data/pgdata
+      # Performance & Logging Optimization
+      POSTGRES_INITDB_ARGS: "-c checkpoint_timeout=15min -c log_checkpoints=off -c log_statement=none"
+    command:
+      - "postgres"
+      - "-c"
+      - "checkpoint_timeout=15min" # Checkpoint setiap 15 menit (default: 5 menit)
+      - "-c"
+      - "log_checkpoints=off" # Matikan checkpoint logging
+      - "-c"
+      - "log_statement=none" # Matikan statement logging
+      - "-c"
+      - "logging_collector=off" # Matikan log collector
+      - "-c"
+      - "shared_buffers=256MB" # Increase memory for better performance
+      - "-c"
+      - "max_connections=100" # Limit connections
+      - "-c"
+      - "work_mem=8MB" # Memory per query operation
     ports:
       - "5432:5432"
     volumes:
@@ -43,10 +61,22 @@ services:
       AIRFLOW__API__AUTH_BACKENDS: airflow.api.auth.backend.basic_auth
       AIRFLOW__WEBSERVER__EXPOSE_CONFIG: "True"
       AIRFLOW__WEBSERVER__SECRET_KEY: simitra-kaido-secret-key-2025
+
+      # Webserver Optimization (Fix gunicorn timeout)
+      AIRFLOW__WEBSERVER__WORKERS: 2 # Reduce from 4 to 2 workers
+      AIRFLOW__WEBSERVER__WORKER_REFRESH_INTERVAL: 1800 # Refresh every 30min
+      AIRFLOW__WEBSERVER__WEB_SERVER_MASTER_TIMEOUT: 300 # Increase timeout to 5min
+      AIRFLOW__WEBSERVER__WEB_SERVER_WORKER_TIMEOUT: 300 # Increase timeout to 5min
+
+      # Logging Optimization
+      AIRFLOW__LOGGING__LOGGING_LEVEL: WARNING # Reduce log verbosity (default: INFO)
+      AIRFLOW__SCHEDULER__ORPHANED_TASKS_CHECK_INTERVAL: 600.0 # Check every 10 minutes (default: 300s/5min)
+      AIRFLOW__SCHEDULER__SCHEDULER_HEARTBEAT_SEC: 10 # Heartbeat every 10s (default: 5s)
+
       PROJECT_BASE_DIR: /opt/airflow/project
       BASE_DIR: /opt/airflow/project
       _PIP_ADDITIONAL_REQUIREMENTS: >
-        pandas==2.2.2
+        pandas==2.1.4
         psycopg2-binary==2.9.9
         python-dotenv==1.0.1
         scikit-learn
